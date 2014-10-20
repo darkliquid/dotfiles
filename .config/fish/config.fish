@@ -1,5 +1,20 @@
+set -gx UNAME_S (uname -s)
+
+# Path
+set -gx PATH /usr/local/bin $PATH
+
+if [ $UNAME_S = 'Linux' ]
+	set -gx PATH $HOME/.linuxbrew/bin $PATH
+	set -gx PATH $HOME/.local/bin $PATH
+end
+
 # Powerline
-set fish_function_path $fish_function_path (brew --prefix)/lib/python2.7/site-packages/powerline/bindings/fish
+if [ $UNAME_S = 'Linux' ]
+	set POWERLINE_PFX $HOME/.local/lib/python2.7/site-packages
+else
+	set POWERLINE_PFX (brew --prefix)/lib/python2.7/site-packages
+end
+set fish_function_path $fish_function_path $POWERLINE_PFX/powerline/bindings/fish
 powerline-setup
 
 function fish_greeting
@@ -24,11 +39,11 @@ end
 __fish_complete_django django-admin.py
 __fish_complete_django manage.py
 
-# Path
-set -gx PATH /usr/local/bin $PATH
-
 # Vars 
-set -gx EDITOR subl -w
+set -gx EDITOR "atom --wait"
+set -gx HOMEBREW_GITHUB_API_TOKEN #__HOMEBREW_GITHUB_API_TOKEN__
+
+# Golang
 set -gx GOROOT (go env GOROOT)
 set -gx GOPATH ~/Go
-set -gx HOMEBREW_GITHUB_API_TOKEN #__HOMEBREW_GITHUB_API_TOKEN__
+
