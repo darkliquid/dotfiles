@@ -6,6 +6,8 @@ set -gx PATH /usr/local/bin $PATH
 if [ $UNAME_S = 'Linux' ]
 	set -gx PATH $HOME/.linuxbrew/bin $PATH
 	set -gx PATH $HOME/.local/bin $PATH
+	set -gx MANPATH ":$HOME/.linuxbrew/share/man:$MANPATH"
+	set -gx INFOPATH $HOME/.linuxbrew/share/info $INFOPATH
 end
 
 # Composer

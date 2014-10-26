@@ -3,3 +3,5 @@ syntax on
 if $SHELL =~ 'fish'
   set shell=/bin/bash
 endif
+set number
+set nocompatible
