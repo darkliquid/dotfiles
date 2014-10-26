@@ -8,6 +8,9 @@ if [ $UNAME_S = 'Linux' ]
 	set -gx PATH $HOME/.local/bin $PATH
 end
 
+# Composer
+set -gx PATH $HOME/.composer/vendor/bin $PATH
+
 # Powerline
 if [ $UNAME_S = 'Linux' ]
 	set POWERLINE_PFX $HOME/.local/lib/python2.7/site-packages
