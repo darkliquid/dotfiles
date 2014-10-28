@@ -5,3 +5,5 @@ if $SHELL =~ 'fish'
 endif
 set number
 set nocompatible
+set laststatus=2
+set statusline=%<%f%m\ \[%{&ff}:%{&fenc}:%Y]\ %{getcwd()}\ %=\ Line:%l\/%L\ Column:%c%V\ %P

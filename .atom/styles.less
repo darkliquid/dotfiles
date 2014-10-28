@@ -1,0 +1,47 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed.
+ *
+ * If you are unfamiliar with LESS, you can read more about it here:
+ * http://www.lesscss.org
+ */
+
+.tree-view {
+
+}
+
+.editor {
+
+}
+
+.editor .cursor {
+
+}
+
+.editor .scroll-view {
+    margin-left: 4px;
+}
+
+.line.cursor-line {
+    background-color: rgba(255,255,255,0.1);
+}
+
+// Make diffs a little easier to read
+.editor .line .source.diff {
+    .markup.inserted.diff {
+        background-color: #1d3f21;
+        .punctuation.definition {
+            color: #00ff00;
+            font-weight: bold;
+        }
+    }
+    .markup.deleted.diff {
+        background-color: #3d1f21;
+        .punctuation.definition {
+            color: #ff0000;
+            font-weight: bold;
+        }
+    }
+}
