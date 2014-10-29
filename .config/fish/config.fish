@@ -51,4 +51,4 @@ set -gx HOMEBREW_GITHUB_API_TOKEN #__HOMEBREW_GITHUB_API_TOKEN__
 # Golang
 set -gx GOROOT (go env GOROOT)
 set -gx GOPATH ~/Go
-
+set -gx PATH $GOPATH/bin $PATH
