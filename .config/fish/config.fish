@@ -13,6 +13,11 @@ end
 # Composer
 set -gx PATH $HOME/.composer/vendor/bin $PATH
 
+# Ruby
+if [ $UNAME_S = 'Linux' ]
+	set -gx PATH (gem env gemdir)/bin $PATH
+end
+
 # Powerline
 if [ $UNAME_S = 'Linux' ]
 	set POWERLINE_PFX $HOME/.local/lib/python2.7/site-packages
@@ -34,7 +39,11 @@ function fish_title
 end
 
 # Autojump
-. (brew --prefix autojump)/etc/autojump.fish
+if [ -f (brew --prefix autojump)/etc/autojump.fish ]
+	. (brew --prefix autojump)/etc/autojump.fish 
+else
+	. (brew --prefix autojump)/share/autojump/autojump.fish
+end
 
 # Virtual Fish
 . ~/.config/fish/virtual.fish
