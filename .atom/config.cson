@@ -1,0 +1,106 @@
+"*":
+  core:
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "Thumbs.db"
+      ".venv"
+      ".pyc"
+      ".idea"
+      ".coverage"
+    ]
+    disabledPackages: [
+      "sublime-tabs"
+      "language-vbscript"
+      "wrap-guide"
+    ]
+    themes: [
+      "one-dark-ui"
+      "monokai"
+    ]
+    projectHome: "/Users/darkliquid/Projects"
+  "exception-reporting":
+    userId: "0ac34551-bdb1-0a64-e0c8-a6ad6139d412"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "4fe641e23b6f96cc799d99960e62cbd79ed209e4"
+  "go-plus":
+    goPath: "/Users/darkliquid/Go:/Users/darkliquid/Projects/multiplay-go"
+  editor:
+    fontFamily: "Office Code Pro"
+    fontSize: 13
+    showInvisibles: true
+    showIndentGuide: true
+    autoIndentOnPaste: false
+    tabLength: 4
+    softWrap: true
+    invisibles: {}
+    scrollPastEnd: true
+  "linter-phpcs":
+    phpcsExecutablePath: "/usr/local/bin/phpcs"
+  "atom-beautify":
+    _analyticsUserId: "efe3b9ab-9718-4561-af74-b34efb1eaa7d"
+    markdown_pandoc_path: "/usr/local/bin/pandoc"
+    python_autopep8_path: "/usr/local/bin/autopep8"
+    php_cs_fixer_path: "/usr/local/bin/php-cs-fixer"
+    ruby_rbeautify_path: "/usr/bin/rbeautify"
+    sql_sqlformat_path: "/usr/local/bin/sqlformat"
+    php_level: "psr2"
+  linter:
+    lintOnChange: false
+    showHighlighting: true
+    lintOnChangeMethod: "throttle"
+    showErrorInline: false
+    statusBar: "Show error if the cursor is in range"
+    lintOnFly: false
+  "linter-php":
+    phpExecutablePath: "/usr/local/bin/php"
+  "autocomplete-plus":
+    autoActivationDelay: 200
+  "linter-flake8":
+    executableDir: "/usr/local/bin"
+  tabs:
+    tabScrolling: true
+    showIcons: true
+    usePreviewTabs: true
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+    showOnRightSide: false
+    sortFoldersBeforeFiles: true
+  "sublime-tabs":
+    hideIgnoredNames: true
+  minimap:
+    plugins:
+      "git-diff": true
+      "find-and-replace": true
+  "linter-jshint": {}
+  "linter-eslint": {}
+  "multi-wrap-guide": {}
+".go.source":
+  "multi-wrap-guide":
+    columns: [
+      80
+    ]
+  editor:
+    preferredLineLength: 80
+".shell.source":
+  "multi-wrap-guide":
+    columns: [
+      80
+    ]
+  editor:
+    preferredLineLength: 80
+".perl.source":
+  "multi-wrap-guide":
+    columns: [
+      80
+    ]
+  editor:
+    preferredLineLength: 80
+".git-commit.text":
+  editor:
+    preferredLineLength: 72

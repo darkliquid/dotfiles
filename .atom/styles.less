@@ -12,24 +12,24 @@
 
 }
 
-.editor {
+atom-text-editor {
+    font-weight: 200;
+}
+
+atom-text-editor::shadow .cursor {
 
 }
 
-.editor .cursor {
-
+atom-text-editor::shadow .scroll-view {
+    margin-left: 2px;
 }
 
-.editor .scroll-view {
-    margin-left: 4px;
-}
-
-.line.cursor-line {
-    background-color: rgba(255,255,255,0.1);
+atom-text-editor::shadow .line.cursor-line {
+    background-color: rgba(255,255,255,0.025);
 }
 
 // Make diffs a little easier to read
-.editor .line .source.diff {
+atom-text-editor::shadow .line .source.diff {
     .markup.inserted.diff {
         background-color: #1d3f21;
         .punctuation.definition {
