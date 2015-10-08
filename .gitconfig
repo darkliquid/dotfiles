@@ -1,0 +1,19 @@
+[core]
+	editor = atom --wait
+	autocrlf = false
+[color]
+	ui = true
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%C(yellow)%h%Creset %ad %Cred|%Creset %s%d %C(cyan)[%an]%Creset\" --graph --date=short
+	gerrit-push = "!sh -c 'git push origin HEAD:refs/for/${1:-master}' -"
+	gerrit-push-draft = "!sh -c 'git push origin HEAD:refs/drafts/${1:-master}' -"
+[push]
+	default = simple
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
