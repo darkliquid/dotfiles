@@ -74,7 +74,7 @@ set -gx PERL_MM_OPT "INSTALL_BASE=$HOME/perl5"
 set -gx PERL5LIB $HOME/perl5/lib/perl5
 
 # Path
-set -gx PATH /usr/local/bin $PATH
+set -gx PATH /usr/local/bin /usr/local/sbin $PATH
 
 # Ruby
 set -gx RBENV_ROOT /usr/local/var/rbenv
@@ -84,3 +84,20 @@ set -gx RBENV_ROOT /usr/local/var/rbenv
 set -gx GOROOT (go env GOROOT)
 set -gx GOPATH ~/Go
 set -gx PATH $GOPATH/bin $PATH
+
+# Google Cloud SDK
+if [ $UNAME_S = 'Linux' ]
+	# Put google cloud sdk for linux stuff here
+else
+	set fish_user_paths /opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin
+	set -x MANPATH /opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/help/man /usr/local/share/man /usr/share/man /opt/x11/share/man
+end
+
+# Docker
+function docker-ports
+	docker-compose ps | grep -o -E '\d+->' | xargs -n1 -I X echo (docker-machine ip):X | sed 's/\->//'
+end
+
+function docker-default
+	eval (docker-machine env default)
+end
