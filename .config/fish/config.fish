@@ -68,10 +68,8 @@ set -gx HOMEBREW_GITHUB_API_TOKEN #__HOMEBREW_GITHUB_API_TOKEN__
 alias vless=(brew --prefix vim)/share/vim/vim74/macros/less.sh
 alias vi=vim
 
-# Perl
-set -gx PERL_MB_OPT "--install_base \"$HOME/perl5\""
-set -gx PERL_MM_OPT "INSTALL_BASE=$HOME/perl5"
-set -gx PERL5LIB $HOME/perl5/lib/perl5
+# Perlbrew
+. ~/perl5/perlbrew/etc/perlbrew.fish
 
 # Path
 set -gx PATH /usr/local/bin /usr/local/sbin $PATH
