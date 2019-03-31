@@ -1,8 +1,0 @@
-battle-net
-docker-toolbox
-dropbox
-google-cloud-sdk
-sequel-pro
-steam
-vagrant
-virtualbox
