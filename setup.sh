@@ -3,22 +3,34 @@
 # Get dotfiles installation directory
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# Basic install requirements
-echo "Installing essentials..."
-sudo apt install -y build-essential curl file git-core stow
+function msg() {
+	echo  "\e[43m$1\e[0m"
+}
+
+# Basic install requirements (check if installed first so we can skip sudo)
+msg "Installing essentials..."
+pkgs=( build-essential curl file git stow )
+for pkg in "${pkgs[@]}"; do
+	dpkg-query --show --showformat='${db:Status-Status}' $pkg &> /dev/null
+	if [ $? -ne 0 ]; then
+		sudo apt install -y $pkg
+	else
+		msg "$pkg already installed..."
+	fi
+done
 
 # Install homebrew
 if [ ! -d "/home/linuxbrew" ]; then
-	echo "Installing homebrew..."
+	msg "Installing homebrew..."
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 else
-	echo "Skipping homebrew, already installed..."
+	msg "Skipping homebrew, already installed..."
 fi
 
 # Setup sourcer for bash scripts in profile
 grep -qxF '# source bash addons' $HOME/.profile
 if [ $? -ne 0 ]; then
-	echo "Setting up .profile bash hooks..."
+	msg "Setting up .profile bash hooks..."
 	cat >> $HOME/.profile <<EOF
 
 # source bash addons
@@ -30,23 +42,23 @@ fi
 
 EOF
 else
-	echo "Skipping .profile bash hooks, already setup..."
+	msg "Skipping .profile bash hooks, already setup..."
 fi
 
 # Install common brews
-echo "Installing common brews..."
+msg "Installing common brew formulas..."
 brew install go rust exa fzf neovim
 
 # Install powerline-rs
 if [ ! -f "$HOME/.cargo/bin/powerline-rs" ]; then
-	echo "Installing powerline-rs..."
+	msg "Installing powerline-rs..."
 	cargo install -q powerline-rs
 else
-	echo "Skipping install of powerline-rs, already installed..."
+	msg "Skipping install of powerline-rs, already installed..."
 fi
 
 # Symlink other configs
-echo "Symlinking in dotfiles..."
+msg "Symlinking in dotfiles..."
 shopt -s nullglob
 for s in $DOTFILES_DIR/*; do
 	if [[ -d $s ]]; then
@@ -55,4 +67,4 @@ for s in $DOTFILES_DIR/*; do
 	fi
 done
 
-echo "All done!"
+msg "All done!"
