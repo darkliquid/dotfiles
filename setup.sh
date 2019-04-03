@@ -27,6 +27,9 @@ else
 	msg "Skipping homebrew, already installed..."
 fi
 
+# Add brew to the path
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+
 # Setup sourcer for bash scripts in profile
 grep -qxF '# source bash addons' $HOME/.profile
 if [ $? -ne 0 ]; then
