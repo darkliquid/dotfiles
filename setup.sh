@@ -48,6 +48,12 @@ else
 	msg "Skipping .profile bash hooks, already setup..."
 fi
 
+# Install wsl-open
+msg "Installing wsl-open..."
+mkdir -p ~/.local/bin
+curl -o ~/.local/bin/wsl-open https://raw.githubusercontent.com/4U6U57/wsl-open/master/wsl-open.sh
+chmod +x ~/.local/bin/wsl-open
+
 # Install common brews
 msg "Installing common brew formulas..."
 brew install go rust exa fzf neovim
