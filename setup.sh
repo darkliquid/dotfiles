@@ -56,7 +56,7 @@ chmod +x ~/.local/bin/wsl-open
 
 # Install common brews
 msg "Installing common brew formulas..."
-brew install go rust exa fzf neovim
+brew install go rust exa fzf neovim ripgrep
 
 # Install powerline-rs
 if [ ! -f "$HOME/.cargo/bin/powerline-rs" ]; then
