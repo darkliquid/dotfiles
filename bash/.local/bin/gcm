@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ -f "/mnt/c/Users/$USER/scoop/apps/git/current/mingw64/libexec/git-core/git-credential-manager-core.exe" ]; then
-    /mnt/c/Users/$USER/scoop/apps/git/current/mingw64/libexec/git-core/git-credential-manager-core.exe "$@"
-else
-    ~/.local/bin/git-credential-libsecret "$@"
-fi

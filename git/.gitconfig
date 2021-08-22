@@ -26,4 +26,4 @@
 	email = darkliquid@darkliquid.co.uk
 	name = Andrew Montgomery
 [credential]
-	helper = ~/.local/bin/gcm
+	helper = gcm
