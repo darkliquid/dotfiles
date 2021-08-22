@@ -9,7 +9,7 @@ function msg() {
 
 # Basic install requirements (check if installed first so we can skip sudo)
 msg "Installing essentials..."
-pkgs=( build-essential curl file git stow xdg-utils )
+pkgs=( build-essential curl file git stow xdg-utils libsecret-1-0 libsecret-1-dev libglib2.0-dev )
 for pkg in "${pkgs[@]}"; do
 	dpkg-query --show --showformat='${db:Status-Status}' $pkg &> /dev/null
 	if [ $? -ne 0 ]; then
@@ -53,6 +53,14 @@ msg "Installing wsl-open..."
 mkdir -p ~/.local/bin
 curl -o ~/.local/bin/wsl-open https://raw.githubusercontent.com/4U6U57/wsl-open/master/wsl-open.sh
 chmod +x ~/.local/bin/wsl-open
+
+# Install libsecret credential manager
+cp -R /usr/share/doc/git/contrib/credential/libsecret /tmp
+pushd /tmp/libsecret
+make
+mv git-credential-libsecret ~/.local/bin
+popd
+rm -Rf /tmp/libsecret
 
 # Install common brews
 msg "Installing common brew formulas..."
