@@ -64,7 +64,7 @@ rm -Rf /tmp/libsecret
 
 # Install common brews
 msg "Installing common brew formulas..."
-brew install go rust exa fzf neovim ripgrep
+brew install go rust exa fzf neovim ripgrep gh
 
 # Install powerline-rs
 if [ ! -f "$HOME/.cargo/bin/powerline-rs" ]; then
