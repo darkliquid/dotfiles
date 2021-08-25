@@ -34,7 +34,7 @@ export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 grep -qxF '# source bash addons' $HOME/.profile
 if [ $? -ne 0 ]; then
 	msg "Setting up .profile bash hooks..."
-	cat >> $HOME/.profile <<EOF
+	cat >> $HOME/.profile << 'EOF'
 
 # source bash addons
 if [ -d "$HOME/.bash.d" ]; then
