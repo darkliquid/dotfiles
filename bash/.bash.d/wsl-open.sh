@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Adding wsl-open as a browser for Bash for Windows
-if [[ $(uname -r) == *Microsoft ]]; then
+if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
 	if [[ -z $BROWSER ]]; then
 		export BROWSER=wsl-open
 	else
