@@ -3,8 +3,11 @@
 # Get dotfiles installation directory
 DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
+yellow=`tput setaf 3`
+reset=`tput sgr0`
+
 function msg() {
-	echo  "\e[43m$1\e[0m"
+	echo  "${yellow}${1}${reset}"
 }
 
 # Basic install requirements (check if installed first so we can skip sudo)
