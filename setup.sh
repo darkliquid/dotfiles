@@ -7,7 +7,7 @@ yellow=`tput setaf 3`
 reset=`tput sgr0`
 
 function msg() {
-	echo  "${yellow}${1}${reset}"
+	echo  "${yellow}${*}${reset}"
 }
 
 # Basic install requirements (check if installed first so we can skip sudo)
