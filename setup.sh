@@ -52,18 +52,22 @@ else
 fi
 
 # Install wsl-open
-msg "Installing wsl-open..."
-mkdir -p ~/.local/bin
-curl -o ~/.local/bin/wsl-open https://raw.githubusercontent.com/4U6U57/wsl-open/master/wsl-open.sh
-chmod +x ~/.local/bin/wsl-open
+if [ ! -f "$HOME/.local/bin/wsl-open" ]; then
+	msg "Installing wsl-open..."
+	mkdir -p ~/.local/bin
+	curl -o ~/.local/bin/wsl-open https://raw.githubusercontent.com/4U6U57/wsl-open/master/wsl-open.sh
+	chmod +x ~/.local/bin/wsl-open
+fi
 
 # Install libsecret credential manager
-cp -R /usr/share/doc/git/contrib/credential/libsecret /tmp
-pushd /tmp/libsecret
-make
-mv git-credential-libsecret ~/.local/bin
-popd
-rm -Rf /tmp/libsecret
+if [ ! -f "$HOME/.local/bin/git-credential-libsecret" ]; then
+	cp -R /usr/share/doc/git/contrib/credential/libsecret /tmp
+	pushd /tmp/libsecret
+	make
+	mv git-credential-libsecret ~/.local/bin
+	popd
+	rm -Rf /tmp/libsecret
+fi
 
 # Install common brews
 msg "Installing common brew formulas..."
