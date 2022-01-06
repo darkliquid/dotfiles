@@ -12,7 +12,7 @@ function msg() {
 
 # Basic install requirements (check if installed first so we can skip sudo)
 msg "Installing essentials..."
-pkgs=( build-essential curl file git stow xdg-utils libsecret-1-0 libsecret-1-dev libglib2.0-dev )
+pkgs=( socat build-essential curl file git stow xdg-utils libsecret-1-0 libsecret-1-dev libglib2.0-dev )
 for pkg in "${pkgs[@]}"; do
 	dpkg-query --show --showformat='${db:Status-Status}' $pkg &> /dev/null
 	if [ $? -ne 0 ]; then
