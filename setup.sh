@@ -71,15 +71,7 @@ fi
 
 # Install common brews
 msg "Installing common brew formulas..."
-brew install go rust exa fzf neovim ripgrep gh bat bash-completion zoxide git-delta procs fx hexyl
-
-# Install powerline-rs
-if [ ! -f "$HOME/.cargo/bin/powerline-rs" ]; then
-	msg "Installing powerline-rs..."
-	cargo install -q powerline-rs
-else
-	msg "Skipping install of powerline-rs, already installed..."
-fi
+brew install go rust exa fzf neovim ripgrep gh bat bash-completion zoxide git-delta procs fx hexyl starship
 
 # Symlink other configs
 msg "Symlinking in dotfiles..."
