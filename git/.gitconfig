@@ -19,6 +19,7 @@
 	since = "!f() { git shortlog ${1:-HEAD~10}...master --grep=^Merge --invert-grep --format=\"* %s (%h)\"; }; f"
 [push]
 	default = simple
+	autoSetupRemote = true
 [filter "media"]
 	required = true
 	clean = git media clean %f
