@@ -15,3 +15,7 @@ if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
 	  export DOCKER_HOST="unix://$DOCKER_SOCK"
 	}
 fi
+
+function docker_all() {
+  docker ps --format '{{.ID}}' | xargs docker $@
+}

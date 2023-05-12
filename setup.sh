@@ -71,7 +71,30 @@ fi
 
 # Install common brews
 msg "Installing common brew formulas..."
-brew install go rust exa fzf neovim ripgrep gh bat bash-completion zoxide git-delta procs fx hexyl starship
+read -r -d '' BREWS << EOF
+bash-completion
+bat
+exa
+fx
+fzf
+gh
+git-delta
+go
+gum
+hexyl
+jq
+kubecolor
+kubectx
+neovim
+ov
+procs
+ripgrep
+starship
+xh
+yq
+zoxide
+EOF
+echo "$BREWS" | xargs brew install
 
 # Symlink other configs
 msg "Symlinking in dotfiles..."
