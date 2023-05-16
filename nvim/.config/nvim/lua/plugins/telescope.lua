@@ -2,9 +2,16 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
+    lazy = false,
     config = function()
       local telescope = require("telescope")
-      telescope.setup()
+      telescope.setup({
+        extensions = {
+          file_browser = {
+            hijack_netrw = true,
+          },
+        },
+      })
       telescope.load_extension("file_browser")
       telescope.load_extension("lazy")
     end,
@@ -12,6 +19,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-file-browser.nvim",
       "tsakirist/telescope-lazy.nvim",
+      "sudormrfbin/cheatsheet.nvim"
     }
   },
 }

@@ -1,24 +1,27 @@
 local keymaps = {
   -- Plugin Manager
-  { "<leader>z",       "<cmd>:Lazy<cr>",                desc = "Plugin Manager" },
+  { "<leader>z",       "<cmd>:Lazy<cr>",                  desc = "Plugin Manager" },
 
   -- Smart Close
-  { "<C-w>",           "<cmd>:BufDel<cr>",              desc = "Close Current Buffer" },
-  { "<C-q>",           "<cmd>:BufDel!<cr>",             desc = "Force Close Current Buffer" },
+  { "<leader>q",       "<cmd>:BufDel<cr>",                desc = "Close Current Buffer" },
+  { "<leader>qq",      "<cmd>:BufDel!<cr>",               desc = "Force Close Current Buffer" },
 
   -- Legendary
-  { "<leader>l",       "<cmd>:Legendary<cr>",           desc = "Command Palette" },
+  { "<leader>l",       "<cmd>:Legendary<cr>",             desc = "Command Palette" },
 
   -- Telescope
-  { "<leader><space>", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-  { "<leader>ff",      "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-  { "<leader>fr",      "<cmd>Telescope oldfiles<cr>",   desc = "Recent" },
-  { "<leader>fb",      "<cmd>Telescope buffers<cr>",    desc = "Buffers" },
-  { "<leader>fg",      "<cmd>Telescope git_files<cr>",  desc = "Git Files" },
-  { "<leader>f/",      "<cmd>Telescope live_grep<cr>",  desc = "Grep" },
+  { "<leader><space>", "<cmd>Telescope find_files<cr>",   desc = "Find Files" },
+  { "<leader>ff",      "<cmd>Telescope file_browser<cr>", desc = "File Browser" },
+  { "<leader>fr",      "<cmd>Telescope oldfiles<cr>",     desc = "Recent" },
+  { "<leader>fb",      "<cmd>Telescope buffers<cr>",      desc = "Buffers" },
+  { "<leader>fg",      "<cmd>Telescope git_files<cr>",    desc = "Git Files" },
+  { "<leader>f/",      "<cmd>Telescope live_grep<cr>",    desc = "Grep" },
 
   -- Inc Rename
-  { "<leader>rn",      "<cmd>IncRename<cr>",            desc = "Incremental Rename" },
+  { "<leader>rn",      "<cmd>IncRename<cr>",              desc = "Incremental Rename" },
+
+  -- Trouble
+  { "<leader>xx",      "<cmd>TroubleToggle<cr>",          desc = "Toggle Diagnostics" },
 }
 
 return {
