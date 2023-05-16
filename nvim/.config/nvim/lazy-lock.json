@@ -15,6 +15,7 @@
   "dressing.nvim": { "branch": "master", "commit": "66e4990240f92e31b0d5e4df6deb6bb0160ae832" },
   "go.nvim": { "branch": "master", "commit": "b119217e8324f13a2be12935f5d2d15a1df09b09" },
   "gruvbox.nvim": { "branch": "main", "commit": "df149bccb19a02c5c2b9fa6ec0716f0c0487feb0" },
+  "guihua.lua": { "branch": "master", "commit": "ab8b1f09603cc268770efd057115035dc6cfa83d" },
   "inc-rename.nvim": { "branch": "main", "commit": "fb1b7468f27d874feb209eac46be5205e20b7fd3" },
   "lazy.nvim": { "branch": "main", "commit": "aba872ec78ffe7f7367764ab0fff6f0170421fde" },
   "legendary.nvim": { "branch": "master", "commit": "ba2bb47ca6b183c59047565967f649be52b3ddf6" },
