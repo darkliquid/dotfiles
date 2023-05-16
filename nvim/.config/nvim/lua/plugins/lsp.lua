@@ -61,7 +61,6 @@ return {
       local cmp = require("cmp")
       local lspkind = require('lspkind')
 
-      print('running cmp setup')
       cmp.setup({
         formatting = {
           fields = { "menu", "abbr", "kind" },
