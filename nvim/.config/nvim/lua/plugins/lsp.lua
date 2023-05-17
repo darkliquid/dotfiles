@@ -40,7 +40,7 @@ return {
           yamlls = {},
           zls = {},
           jsonls = {},
-        }
+        },
       })
     end,
   },
@@ -84,7 +84,9 @@ return {
           ['<Up>'] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
           ['<CR>'] = { i = cmp.mapping.confirm({ select = false }) },
           ['<C-Space>'] = { i = cmp.mapping.complete() },
-          ['<C-e>'] = { i = cmp.mapping.close() },
+          ['<Esc>'] = { i = cmp.mapping.abort() },
+          ['<Left>'] = { i = cmp.mapping.abort() },
+          ['<Right>'] = { i = cmp.mapping.abort() },
           ['<S-Up>'] = cmp.mapping.scroll_docs(-4),
           ['<S-Down>'] = cmp.mapping.scroll_docs(4),
         },
@@ -117,6 +119,16 @@ return {
           { name = "path" },
         },
       })
+
+      cmp.setup.cmdline({ "/", "?" }, {
+        mapping = cmp.mapping.preset.cmdline({
+          ['<Down>'] = { c = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
+          ['<Up>'] = { c = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
+        }),
+        sources = {
+          { name = "buffer" },
+        },
+      })
     end,
   },
   {
@@ -147,4 +159,5 @@ return {
       },
     },
   },
+  { "KostkaBrukowa/definition-or-references.nvim" }
 }

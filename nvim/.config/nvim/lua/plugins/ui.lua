@@ -1,5 +1,25 @@
 return {
   {
+    'echasnovski/mini.starter',
+    version = false,
+    lazy = false,
+    config = function()
+      local starter = require("mini.starter")
+      starter.setup({
+        items         = {
+          starter.sections.telescope(),
+        },
+        content_hooks = {
+          starter.gen_hook.adding_bullet(),
+          starter.gen_hook.aligning('center', 'center'),
+        },
+        header        = 'NeoVim',
+        footer        = '',
+        silent        = true,
+      })
+    end,
+  },
+  {
     'akinsho/bufferline.nvim',
     event = "FileReadPre",
     lazy = false,
@@ -8,6 +28,9 @@ return {
     },
     config = function()
       require("bufferline").setup({
+        options = {
+          always_show_bufferline = false,
+        }
       })
     end,
   },
@@ -61,7 +84,31 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     config = function()
-      require("lualine").setup()
+      require("lualine").setup({
+        sections = {
+          lualine_x = {
+            {
+              require("noice").api.status.message.get_hl,
+              cond = require("noice").api.status.message.has,
+            },
+            {
+              require("noice").api.status.command.get,
+              cond = require("noice").api.status.command.has,
+              color = { fg = "#ff9e64" },
+            },
+            {
+              require("noice").api.status.mode.get,
+              cond = require("noice").api.status.mode.has,
+              color = { fg = "#ff9e64" },
+            },
+            {
+              require("noice").api.status.search.get,
+              cond = require("noice").api.status.search.has,
+              color = { fg = "#ff9e64" },
+            },
+          },
+        },
+      })
     end,
   }
 }

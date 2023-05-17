@@ -8,12 +8,14 @@ return {
       telescope.setup({
         extensions = {
           file_browser = {
-            hijack_netrw = true,
+            hijack_netrw = false,
           },
         },
       })
       telescope.load_extension("file_browser")
       telescope.load_extension("lazy")
+      telescope.load_extension("cheatsheet")
+      telescope.load_extension("noice")
     end,
     dependencies = {
       "nvim-lua/plenary.nvim",

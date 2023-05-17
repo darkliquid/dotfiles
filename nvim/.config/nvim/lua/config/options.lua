@@ -30,7 +30,8 @@ vim.opt.laststatus = 3                                  -- only the last window 
 vim.opt.showcmd = false                                 -- hide (partial) command in the last line of the screen (for performance)
 vim.opt.ruler = false                                   -- hide the line and column number of the cursor position
 vim.opt.numberwidth = 4                                 -- minimal number of columns to use for the line number {default 4}
-vim.opt.signcolumn = "yes"                              -- always show the sign column, otherwise it would shift the text each time
+vim.opt.signcolumn =
+"yes"                                                   -- always show the sign column, otherwise it would shift the text each time
 vim.opt.wrap = false                                    -- display lines as one long line
 vim.opt.scrolloff = 8                                   -- minimal number of screen lines to keep above and below the cursor
 vim.opt.sidescrolloff = 8                               -- minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
@@ -42,6 +43,8 @@ vim.opt.iskeyword:append "-"                            -- treats words with `-`
 vim.opt.formatoptions:remove { "c", "r", "o" }          -- This is a sequence of letters which describes how automatic formatting is to be done
 vim.opt.linebreak = true
 vim.opt.backup = false
+vim.g.loaded_netrw = 1       -- disable netrw
+vim.g.loaded_netrwPlugin = 1 -- disable netrw
 
 local in_wsl = os.getenv('WSL_DISTRO_NAME') ~= nil
 if in_wsl then
