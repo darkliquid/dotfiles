@@ -159,5 +159,6 @@ return {
       },
     },
   },
-  { "KostkaBrukowa/definition-or-references.nvim" }
+  { "KostkaBrukowa/definition-or-references.nvim" },
+  { "lukas-reineke/indent-blankline.nvim",        event = "VeryLazy" }
 }
