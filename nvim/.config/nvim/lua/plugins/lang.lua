@@ -4,6 +4,7 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
       "nvim-treesitter/nvim-treesitter-context",
+      "HiPhish/nvim-ts-rainbow2",
     },
     build = ":TSUpdate",
     event = "BufReadPost",
@@ -55,10 +56,13 @@ return {
             node_decremental = "grm",
           },
         },
+        rainbow = {
+          enable = true,
+        },
         textobjects = {
           select = {
             enable = true,
-            lookahead = true,             -- Automatically jump forward to textobj, similar to targets.vim
+            lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
             keymaps = {
               -- You can use the capture groups defined in textobjects.scm
               ["aa"] = "@parameter.outer",
@@ -71,7 +75,7 @@ return {
           },
           move = {
             enable = true,
-            set_jumps = true,             -- whether to set jumps in the jumplist
+            set_jumps = true, -- whether to set jumps in the jumplist
             goto_next_start = {
               ["]m"] = "@function.outer",
               ["]]"] = "@class.outer",
@@ -110,6 +114,6 @@ return {
     end,
     event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },
-    build = ':lua require("go.install").update_all_sync()'     -- if you need to install/update all binaries
+    build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
   }
 }
