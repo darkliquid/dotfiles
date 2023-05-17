@@ -53,6 +53,7 @@ local keymaps = {
       { "<leader>fb",      "<cmd>Telescope buffers<cr>",      desc = "Buffers" },
       { "<leader>fg",      "<cmd>Telescope git_files<cr>",    desc = "Git Files" },
       { "<leader>f/",      "<cmd>Telescope live_grep<cr>",    desc = "Grep" },
+      { "<leader>fn",      "<cmd>Telescope notify<cr>",       desc = "Notifications" }
     },
   },
   {

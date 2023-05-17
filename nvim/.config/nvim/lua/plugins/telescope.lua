@@ -16,6 +16,7 @@ return {
       telescope.load_extension("lazy")
       telescope.load_extension("cheatsheet")
       telescope.load_extension("noice")
+      telescope.load_extension("notify")
     end,
     dependencies = {
       "nvim-lua/plenary.nvim",
