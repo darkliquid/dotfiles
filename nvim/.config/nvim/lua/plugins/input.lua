@@ -36,7 +36,7 @@ local keymaps = {
   -- Legendary
   {
     itemgroup = "Legendary",
-    icon = "📜",
+    icon = "󰨁",
     description = "Command Palette Commands",
     keymaps = {
       {
@@ -71,7 +71,7 @@ local keymaps = {
   -- Telescope
   {
     itemgroup = "Telescope",
-    icon = "🔭",
+    icon = "",
     description = "Finding and picking things",
     keymaps = {
       { "<leader><space>", "<cmd>Telescope find_files<cr>",   desc = "Find Files" },
@@ -85,7 +85,7 @@ local keymaps = {
   },
   {
     itemgroup = "Coding",
-    icon = "🛠️",
+    icon = "",
     description = "Code navigation and commands",
     keymaps = {
       -- Trouble
@@ -171,7 +171,7 @@ local keymaps = {
   -- Misc
   {
     itemgroup = "Misc",
-    icon = "📦",
+    icon = "",
     description = "Miscellaneous commands",
     keymaps = {
       { "<leader>nl", "<cmd>:Noice last<CR>", desc = "Show last notification" },
@@ -190,7 +190,7 @@ local keymaps = {
   -- 4. Hit `.` n-1 times, where n is the number of replacements.
   {
     itemgroup = "Multiple Cursors",
-    icon = "🔁",
+    icon = "󰇀",
     description = "Working with multiple cursors",
     keymaps = {
       {
@@ -265,10 +265,10 @@ return {
         select_prompt = 'Command Palette',
         keymaps = keymaps,
         icons = {
-          keymap = '⌨️',
-          command = '💬',
-          fn = '⚙️',
-          itemgroup = '👪'
+          keymap = '',
+          command = '',
+          fn = '',
+          itemgroup = '󱡠'
         },
         sort = { item_type_bias = 'group' },
         include_legendary_cmds = false,
