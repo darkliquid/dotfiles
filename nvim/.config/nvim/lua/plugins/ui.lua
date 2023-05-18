@@ -218,4 +218,5 @@ return {
       },
     },
   },
+  { 'Bekaboo/deadcolumn.nvim', event = "BufEnter" }
 }
