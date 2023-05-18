@@ -19,7 +19,7 @@ local keymaps = {
     "Plugin Manager"
   },
 
-  -- Smart Close
+  -- Smart-ish Close
   {
     "<leader>q",
     "<cmd>:Bdelete<cr>",
@@ -169,7 +169,16 @@ local keymaps = {
     },
   },
   -- Misc
-  { "<Esc>", "<cmd>:noh<CR>", description = "Clear searches" },
+  {
+    itemgroup = "Misc",
+    icon = "📦",
+    description = "Miscellaneous commands",
+    keymaps = {
+      { "<leader>nl", "<cmd>:Noice last<CR>", desc = "Show last notification" },
+      { "<leader>nd", "<cmd>:Noice dismiss<CR>", desc = "Dismiss all notifications" },
+      { "<Esc>", "<cmd>:noh<CR>", description = "Clear searches" },
+    }
+  },
 
   -- Multiple Cursors
   -- http://www.kevinli.co/posts/2017-01-19-multiple-cursors-in-500-bytes-of-vimscript/
