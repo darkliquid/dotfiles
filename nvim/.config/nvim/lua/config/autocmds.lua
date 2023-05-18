@@ -36,9 +36,14 @@ local function toggle_hlsearch(char)
 end
 vim.on_key(toggle_hlsearch, ns)
 
+if vim.g.filetypes_denylist == nil then
+  print("filetypes_denylist not set")
+end
+
 -- windows to close
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
+    'dirvish',
     "OverseerForm",
     "OverseerList",
     "floggraph",
@@ -57,7 +62,8 @@ vim.api.nvim_create_autocmd("FileType", {
     "toggleterm",
     "tsplayground",
     "vim",
-    "TelescopePrompt"
+    "TelescopePrompt",
+    "alpha"
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false

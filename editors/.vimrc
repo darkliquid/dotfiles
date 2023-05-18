@@ -4,3 +4,5 @@ set number
 set nocompatible
 set laststatus=2
 set statusline=%<%f%m\ \[%{&ff}:%{&fenc}:%Y]\ %{getcwd()}\ %=\ Line:%l\/%L\ Column:%c%V\ %P
+set sessionoptions-=options
+set viewoptions-=options

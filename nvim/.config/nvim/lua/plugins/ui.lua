@@ -5,7 +5,7 @@ return {
     event = "VimEnter",
     opts = function()
       local dashboard = require("alpha.themes.dashboard")
-        local logo = [[
+      local logo = [[
    ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
    ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
    ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
@@ -132,7 +132,7 @@ return {
     event = "VeryLazy",
     config = function()
       require("lualine").setup({
-        options = { disabled_filetypes = {'alpha', 'TelescopePrompt'} },
+        options = { disabled_filetypes = { 'alpha', 'TelescopePrompt' } },
         sections = {
           lualine_x = {
             {
@@ -168,13 +168,26 @@ return {
       float_opts = {
         border = "curved",
         width = function()
-            return math.ceil(vim.o.columns * 0.85)
+          return math.ceil(vim.o.columns * 0.85)
         end,
         height = function()
-            return math.ceil(vim.o.lines * 0.85)
+          return math.ceil(vim.o.lines * 0.85)
         end,
       }
-    }
+    },
+    config = function(opts)
+      -- setup a lazygit terminal
+      require("toggleterm").setup(opts)
+      local Terminal = require('toggleterm.terminal').Terminal
+      local lazygit  = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float", float_opts = opts.float_opts })
+      function _lazygit_toggle()
+        lazygit:toggle()
+      end
+
+      --Need to bind here since we need the lazygit variable to be initialized
+      vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>",
+        { noremap = true, silent = true, desc = "Toggle LazyGit" })
+    end,
   },
   {
     "willothy/flatten.nvim",
@@ -218,5 +231,38 @@ return {
       },
     },
   },
-  { 'Bekaboo/deadcolumn.nvim', event = "BufEnter" }
+  { 'Bekaboo/deadcolumn.nvim', event = "BufEnter" },
+  {
+    'RRethy/vim-illuminate',
+    event = "BufEnter",
+    config = function()
+      vim.notify(vim.inspect(vim.g.filetypes_denylist))
+
+      require('illuminate').configure({
+        filetypes_denylist = {
+          'dirvish',
+          "OverseerForm",
+          "OverseerList",
+          "floggraph",
+          "fugitive",
+          "git",
+          "help",
+          "lazy",
+          "lspinfo",
+          "man",
+          "neotest-output",
+          "neotest-summary",
+          "qf",
+          "query",
+          "spectre_panel",
+          "startuptime",
+          "toggleterm",
+          "tsplayground",
+          "vim",
+          "TelescopePrompt",
+          "alpha"
+        },
+      })
+    end,
+  }
 }

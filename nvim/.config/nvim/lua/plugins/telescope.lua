@@ -23,7 +23,7 @@ return {
       "nvim-telescope/telescope-file-browser.nvim",
       "tsakirist/telescope-lazy.nvim",
       "sudormrfbin/cheatsheet.nvim",
-      { "ziontee113/icon-picker.nvim", config = true }
+      "nvim-telescope/telescope-symbols.nvim"
     }
   },
 }
