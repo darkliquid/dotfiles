@@ -159,7 +159,23 @@ return {
       })
     end,
   },
-  { 'akinsho/toggleterm.nvim', version = false, config = true, lazy = false },
+  {
+    'akinsho/toggleterm.nvim',
+    version = false,
+    lazy = false,
+    opts = {
+      direction = "float",
+      float_opts = {
+        border = "curved",
+        width = function()
+            return math.ceil(vim.o.columns * 0.85)
+        end,
+        height = function()
+            return math.ceil(vim.o.lines * 0.85)
+        end,
+      }
+    }
+  },
   {
     "willothy/flatten.nvim",
     lazy = false,
