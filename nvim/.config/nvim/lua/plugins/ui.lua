@@ -159,7 +159,7 @@ return {
       })
     end,
   },
-  { 'akinsho/toggleterm.nvim', version = "*", config = true, lazy = false },
+  { 'akinsho/toggleterm.nvim', version = false, config = true, lazy = false },
   {
     "willothy/flatten.nvim",
     lazy = false,

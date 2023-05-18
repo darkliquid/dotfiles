@@ -80,7 +80,8 @@ local keymaps = {
       { "<leader>fb",      "<cmd>Telescope buffers<cr>",      desc = "Buffers" },
       { "<leader>fg",      "<cmd>Telescope git_files<cr>",    desc = "Git Files" },
       { "<leader>f/",      "<cmd>Telescope live_grep<cr>",    desc = "Grep" },
-      { "<leader>fn",      "<cmd>Telescope notify<cr>",       desc = "Notifications" }
+      { "<leader>fn",      "<cmd>Telescope notify<cr>",       desc = "Notifications" },
+      { "<leader>ft", "<cmd>TermSelect<cr>", desc = "Select a terminal"}
     },
   },
   {
@@ -174,12 +175,13 @@ local keymaps = {
     icon = "",
     description = "Miscellaneous commands",
     keymaps = {
-      { "<leader>nl", "<cmd>:Noice last<CR>", desc = "Show last notification" },
-      { "<leader>nd", "<cmd>:Noice dismiss<CR>", desc = "Dismiss all notifications" },
+      { "<leader>nl", "<cmd>Noice last<CR>", desc = "Show last notification" },
+      { "<leader>nd", "<cmd>Noice dismiss<CR>", desc = "Dismiss all notifications" },
       { "<Esc>", "<cmd>:noh<CR>", description = "Clear searches" },
       { "<Leader><Leader>i", { n = "<cmd>IconPickerNormal nerd_font_v3 symbols<cr>" }, desc = "Pick an icon"},
       { "<Leader><Leader>y", { n = "<cmd>IconPickerYank<cr>" }, desc = "Yank selected icon"},
       { "<C-i>", { i = "<cmd>IconPickerInsert nerd_font_v3 symbols<cr>" }, desc = "Insert an icon"},
+      { "<leader>`", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
     }
   },
 
