@@ -177,6 +177,9 @@ local keymaps = {
       { "<leader>nl", "<cmd>:Noice last<CR>", desc = "Show last notification" },
       { "<leader>nd", "<cmd>:Noice dismiss<CR>", desc = "Dismiss all notifications" },
       { "<Esc>", "<cmd>:noh<CR>", description = "Clear searches" },
+      { "<Leader><Leader>i", { n = "<cmd>IconPickerNormal nerd_font_v3 symbols<cr>" }, desc = "Pick an icon"},
+      { "<Leader><Leader>y", { n = "<cmd>IconPickerYank<cr>" }, desc = "Yank selected icon"},
+      { "<C-i>", { i = "<cmd>IconPickerInsert nerd_font_v3 symbols<cr>" }, desc = "Insert an icon"},
     }
   },
 

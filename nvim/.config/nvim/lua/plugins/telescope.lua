@@ -22,7 +22,8 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope-file-browser.nvim",
       "tsakirist/telescope-lazy.nvim",
-      "sudormrfbin/cheatsheet.nvim"
+      "sudormrfbin/cheatsheet.nvim",
+      { "ziontee113/icon-picker.nvim", config = true }
     }
   },
 }
