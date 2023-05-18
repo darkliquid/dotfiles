@@ -1,5 +1,6 @@
 return {
   {
+    -- language server setup and configuration
     "junnplus/lsp-setup.nvim",
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     dependencies = {
@@ -31,7 +32,39 @@ return {
           gopls = {},
           html = {},
           tsserver = {},
-          lua_ls = {},
+          lua_ls = {
+            -- setup lua lsp to assume vim global is defined in config files
+            on_attach = function(client, bufnr)
+              -- get the filepath for the buffer the client is attached to
+              local filepath = vim.api.nvim_buf_get_name(bufnr)
+
+              -- grab the runtime paths which will include our config dirs
+              local rtps = vim.api.nvim_list_runtime_paths()
+              local is_cfg_file = false
+              for _, rtp in ipairs(rtps) do
+                -- we need to resolve symlinks to handle stowed dotfiles, etc
+                if vim.startswith(filepath, vim.loop.fs_realpath(rtp)) then
+                  is_cfg_file = true
+                  break
+                end
+              end
+
+              -- looks like the lua file is in one of our config dirs
+              -- so we can assume vim global is defined
+              if is_cfg_file then
+                client.config.settings.Lua.diagnostics.globals = { "vim" }
+                client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+              end
+            end,
+            -- we need to define this structure otherwise we can't update it later
+            settings = {
+              Lua = {
+                diagnostics = {
+                  globals = {}
+                }
+              }
+            }
+          },
           prosemd_lsp = {},
           spectral = {},
           powershell_es = {},
@@ -45,6 +78,7 @@ return {
     end,
   },
   {
+    -- code completion
     "hrsh7th/nvim-cmp",
     dependencies = {
       { "hrsh7th/cmp-nvim-lsp" },
@@ -60,7 +94,9 @@ return {
         config = function()
           require("nvim-autopairs").setup({ check_ts = true })
         end,
-      }
+      },
+      { "hrsh7th/cmp-calc" },
+      { "lukas-reineke/cmp-rg" },
     },
     config = function()
       local cmp = require("cmp")
@@ -84,19 +120,24 @@ return {
           ['<Up>'] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
           ['<CR>'] = { i = cmp.mapping.confirm({ select = false }) },
           ['<C-Space>'] = { i = cmp.mapping.complete() },
+          -- abort autocomplete when escaping or moving out of the dropdown
           ['<Esc>'] = { i = cmp.mapping.abort() },
           ['<Left>'] = { i = cmp.mapping.abort() },
           ['<Right>'] = { i = cmp.mapping.abort() },
+          -- scroll docs for the completion entries
           ['<S-Up>'] = cmp.mapping.scroll_docs(-4),
           ['<S-Down>'] = cmp.mapping.scroll_docs(4),
         },
         sources = {
           { name = "nvim_lsp" },
+          { name = "nvim_lsp_signature_help" },
           { name = "copilot" },
           { name = "path" },
-          { name = "buffer" },
+          { name = "buffer",                 keyword_length = 5 },
           { name = "luasnip" },
           { name = "treesitter" },
+          { name = "rg",                     keyword_length = 5 },
+          { name = "calc" }
         },
         snippet = {
           expand = function(args)
@@ -132,6 +173,7 @@ return {
     end,
   },
   {
+    -- githubs ai assistant
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
@@ -159,6 +201,8 @@ return {
       },
     },
   },
+  -- helper to allow going to def or ref based on context
   { "KostkaBrukowa/definition-or-references.nvim" },
+  -- show the indent levels
   { "lukas-reineke/indent-blankline.nvim",        event = "VeryLazy" }
 }

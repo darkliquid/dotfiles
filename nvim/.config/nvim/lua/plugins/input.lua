@@ -22,23 +22,50 @@ local keymaps = {
   -- Smart Close
   {
     "<leader>q",
-    "<cmd>:BufDel<cr>",
+    "<cmd>:Bdelete<cr>",
     desc =
     "Close Current Buffer"
   },
   {
     "<leader>qq",
-    "<cmd>:BufDel!<cr>",
+    "<cmd>:Bdelete!<cr>",
     desc =
     "Force Close Current Buffer"
   },
 
   -- Legendary
   {
-    "<leader>l",
-    "<cmd>:Legendary<cr>",
-    desc =
-    "Command Palette"
+    itemgroup = "Legendary",
+    icon = "📜",
+    description = "Command Palette Commands",
+    keymaps = {
+      {
+        "<leader>l",
+        "<cmd>:Legendary<cr>",
+        desc =
+        "Command Palette"
+      },
+      {
+        "<leader>lk",
+        "<cmd>:Legendary keymaps<cr>",
+        desc = "Keymaps"
+      },
+      {
+        "<leader>lc",
+        "<cmd>:Legendary commands<cr>",
+        desc = "Commands"
+      },
+      {
+        "<leader>lf",
+        "<cmd>:Legendary functions<cr>",
+        desc = "Functions"
+      },
+      {
+        "<leader>la",
+        "<cmd>:Legendary autocmds<cr>",
+        desc = "Auto Commands"
+      }
+    }
   },
 
   -- Telescope
@@ -203,9 +230,8 @@ local keymaps = {
 
 return {
   {
-    "ojroques/nvim-bufdel",
-    event = "VeryLazy",
-    config = true,
+    "famiu/bufdelete.nvim",
+    lazy = false,
   },
   {
     "folke/which-key.nvim",
@@ -236,6 +262,7 @@ return {
           itemgroup = '👪'
         },
         sort = { item_type_bias = 'group' },
+        include_legendary_cmds = false,
       })
       require("which-key").register({}, { prefix = "<leader>" })
     end,
