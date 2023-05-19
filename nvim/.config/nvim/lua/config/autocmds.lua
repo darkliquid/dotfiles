@@ -36,41 +36,7 @@ local function toggle_hlsearch(char)
 end
 vim.on_key(toggle_hlsearch, ns)
 
-if vim.g.filetypes_denylist == nil then
-  print("filetypes_denylist not set")
-end
-
 -- windows to close
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    'dirvish',
-    "OverseerForm",
-    "OverseerList",
-    "floggraph",
-    "fugitive",
-    "git",
-    "help",
-    "lazy",
-    "lspinfo",
-    "man",
-    "neotest-output",
-    "neotest-summary",
-    "qf",
-    "query",
-    "spectre_panel",
-    "startuptime",
-    "toggleterm",
-    "tsplayground",
-    "vim",
-    "TelescopePrompt",
-    "alpha"
-  },
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close!<cr>", { buffer = event.buf, silent = true })
-    vim.keymap.set("n", "<leader>q", "<cmd>close!<cr>", { buffer = event.buf, silent = true })
-  end,
-})
 
 -- Autoformat go files on save
 local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})

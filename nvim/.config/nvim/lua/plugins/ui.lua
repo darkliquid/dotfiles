@@ -77,6 +77,11 @@ return {
       require("bufferline").setup({
         options = {
           always_show_bufferline = false,
+          custom_filter = function(buf_number)
+            if vim.bo[buf_number].filetype ~= "qf" then
+              return true
+            end
+          end,
         }
       })
     end,

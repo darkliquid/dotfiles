@@ -247,8 +247,10 @@ return {
     "famiu/bufdelete.nvim",
     lazy = false,
   },
+  { 'echasnovski/mini.align', version = false, event = "BufEnter" },
   {
     "folke/which-key.nvim",
+    event = "VeryLazy",
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
