@@ -10,6 +10,40 @@ function SetupMultipleCursors()
   )
 end
 
+function _G.close_to_dashboard(force)
+  -- If we are on the dashboard or the buftype isn't a file, we quit
+  if vim.bo.filetype == 'alpha' or vim.bo.buftype == 'nofile' then
+    vim.cmd('quit')
+    return
+  end
+
+  require('mini.bufremove').delete(0, force)
+
+  local count = 0
+  for _, buf_hndl in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(buf_hndl) then
+      count = count + 1
+    end
+  end
+
+  -- At minimum we will have 2 buffers open
+  -- 1 for the scratch buffer that gets created when all others
+  -- are closed and 1 for the dashboard which is always kept loaded
+  if count > 2 then
+    return
+  end
+
+  -- Check if the buffer has a filetype
+  if vim.bo.filetype ~= '' then
+    return
+  end
+
+  -- If it doesn't we check if it's empty
+  if vim.api.nvim_buf_get_lines(0, 0, -1, false)[1] == '' then
+    vim.cmd('Alpha')
+  end
+end
+
 local keymaps = {
   -- Plugin Manager
   {
@@ -22,13 +56,17 @@ local keymaps = {
   -- Smart-ish Close
   {
     "<leader>q",
-    "<cmd>:Bdelete<cr>",
+    function()
+      close_to_dashboard(false)
+    end,
     desc =
     "Close Current Buffer"
   },
   {
     "<leader>qq",
-    "<cmd>:Bdelete!<cr>",
+    function()
+      close_to_dashboard(true)
+    end,
     desc =
     "Force Close Current Buffer"
   },
@@ -81,8 +119,8 @@ local keymaps = {
       { "<leader>fg",      "<cmd>Telescope git_files<cr>",    desc = "Git Files" },
       { "<leader>f/",      "<cmd>Telescope live_grep<cr>",    desc = "Grep" },
       { "<leader>fn",      "<cmd>Telescope notify<cr>",       desc = "Notifications" },
-      { "<leader>ft",      "<cmd>TermSelect<cr>",             desc = "Select a terminal"},
-      { "<leader>fs",      "<cmd>Telescope symbols<cr>",      desc = "Pick a symbol"},
+      { "<leader>ft",      "<cmd>TermSelect<cr>",             desc = "Select a terminal" },
+      { "<leader>fs",      "<cmd>Telescope symbols<cr>",      desc = "Pick a symbol" },
     },
   },
   {
@@ -176,13 +214,13 @@ local keymaps = {
     icon = "",
     description = "Miscellaneous commands",
     keymaps = {
-      { "<leader>nl", "<cmd>Noice last<CR>", desc = "Show last notification" },
-      { "<leader>nd", "<cmd>Noice dismiss<CR>", desc = "Dismiss all notifications" },
-      { "<Esc>", "<cmd>:noh<CR>", description = "Clear searches" },
-      { "<leader>`", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
-      { "<Tab>", { n = "<cmd>BufferLineCycleNext<cr>"}, desc = "Next tab"},
-      { "<S-Tab>", { n = "<cmd>BufferLineCyclePrev<cr>"}, desc = "Prev tab"},
-      { "<leader>w", "<cmd>wincmd w<cr>", desc = "Cycle Splits" }
+      { "<leader>nl", "<cmd>Noice last<CR>",                  desc = "Show last notification" },
+      { "<leader>nd", "<cmd>Noice dismiss<CR>",               desc = "Dismiss all notifications" },
+      { "<Esc>",      "<cmd>:noh<CR>",                        description = "Clear searches" },
+      { "<leader>`",  "<cmd>ToggleTerm<cr>",                  desc = "Toggle Terminal" },
+      { "<Tab>",      { n = "<cmd>BufferLineCycleNext<cr>" }, desc = "Next tab" },
+      { "<S-Tab>",    { n = "<cmd>BufferLineCyclePrev<cr>" }, desc = "Prev tab" },
+      { "<leader>w",  "<cmd>wincmd w<cr>",                    desc = "Cycle Splits" }
     }
   },
 
@@ -205,7 +243,7 @@ local keymaps = {
           n = { "*``cgn" },
           x = { [[g:mc . "``cgn"]], opts = { expr = true } },
         },
-        description = "Inititiate",
+        description = "Initiate",
       },
       {
         "cN",
@@ -213,7 +251,7 @@ local keymaps = {
           n = { "*``cgN" },
           x = { [[g:mc . "``cgN"]], opts = { expr = true } },
         },
-        description = "Inititiate (in backwards direction)",
+        description = "Initiate (in backwards direction)",
       },
 
       -- 1. Position the cursor over a word; alternatively, make a selection.
@@ -226,7 +264,7 @@ local keymaps = {
           n = { [[:\<C-u>call v:lua.SetupMultipleCursors()<CR>*``qz]] },
           x = { [[":\<C-u>call v:lua.SetupMultipleCursors()<CR>gv" . g:mc . "``qz"]], opts = { expr = true } },
         },
-        description = "Inititiate with macros",
+        description = "Initiate with macros",
       },
       {
         "cQ",
@@ -237,18 +275,24 @@ local keymaps = {
             opts = { expr = true },
           },
         },
-        description = "Inititiate with macros (in backwards direction)",
+        description = "Initiate with macros (in backwards direction)",
       },
     },
   },
 }
 
 return {
+  { 'echasnovski/mini.bufremove', version = false, lazy = false },
+  { 'echasnovski/mini.align',     version = false, event = "BufEnter" },
   {
-    "famiu/bufdelete.nvim",
-    lazy = false,
+    "ggandor/leap.nvim",
+    version = false,
+    event = "BufEnter",
+    config = function()
+      require("leap").add_default_mappings()
+    end,
+    dependencies = { "tpope/vim-repeat" }
   },
-  { 'echasnovski/mini.align', version = false, event = "BufEnter" },
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
