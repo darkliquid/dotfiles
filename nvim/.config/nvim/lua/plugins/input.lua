@@ -182,6 +182,7 @@ local keymaps = {
       { "<leader>`", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
       { "<Tab>", { n = "<cmd>BufferLineCycleNext<cr>"}, desc = "Next tab"},
       { "<S-Tab>", { n = "<cmd>BufferLineCyclePrev<cr>"}, desc = "Prev tab"},
+      { "<leader>w", "<cmd>wincmd w<cr>", desc = "Cycle Splits" }
     }
   },
 
