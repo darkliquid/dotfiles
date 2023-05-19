@@ -12,8 +12,8 @@ end
 
 function _G.close_to_dashboard(force)
   -- If we are on the dashboard or the buftype isn't a file, we quit
-  if vim.bo.filetype == 'alpha' or vim.bo.buftype == 'nofile' then
-    vim.cmd('quit')
+  if vim.bo.filetype == 'alpha' or vim.bo.buftype == 'nofile' or vim.bo.buftype == 'prompt' then
+    vim.cmd('quit!')
     return
   end
 
