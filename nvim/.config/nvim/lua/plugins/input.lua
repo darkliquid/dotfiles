@@ -12,6 +12,7 @@ end
 
 function _G.close_to_dashboard(force)
   -- If we are on the dashboard or the buftype isn't a file, we quit
+  -- TODO: Make this more robust
   if vim.bo.filetype == 'alpha' or vim.bo.buftype == 'nofile' or vim.bo.buftype == 'prompt' then
     vim.cmd('quit!')
     return
@@ -121,6 +122,7 @@ local keymaps = {
       { "<leader>fn",      "<cmd>Telescope notify<cr>",       desc = "Notifications" },
       { "<leader>ft",      "<cmd>TermSelect<cr>",             desc = "Select a terminal" },
       { "<leader>fs",      "<cmd>Telescope symbols<cr>",      desc = "Pick a symbol" },
+      { "<leader>fd",      "<cmd>TodoTelescope<cr>",          desc = "TODOs"}
     },
   },
   {

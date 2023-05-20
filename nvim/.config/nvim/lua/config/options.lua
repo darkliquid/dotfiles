@@ -8,6 +8,9 @@ vim.opt.number = true
 vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 
 -- the number of spaces inserted for each indentation
 local in_wsl = os.getenv('WSL_DISTRO_NAME') ~= nil
