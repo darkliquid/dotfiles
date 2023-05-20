@@ -6,11 +6,11 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
+--vim.opt.scrolloff = 8
+--vim.opt.sidescrolloff = 8
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-
+vim.o.guifont = "Lilex Nerd Font Mono:h10"
 
 -- the number of spaces inserted for each indentation
 local in_wsl = os.getenv('WSL_DISTRO_NAME') ~= nil

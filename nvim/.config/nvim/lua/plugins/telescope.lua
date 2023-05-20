@@ -15,7 +15,9 @@ return {
       telescope.load_extension("file_browser")
       telescope.load_extension("lazy")
       telescope.load_extension("cheatsheet")
-      telescope.load_extension("noice")
+      if not vim.g.neovide then
+        telescope.load_extension("noice")
+      end
       telescope.load_extension("notify")
     end,
     dependencies = {

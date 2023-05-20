@@ -107,6 +107,9 @@ return {
   {
     "folke/noice.nvim",
     event = "VeryLazy",
+    cond = function()
+      return not vim.g.neovide
+    end,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "rcarriga/nvim-notify",
@@ -138,9 +141,12 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     config = function()
-      require("lualine").setup({
+      local opts = {
         options = { disabled_filetypes = { 'alpha', 'TelescopePrompt' } },
-        sections = {
+      }
+
+      if not vim.g.neovide then
+        opts.sections = {
           lualine_x = {
             {
               require("noice").api.status.message.get_hl,
@@ -162,8 +168,10 @@ return {
               color = { fg = "#ff9e64" },
             },
           },
-        },
-      })
+        }
+      end
+
+      require("lualine").setup(opts)
     end,
   },
   {
