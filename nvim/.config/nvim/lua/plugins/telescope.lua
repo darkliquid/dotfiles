@@ -19,6 +19,7 @@ return {
         telescope.load_extension("noice")
       end
       telescope.load_extension("notify")
+      telescope.load_extension("neoclip")
     end,
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -32,10 +33,9 @@ return {
         opts = {
           keywords = {
             FIX = {
-              icon = " ",                      -- icon used for the sign, and in search results
-              color = "error",                    -- can be a hex color, or a named color (see below)
-              alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
-              -- signs = false, -- configure signs for some keywords individually
+              icon = " ",
+              color = "error",
+              alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
             },
             TODO = { icon = " ", color = "info" },
             HACK = { icon = "󰌵️ ", color = "warning" },
@@ -46,7 +46,8 @@ return {
           }
         },
         config = true,
-      }
+      },
+      { "AckslD/nvim-neoclip.lua", config = true },
     }
   },
 }

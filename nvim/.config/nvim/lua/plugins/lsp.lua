@@ -17,6 +17,11 @@ return {
           "jay-babu/mason-null-ls.nvim",
         },
       },
+      {
+        "jinzhongjia/LspUI.nvim",
+        event="VeryLazy",
+      },
+      { "dnlhc/glance.nvim", config = true },
     },
     config = function()
       require('lsp-setup').setup({
@@ -75,6 +80,7 @@ return {
           jsonls = {},
         },
       })
+      require("LspUI").setup()
     end,
   },
   {
@@ -206,8 +212,6 @@ return {
       },
     },
   },
-  -- helper to allow going to def or ref based on context
-  { "KostkaBrukowa/definition-or-references.nvim" },
   -- show the indent levels
   { "lukas-reineke/indent-blankline.nvim",        event = "VeryLazy" }
 }

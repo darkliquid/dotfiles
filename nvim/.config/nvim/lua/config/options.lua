@@ -10,6 +10,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.o.guifont = "Lilex Nerd Font Mono:h10"
 vim.opt.clipboard = "unnamedplus"
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- magic WSL clipboard support
 vim.g.in_wsl = os.getenv('WSL_DISTRO_NAME') ~= nil

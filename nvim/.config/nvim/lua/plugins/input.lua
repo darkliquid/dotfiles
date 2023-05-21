@@ -13,16 +13,38 @@ end
 function _G.close_to_dashboard(force)
   -- If we are on the dashboard or the buftype isn't a file, we quit
   -- TODO: Make this more robust
-  if vim.bo.filetype == 'alpha' or vim.bo.buftype == 'nofile' or vim.bo.buftype == 'prompt' then
-    vim.cmd('quit!')
-    return
+  local bts = {
+    'prompt',
+    'nofile',
+    'quickfix',
+  }
+
+  for _, bt in ipairs(bts) do
+    if vim.bo.buftype == bt then
+      vim.cmd('quit!')
+      return
+    end
+  end
+
+  local fts = {
+    'alpha',
+    'qf',
+    'cmp_menu'
+  }
+
+  for _, ft in ipairs(fts) do
+    if vim.bo.filetype == ft then
+      vim.cmd('quit!')
+      return
+    end
   end
 
   require('mini.bufremove').delete(0, force)
 
   local count = 0
   for _, buf_hndl in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.api.nvim_buf_is_loaded(buf_hndl) then
+    -- we only count listed buffers that are not nofile
+    if vim.api.nvim_buf_is_loaded(buf_hndl) and vim.fn.getbufvar(buf_hndl, '&buftype') ~= 'nofile' then
       count = count + 1
     end
   end
@@ -122,7 +144,8 @@ local keymaps = {
       { "<leader>fn",      "<cmd>Telescope notify<cr>",       desc = "Notifications" },
       { "<leader>ft",      "<cmd>TermSelect<cr>",             desc = "Select a terminal" },
       { "<leader>fs",      "<cmd>Telescope symbols<cr>",      desc = "Pick a symbol" },
-      { "<leader>fd",      "<cmd>TodoTelescope<cr>",          desc = "TODOs"}
+      { "<leader>fd",      "<cmd>TodoTelescope<cr>",          desc = "TODOs" },
+      { "<leader>fc",      "<cmd>Telescope neoclip<cr>",      desc = "Clipboard" },
     },
   },
   {
@@ -147,9 +170,15 @@ local keymaps = {
       -- LSP
       {
         "gd",
-        function() require('definition-or-references').definition_or_references() end,
+        function() vim.cmd(":Glance definitions") end,
         desc =
-        "Go to Definition/References"
+        "Go to Definition"
+      },
+      {
+        "gr",
+        function() vim.cmd(":Glance references") end,
+        desc =
+        "Go to References"
       },
       {
         "gD",
@@ -159,18 +188,18 @@ local keymaps = {
       },
       {
         "gt",
-        function() vim.lsp.buf.type_definition() end,
+        function() vim.cmd(":Glance type_definitions") end,
         desc =
         "Go to Type Definition"
       },
       {
         "gi",
-        function() vim.lsp.buf.implementation() end,
+        function() vim.cmd(":Glance implementations") end,
         desc =
         "Go to Implementation"
       },
-      { "K",          function() vim.lsp.buf.hover() end,       desc = "Hover" },
-      { "<leader>ca", function() vim.lsp.buf.code_action() end, desc = "Code Action" },
+      { "K",          function() vim.cmd("LspUI hover") end,       desc = "Hover" },
+      { "<leader>ca", function() vim.cmd("LspUI code_action") end, desc = "Code Action" },
       {
         "<leader>wa",
         function() vim.lsp.buf.add_workspace_folder() end,
@@ -197,13 +226,13 @@ local keymaps = {
       },
       {
         "[d",
-        function() vim.lsp.diagnostic.goto_prev() end,
+        function() vim.cmd("LspUI diagnostic prev") end,
         desc =
         "Go to Previous Diagnostic"
       },
       {
         "]d",
-        function() vim.lsp.diagnostic.goto_next() end,
+        function() vim.cmd("LspUI diagnostic next") end,
         desc =
         "Go to Next Diagnostic"
       },
@@ -313,6 +342,7 @@ return {
   {
     "mrjones2014/legendary.nvim",
     event = "VeryLazy",
+    priority = 0,
     config = function()
       require("legendary").setup({
         which_key = { auto_register = true },
