@@ -113,7 +113,12 @@ return {
         },
         formatting = {
           fields = { "menu", "abbr", "kind" },
-          format = lspkind.cmp_format({})
+          format = lspkind.cmp_format({
+            mode = "symbol",
+            max_width = 50,
+            symbol_map = { Copilot = "" }
+          })
+
         },
         mapping = {
           ['<Down>'] = { i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },

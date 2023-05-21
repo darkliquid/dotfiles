@@ -6,15 +6,14 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
---vim.opt.scrolloff = 8
---vim.opt.sidescrolloff = 8
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.o.guifont = "Lilex Nerd Font Mono:h10"
+vim.opt.clipboard = "unnamedplus"
 
--- the number of spaces inserted for each indentation
-local in_wsl = os.getenv('WSL_DISTRO_NAME') ~= nil
-if in_wsl then
+-- magic WSL clipboard support
+vim.g.in_wsl = os.getenv('WSL_DISTRO_NAME') ~= nil
+if vim.g.in_wsl then
   vim.g.clipboard = {
     name = 'wsl clipboard',
     copy = { ["+"] = { "clip.exe" }, ["*"] = { "clip.exe" } },
