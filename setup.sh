@@ -72,7 +72,7 @@ fi
 # Install common brews
 msg "Installing common brew formulas..."
 read -r -d '' BREWS << EOF
-bash-completion
+bash-completion@2
 bat
 exa
 fx
@@ -93,6 +93,7 @@ starship
 xh
 yq
 zoxide
+lazygit
 EOF
 echo "$BREWS" | xargs brew install
 
