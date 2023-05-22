@@ -244,11 +244,11 @@ local keymaps = {
     icon = "",
     description = "Miscellaneous commands",
     keymaps = {
-      { "<Esc>",      "<cmd>:noh<CR>",                        description = "Clear searches" },
-      { "<leader>`",  "<cmd>ToggleTerm<cr>",                  desc = "Toggle Terminal" },
-      { "<Tab>",      { n = "<cmd>BufferLineCycleNext<cr>" }, desc = "Next tab" },
-      { "<S-Tab>",    { n = "<cmd>BufferLineCyclePrev<cr>" }, desc = "Prev tab" },
-      { "<leader>w",  "<cmd>wincmd w<cr>",                    desc = "Cycle Splits" }
+      { "<Esc>",     "<cmd>:noh<CR>",                        description = "Clear searches" },
+      { "<leader>`", "<cmd>ToggleTerm<cr>",                  desc = "Toggle Terminal" },
+      { "<Tab>",     { n = "<cmd>BufferLineCycleNext<cr>" }, desc = "Next tab" },
+      { "<S-Tab>",   { n = "<cmd>BufferLineCyclePrev<cr>" }, desc = "Prev tab" },
+      { "<leader>w", "<cmd>wincmd w<cr>",                    desc = "Cycle Splits" }
     }
   },
 
@@ -308,6 +308,34 @@ local keymaps = {
     },
   },
 }
+
+if vim.g.neovide then
+  table.insert(keymaps, {
+    itemgroup = "Neovide",
+    icon = "󰫖",
+    description = "Neovide-specific commands",
+    keymaps = {
+      {
+        "<C-ScrollWheelUp>",
+        function()
+          if vim.g.neovide_scale_factor < 4 then
+            vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1
+          end
+        end,
+        description = "Zoom in",
+      },
+      {
+        "<C-ScrollWheelDown>",
+        function()
+          if vim.g.neovide_scale_factor > 0.5 then
+            vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1
+          end
+        end,
+        description = "Zoom out",
+      },
+    },
+  })
+end
 
 return {
   { 'echasnovski/mini.bufremove', version = false, lazy = false },
