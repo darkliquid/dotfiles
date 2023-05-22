@@ -120,34 +120,46 @@ return {
         formatting = {
           fields = { "menu", "abbr", "kind" },
           format = lspkind.cmp_format({
-            mode = "symbol",
+            mode = "symbol_text",
+            menu = ({
+              buffer     = "[Buffer]",
+              nvim_lsp   = "[LSP]",
+              nvim_lua   = "[Lua]",
+              luasnip    = "[Snippet]",
+              treesitter = "[TS]",
+              path       = "[Path]",
+              calc       = "[Calc]",
+              rg         = "[Rg]",
+              copilot    = "[Copilot]",
+
+            }),
             max_width = 50,
             symbol_map = { Copilot = "" }
           })
 
         },
-        mapping = {
-          ['<Down>'] = { i = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }) },
-          ['<Up>'] = { i = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }) },
-          ['<CR>'] = { i = cmp.mapping.confirm({ select = false }) },
-          ['<C-Space>'] = { i = cmp.mapping.complete() },
+        mapping = cmp.mapping.preset.insert({
+          ['<Down>']    = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+          ['<Up>']      = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+          ['<CR>']      = cmp.mapping.confirm({ select = false }),
+          ['<C-Space>'] = cmp.mapping.complete(),
           -- abort autocomplete when escaping or moving out of the dropdown
-          ['<Esc>'] = { i = cmp.mapping.abort() },
-          ['<Left>'] = { i = cmp.mapping.abort() },
-          ['<Right>'] = { i = cmp.mapping.abort() },
+          ['<Esc>']     = cmp.mapping.abort(),
+          ['<Left>']    = cmp.mapping.abort(),
+          ['<Right>']   = cmp.mapping.confirm({ select = true }),
           -- scroll docs for the completion entries
-          ['<S-Up>'] = cmp.mapping.scroll_docs(-4),
-          ['<S-Down>'] = cmp.mapping.scroll_docs(4),
-        },
+          ['<S-Up>']    = cmp.mapping.scroll_docs(-4),
+          ['<S-Down>']  = cmp.mapping.scroll_docs(4),
+        }),
         sources = {
           { name = "nvim_lsp" },
           { name = "nvim_lsp_signature_help" },
           { name = "copilot" },
           { name = "path" },
-          { name = "buffer",                 keyword_length = 5 },
+          { name = "buffer", keyword_length = 5 },
           { name = "luasnip" },
           { name = "treesitter" },
-          { name = "rg",                     keyword_length = 5 },
+          { name = "rg", keyword_length = 5 },
           { name = "calc" }
         },
         snippet = {

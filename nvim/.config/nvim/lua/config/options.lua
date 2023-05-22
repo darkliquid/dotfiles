@@ -25,5 +25,5 @@ end
 
 -- neovide settings
 if vim.g.neovide then
-  vim.o.guifont = "Lilex Nerd Font Mono:h10:b:#e-subpixelantialias:#h-none"
+  vim.o.guifont = "Lilex Nerd Font Mono:h11"
 end

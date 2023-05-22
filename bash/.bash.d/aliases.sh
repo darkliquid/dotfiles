@@ -3,7 +3,14 @@ alias vim=nvim
 alias vi=nvim
 alias ls=exa
 alias open="xdg-open"
-alias nv="neovide.exe --wsl"
+
+function nv() {
+  if [ -z "$1" ]; then
+    neovide.exe --wsl &
+  else
+    neovide.exe --wsl "$1" &
+  fi
+}
 
 function getip() {
   INTF="${1:-eth0}"

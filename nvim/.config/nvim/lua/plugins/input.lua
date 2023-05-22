@@ -137,11 +137,10 @@ local keymaps = {
     keymaps = {
       { "<leader><space>", "<cmd>Telescope find_files<cr>",   desc = "Find Files" },
       { "<leader>ff",      "<cmd>Telescope file_browser<cr>", desc = "File Browser" },
-      { "<leader>fr",      "<cmd>Telescope oldfiles<cr>",     desc = "Recent" },
+      { "<leader>fo",      "<cmd>Telescope oldfiles<cr>",     desc = "Recent" },
       { "<leader>fb",      "<cmd>Telescope buffers<cr>",      desc = "Buffers" },
       { "<leader>fg",      "<cmd>Telescope git_files<cr>",    desc = "Git Files" },
-      { "<leader>f/",      "<cmd>Telescope live_grep<cr>",    desc = "Grep" },
-      { "<leader>fn",      "<cmd>Telescope notify<cr>",       desc = "Notifications" },
+      { "<leader>fr",      "<cmd>Telescope live_grep<cr>",    desc = "Grep" },
       { "<leader>ft",      "<cmd>TermSelect<cr>",             desc = "Select a terminal" },
       { "<leader>fs",      "<cmd>Telescope symbols<cr>",      desc = "Pick a symbol" },
       { "<leader>fd",      "<cmd>TodoTelescope<cr>",          desc = "TODOs" },
@@ -312,7 +311,7 @@ local keymaps = {
 
 return {
   { 'echasnovski/mini.bufremove', version = false, lazy = false },
-  { 'echasnovski/mini.align',     version = false, event = "BufEnter" },
+  { 'echasnovski/mini.align',     version = false, lazy = false, config = true },
   {
     "ggandor/leap.nvim",
     version = false,
