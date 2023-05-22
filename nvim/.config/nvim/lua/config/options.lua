@@ -8,7 +8,6 @@ vim.opt.number = true
 vim.opt.signcolumn = "yes"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.o.guifont = "Lilex Nerd Font Mono:h10"
 vim.opt.clipboard = "unnamedplus"
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -22,4 +21,9 @@ if vim.g.in_wsl then
     paste = { ["+"] = { "nvim_paste" }, ["*"] = { "nvim_paste" } },
     cache_enabled = true
   }
+end
+
+-- neovide settings
+if vim.g.neovide then
+  vim.o.guifont = "Lilex Nerd Font Mono:h10:b:#e-subpixelantialias:#h-none"
 end

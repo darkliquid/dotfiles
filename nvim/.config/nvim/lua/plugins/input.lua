@@ -245,8 +245,6 @@ local keymaps = {
     icon = "",
     description = "Miscellaneous commands",
     keymaps = {
-      { "<leader>nl", "<cmd>Noice last<CR>",                  desc = "Show last notification" },
-      { "<leader>nd", "<cmd>Noice dismiss<CR>",               desc = "Dismiss all notifications" },
       { "<Esc>",      "<cmd>:noh<CR>",                        description = "Clear searches" },
       { "<leader>`",  "<cmd>ToggleTerm<cr>",                  desc = "Toggle Terminal" },
       { "<Tab>",      { n = "<cmd>BufferLineCycleNext<cr>" }, desc = "Next tab" },

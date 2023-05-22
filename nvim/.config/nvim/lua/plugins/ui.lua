@@ -106,71 +106,12 @@ return {
     event = "VeryLazy",
   },
   {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    cond = function()
-      return not vim.g.neovide
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-      "nvim-tree/nvim-web-devicons",
-      "adelarsq/vim-emoji-icon-theme",
-      "folke/trouble.nvim",
-    },
-    config = function()
-      require("noice").setup({
-        lsp = {
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-          }
-        },
-        presets = {
-          bottom_search = false,
-          command_palette = true,
-          long_message_to_split = true,
-          inc_rename = true,
-          lsp_doc_border = true,
-          cmdline_output_to_split = false,
-        },
-      })
-    end,
-  },
-  {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     config = function()
       local opts = {
         options = { disabled_filetypes = { 'alpha', 'TelescopePrompt' } },
       }
-
-      if not vim.g.neovide then
-        opts.sections = {
-          lualine_x = {
-            {
-              require("noice").api.status.message.get_hl,
-              cond = require("noice").api.status.message.has,
-            },
-            {
-              require("noice").api.status.command.get,
-              cond = require("noice").api.status.command.has,
-              color = { fg = "#ff9e64" },
-            },
-            {
-              require("noice").api.status.mode.get,
-              cond = require("noice").api.status.mode.has,
-              color = { fg = "#ff9e64" },
-            },
-            {
-              require("noice").api.status.search.get,
-              cond = require("noice").api.status.search.has,
-              color = { fg = "#ff9e64" },
-            },
-          },
-        }
-      end
 
       require("lualine").setup(opts)
     end,
@@ -196,7 +137,7 @@ return {
       require("toggleterm").setup(opts)
       local Terminal = require('toggleterm.terminal').Terminal
       local lazygit  = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float", float_opts = opts.float_opts })
-      function _lazygit_toggle()
+      function _G._lazygit_toggle()
         lazygit:toggle()
       end
 
@@ -252,8 +193,6 @@ return {
     'RRethy/vim-illuminate',
     event = "BufEnter",
     config = function()
-      vim.notify(vim.inspect(vim.g.filetypes_denylist))
-
       require('illuminate').configure({
         filetypes_denylist = {
           'dirvish',
