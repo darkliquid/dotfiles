@@ -41,3 +41,9 @@ vim.api.nvim_create_autocmd("User", {
    end,
   group = leap_illuminate,
 })
+
+-- Enable word wrap in telescope previewer
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TelescopePreviewerLoaded",
+  command = "setlocal wrap",
+})

@@ -146,7 +146,7 @@ return {
           -- abort autocomplete when escaping or moving out of the dropdown
           ['<Esc>']     = cmp.mapping.abort(),
           ['<Left>']    = cmp.mapping.abort(),
-          ['<Right>']   = cmp.mapping.confirm({ select = true }),
+          ['<Right>']   = cmp.mapping.abort(),
           -- scroll docs for the completion entries
           ['<S-Up>']    = cmp.mapping.scroll_docs(-4),
           ['<S-Down>']  = cmp.mapping.scroll_docs(4),

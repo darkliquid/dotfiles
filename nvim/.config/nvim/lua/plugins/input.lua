@@ -145,6 +145,7 @@ local keymaps = {
       { "<leader>fs",      "<cmd>Telescope symbols<cr>",      desc = "Pick a symbol" },
       { "<leader>fd",      "<cmd>TodoTelescope<cr>",          desc = "TODOs" },
       { "<leader>fc",      "<cmd>Telescope neoclip<cr>",      desc = "Clipboard" },
+      { "<leader>fi",      "<cmd>Telescope diagnostics<cr>",  desc = "Diagnostics" },
     },
   },
   {
@@ -152,13 +153,6 @@ local keymaps = {
     icon = "",
     description = "Code navigation and commands",
     keymaps = {
-      -- Trouble
-      {
-        "<leader>xx",
-        "<cmd>TroubleToggle<cr>",
-        desc =
-        "Toggle Diagnostics"
-      },
       -- Inc Rename
       {
         "<leader>rn",
@@ -216,12 +210,6 @@ local keymaps = {
         function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end,
         desc =
         "List Workspace Folders"
-      },
-      {
-        "<leader>ld",
-        function() vim.lsp.diagnostic.show_line_diagnostics() end,
-        desc =
-        "Show Line Diagnostics"
       },
       {
         "[d",
