@@ -36,3 +36,7 @@
 [delta]
 	navigate = true
 	side-by-side = true
+[init]
+  defaultBranch = main
+[include]
+  path = ~/.gitconfig.local
