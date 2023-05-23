@@ -25,6 +25,7 @@ return {
     },
     config = function()
       require('lsp-setup').setup({
+        default_mappings = false,
         servers = {
           pylsp = {},
           bashls = {},
@@ -92,7 +93,7 @@ return {
       { "hrsh7th/cmp-path" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-cmdline" },
-      { "L3MON4D3/LuaSnip" },
+      { "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
       { "ray-x/cmp-treesitter" },
       { "onsails/lspkind.nvim" },
       {
@@ -108,6 +109,7 @@ return {
       local cmp = require("cmp")
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')
       local lspkind = require('lspkind')
+      require("luasnip/loaders/from_vscode").lazy_load()
 
       -- autopairs on confirm
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
