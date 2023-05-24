@@ -1,32 +1,22 @@
 #!/bin/bash
 
-OMNISOCATCMD=$HOME/.local/bin/omni-socat.exe
+WSL2SSH=$HOME/.local/bin/wsl2-ssh-agent
 export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 
-__get_omnisocat () {
-  echo "Get omni-socat.exe"
-  curl https://github.com/masahide/OmniSSHAgent/releases/latest/download/omni-socat.zip \
-      -sLo omni-socat.zip
-  unzip -o omni-socat.zip -d $(dirname $OMNISOCATCMD)
-  rm omni-socat.zip
+__get_wsl2ssh () {
+  curl -Ls https://github.com/mame/wsl2-ssh-agent/releases/latest/download/wsl2-ssh-agent --output $WSL2SSH
+  chmod +x $WSL2SSH
 }
 
-__get_socat () {
-  echo "Install socat"
-  sudo apt -y install socat
-}
+setup_wsl2ssh () {
+  [[ -f $WSL2SSH ]] || __get_wsl2ssh
 
-
-setup_omnisocat () {
-  [[ -f $OMNISOCATCMD ]]  || __get_omnisocat
-  [[ -f /usr/bin/socat ]] || __get_socat
-  
   ss -a | grep -q $SSH_AUTH_SOCK
-  [[ $? -ne 0 ]]  || return
+  [[ $? -ne 0 ]] | return
 
   rm -f $SSH_AUTH_SOCK
-  (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"$OMNISOCATCMD",nofork &) >/dev/null 2>&1
+  eval $(wsl2-ssh-agent -socket $SSH_AUTH_SOCK)
 }
 
-setup_omnisocat
+setup_wsl2ssh
 
