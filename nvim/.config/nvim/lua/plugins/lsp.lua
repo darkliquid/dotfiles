@@ -19,13 +19,16 @@ return {
       },
       {
         "jinzhongjia/LspUI.nvim",
-        event="VeryLazy",
+        event = "VeryLazy",
       },
       { "dnlhc/glance.nvim", config = true },
     },
     config = function()
       require('lsp-setup').setup({
         default_mappings = false,
+        inlay_hints = {
+          enabled = true,
+        },
         servers = {
           pylsp = {},
           bashls = {},
@@ -35,7 +38,21 @@ return {
           cssls = {},
           dockerls = {},
           eslint = {},
-          gopls = {},
+          gopls = {
+            settings = {
+              gopls = {
+                hints = {
+                  rangeVariableTypes = true,
+                  parameterNames = true,
+                  constantValues = true,
+                  assignVariableTypes = true,
+                  compositeLiteralFields = true,
+                  compositeLiteralTypes = true,
+                  functionTypeParameters = true,
+                }
+              }
+            }
+          },
           html = {},
           tsserver = {},
           lua_ls = {
@@ -93,7 +110,7 @@ return {
       { "hrsh7th/cmp-path" },
       { "hrsh7th/cmp-buffer" },
       { "hrsh7th/cmp-cmdline" },
-      { "L3MON4D3/LuaSnip", dependencies = { "rafamadriz/friendly-snippets" } },
+      { "L3MON4D3/LuaSnip",                   dependencies = { "rafamadriz/friendly-snippets" } },
       { "ray-x/cmp-treesitter" },
       { "onsails/lspkind.nvim" },
       {
@@ -116,9 +133,6 @@ return {
 
       -- general cmp config
       cmp.setup({
-        experimental = {
-          ghost_text = true,
-        },
         formatting = {
           fields = { "menu", "abbr", "kind" },
           format = lspkind.cmp_format({
@@ -158,10 +172,10 @@ return {
           { name = "nvim_lsp_signature_help" },
           { name = "copilot" },
           { name = "path" },
-          { name = "buffer", keyword_length = 5 },
+          { name = "buffer",                 keyword_length = 5 },
           { name = "luasnip" },
           { name = "treesitter" },
-          { name = "rg", keyword_length = 5 },
+          { name = "rg",                     keyword_length = 5 },
           { name = "calc" }
         },
         snippet = {
@@ -227,5 +241,5 @@ return {
     },
   },
   -- show the indent levels
-  { "lukas-reineke/indent-blankline.nvim",        event = "VeryLazy" }
+  { "lukas-reineke/indent-blankline.nvim", event = "VeryLazy" }
 }

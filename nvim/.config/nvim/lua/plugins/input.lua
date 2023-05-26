@@ -334,8 +334,9 @@ return {
     event = "BufEnter",
     config = function()
       require("leap").add_default_mappings()
+      vim.keymap.set({'n', 'x', 'o'}, 't', function() require'leap-ast'.leap() end, {})
     end,
-    dependencies = { "tpope/vim-repeat" }
+    dependencies = { "tpope/vim-repeat", "ggandor/leap-ast.nvim" }
   },
   {
     "folke/which-key.nvim",
@@ -344,11 +345,9 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
       require("which-key").setup({
-        plugins = {
-          spelling = true,
+        key_labels = {
+          ["<leader>"] = "SPC"
         },
-        key_labels = { ["<leader>"] = "SPC" },
-        triggers = "auto",
       })
     end,
   },
