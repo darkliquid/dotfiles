@@ -232,5 +232,9 @@ return {
         changedelete = { text = "󰩺" },
       }
     }
+  },
+  {
+    'Bekaboo/dropbar.nvim',
+    lazy = false,
   }
 }

@@ -11,6 +11,8 @@ function SetupMultipleCursors()
 end
 
 function _G.close_to_dashboard(force)
+  require('glance').actions.close()
+
   -- If we are on the dashboard or the buftype isn't a file, we quit
   -- TODO: Make this more robust
   local bts = {
@@ -92,6 +94,14 @@ local keymaps = {
     end,
     desc =
     "Force Close Current Buffer"
+  },
+  {
+    "<leader>pw",
+    function()
+      local picked_window_id = require('window-picker').pick_window() or vim.api.nvim_get_current_win()
+      vim.api.nvim_set_current_win(picked_window_id)
+    end,
+    desc = "Pick a window"
   },
 
   -- Legendary
