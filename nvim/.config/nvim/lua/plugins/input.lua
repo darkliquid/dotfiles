@@ -11,7 +11,10 @@ function SetupMultipleCursors()
 end
 
 function _G.close_to_dashboard(force)
-  require('glance').actions.close()
+  local status, glance = pcall(require, 'glance')
+  if status then
+    glance.actions.close()
+  end
 
   -- If we are on the dashboard or the buftype isn't a file, we quit
   -- TODO: Make this more robust

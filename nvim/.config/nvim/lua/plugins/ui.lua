@@ -90,17 +90,6 @@ return {
     end,
   },
   {
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    event = "VeryLazy",
-    version = "*",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-      "SmiteshP/nvim-navic",
-    },
-    config = true,
-  },
-  {
     "stevearc/dressing.nvim",
     config = true,
     event = "VeryLazy",

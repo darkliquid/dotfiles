@@ -12,6 +12,12 @@ return {
           telescope = true,
           whichkey = true,
         },
+        options = {
+          styles = {
+            comments = 'NONE',
+            keywords = 'NONE'
+          },
+        },
         groups = {
           all = {
             AlphaButtons = { link = 'Normal' },
