@@ -16,6 +16,17 @@ function _G.close_to_dashboard(force)
     pcall(glance.actions.close)
   end
 
+  if vim.bo.filetype == 'toggleterm' then
+    local status, termui = pcall(require, 'toggleterm.ui')
+    if status then
+      local has_open, windows = termui.find_open_windows()
+      if has_open then
+        termui.close_and_save_terminal_view(windows)
+        return
+      end
+    end
+  end
+
   -- If we are on the dashboard or the buftype isn't a file, we quit
   -- TODO: Make this more robust
   local bts = {
@@ -256,12 +267,13 @@ local keymaps = {
     icon = "",
     description = "Miscellaneous commands",
     keymaps = {
-      { "<leader>`", "<cmd>ToggleTerm<cr>",                  desc = "Toggle Terminal" },
-      { "<Tab>",     { n = "<cmd>BufferLineCycleNext<cr>" }, desc = "Next tab" },
-      { "<S-Tab>",   { n = "<cmd>BufferLineCyclePrev<cr>" }, desc = "Prev tab" },
-      { "<C-,>",     function() require('sibling-swap').swap_with_left() end, desc = "Swap left" },
+      { "<leader>`", "<cmd>ToggleTerm<cr>",                                    desc = "Toggle Terminal" },
+      { "<Tab>",     { n = "<cmd>BufferLineCycleNext<cr>" },                   desc = "Next tab" },
+      { "<S-Tab>",   { n = "<cmd>BufferLineCyclePrev<cr>" },                   desc = "Prev tab" },
+      { "<C-,>",     function() require('sibling-swap').swap_with_left() end,  desc = "Swap left" },
       { "<C-.>",     function() require('sibling-swap').swap_with_right() end, desc = "Swap left" },
-      { "<leader>w", "<cmd>wincmd w<cr>",                    desc = "Cycle Splits" }
+      { "<leader>w", "<cmd>wincmd w<cr>",                                      desc = "Cycle Splits" },
+      { "<leader>d", function() require('dropbar.api').pick() end,             desc = "Pick from dropbar" }
     }
   },
 
