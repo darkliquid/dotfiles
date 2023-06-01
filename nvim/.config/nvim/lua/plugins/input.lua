@@ -22,6 +22,7 @@ function _G.close_to_dashboard(force)
     'prompt',
     'nofile',
     'quickfix',
+    'neotree'
   }
 
   for _, bt in ipairs(bts) do
@@ -34,7 +35,8 @@ function _G.close_to_dashboard(force)
   local fts = {
     'alpha',
     'qf',
-    'cmp_menu'
+    'cmp_menu',
+    'neotree'
   }
 
   for _, ft in ipairs(fts) do
@@ -49,7 +51,7 @@ function _G.close_to_dashboard(force)
   local count = 0
   for _, buf_hndl in ipairs(vim.api.nvim_list_bufs()) do
     -- we only count listed buffers that are not nofile or untyped
-    if vim.api.nvim_buf_is_loaded(buf_hndl) and vim.fn.getbufvar(buf_hndl, '&buftype') ~= 'nofile' and vim.fn.getbufvar(buf_hndl, '&buftype') ~= ''  then
+    if vim.api.nvim_buf_is_loaded(buf_hndl) and vim.fn.getbufvar(buf_hndl, '&buftype') ~= 'nofile' and vim.fn.getbufvar(buf_hndl, '&buftype') ~= '' then
       count = count + 1
     end
   end
@@ -239,16 +241,26 @@ local keymaps = {
       { "<leader>fm", function() vim.lsp.buf.format() end, desc = "Format" },
     },
   },
+  -- NeoTree
+  {
+    itemgroup = "NeoTree",
+    icon = "",
+    description = "File Tree commands",
+    keymaps = {
+      { "<leader>nn", "<cmd>NeoTreeFocusToggle<cr>", desc = "Toggle File Tree" },
+    },
+  },
   -- Misc
   {
     itemgroup = "Misc",
     icon = "",
     description = "Miscellaneous commands",
     keymaps = {
-      { "<Esc>",     "<cmd>:noh<CR>",                        description = "Clear searches" },
       { "<leader>`", "<cmd>ToggleTerm<cr>",                  desc = "Toggle Terminal" },
       { "<Tab>",     { n = "<cmd>BufferLineCycleNext<cr>" }, desc = "Next tab" },
       { "<S-Tab>",   { n = "<cmd>BufferLineCyclePrev<cr>" }, desc = "Prev tab" },
+      { "<C-,>",     function() require('sibling-swap').swap_with_left() end, desc = "Swap left" },
+      { "<C-.>",     function() require('sibling-swap').swap_with_right() end, desc = "Swap left" },
       { "<leader>w", "<cmd>wincmd w<cr>",                    desc = "Cycle Splits" }
     }
   },
@@ -347,7 +359,7 @@ return {
     event = "BufEnter",
     config = function()
       require("leap").add_default_mappings()
-      vim.keymap.set({'n', 'x', 'o'}, 't', function() require'leap-ast'.leap() end, {})
+      vim.keymap.set({ 'n', 'x', 'o' }, 't', function() require 'leap-ast'.leap() end, {})
     end,
     dependencies = { "tpope/vim-repeat", "ggandor/leap-ast.nvim" }
   },
@@ -384,5 +396,38 @@ return {
       })
       require("which-key").register({}, { prefix = "<leader>" })
     end,
+  },
+  {
+    'Wansmer/sibling-swap.nvim',
+    dependencies = {
+      'nvim-treesitter'
+    },
+    event = 'BufEnter',
+    config = function()
+      require('sibling-swap').setup({
+        use_default_keymaps = true,
+        allowed_separators = {
+          ',',
+          ';',
+          ':',
+          'and',
+          'or',
+          '&&',
+          '&',
+          '||',
+          '|',
+          '==',
+          '===',
+          '!=',
+          '!==',
+          '-',
+          '+',
+          ['<'] = '>',
+          ['<='] = '>=',
+          ['>'] = '<',
+          ['>='] = '<=',
+        },
+      })
+    end
   }
 }

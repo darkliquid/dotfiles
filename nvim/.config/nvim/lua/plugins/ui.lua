@@ -179,37 +179,6 @@ return {
   },
   { 'Bekaboo/deadcolumn.nvim', event = "BufEnter" },
   {
-    'RRethy/vim-illuminate',
-    event = "BufEnter",
-    config = function()
-      require('illuminate').configure({
-        filetypes_denylist = {
-          'dirvish',
-          "OverseerForm",
-          "OverseerList",
-          "floggraph",
-          "fugitive",
-          "git",
-          "help",
-          "lazy",
-          "lspinfo",
-          "man",
-          "neotest-output",
-          "neotest-summary",
-          "qf",
-          "query",
-          "spectre_panel",
-          "startuptime",
-          "toggleterm",
-          "tsplayground",
-          "vim",
-          "TelescopePrompt",
-          "alpha"
-        },
-      })
-    end,
-  },
-  {
     'lewis6991/gitsigns.nvim',
     event = "BufEnter",
     opts = {

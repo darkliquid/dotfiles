@@ -22,26 +22,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
--- Leap
-local leap_illuminate = vim.api.nvim_create_augroup("LeapIlluminate", { clear = true })
-
-vim.api.nvim_create_autocmd("User", {
-  pattern = "LeapEnter",
-  callback = function()
-    require("illuminate").pause()
-  end,
-  group = leap_illuminate,
-})
-
-vim.api.nvim_create_autocmd("User", {
-  pattern = "LeapLeave",
-  callback = function()
-    require("illuminate").resume()
-    vim.cmd("normal zz")
-   end,
-  group = leap_illuminate,
-})
-
 -- Enable word wrap in telescope previewer
 vim.api.nvim_create_autocmd("User", {
   pattern = "TelescopePreviewerLoaded",

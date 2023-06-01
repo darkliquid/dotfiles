@@ -58,6 +58,8 @@ return {
         },
         rainbow = {
           enable = true,
+          query = 'rainbow-parens',
+          strategy = require('ts-rainbow').strategy.global
         },
         textobjects = {
           select = {
