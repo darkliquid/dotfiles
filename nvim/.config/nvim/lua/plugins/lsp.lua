@@ -173,6 +173,22 @@ return {
           ['<S-Up>']    = cmp.mapping.scroll_docs(-4),
           ['<S-Down>']  = cmp.mapping.scroll_docs(4),
         }),
+        sorting = {
+          priority_weight = 2,
+          comparators = {
+            require("copilot_cmp.comparators").prioritize,
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.score,
+            cmp.config.compare.recently_used,
+            cmp.config.compare.locality,
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+          }
+
+        },
         sources = {
           { name = "nvim_lsp" },
           { name = "nvim_lsp_signature_help" },
