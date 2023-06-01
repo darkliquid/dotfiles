@@ -13,7 +13,7 @@ end
 function _G.close_to_dashboard(force)
   local status, glance = pcall(require, 'glance')
   if status then
-    glance.actions.close()
+    pcall(glance.actions.close)
   end
 
   -- If we are on the dashboard or the buftype isn't a file, we quit
@@ -48,8 +48,8 @@ function _G.close_to_dashboard(force)
 
   local count = 0
   for _, buf_hndl in ipairs(vim.api.nvim_list_bufs()) do
-    -- we only count listed buffers that are not nofile
-    if vim.api.nvim_buf_is_loaded(buf_hndl) and vim.fn.getbufvar(buf_hndl, '&buftype') ~= 'nofile' then
+    -- we only count listed buffers that are not nofile or untyped
+    if vim.api.nvim_buf_is_loaded(buf_hndl) and vim.fn.getbufvar(buf_hndl, '&buftype') ~= 'nofile' and vim.fn.getbufvar(buf_hndl, '&buftype') ~= ''  then
       count = count + 1
     end
   end

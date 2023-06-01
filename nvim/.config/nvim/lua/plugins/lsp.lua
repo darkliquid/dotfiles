@@ -85,7 +85,7 @@ return {
                 diagnostics = {
                   globals = {}
                 }
-              }
+              },
             }
           },
           prosemd_lsp = {},
@@ -93,7 +93,13 @@ return {
           powershell_es = {},
           sqlls = {},
           taplo = {},
-          yamlls = {},
+          yamlls = {
+            settings = {
+              yaml = {
+                keyOrdering = false,
+              }
+            }
+          },
           zls = {},
           jsonls = {},
         },
