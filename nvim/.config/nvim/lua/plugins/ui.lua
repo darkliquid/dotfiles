@@ -322,7 +322,7 @@ return {
           mappings = {
             ["<space>"] = {
               "toggle_node",
-              nowait = false,   -- disable `nowait` if you have existing combos starting with this char that you want to use
+              nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
             },
             ["<2-LeftMouse>"] = "open",
             ["<cr>"] = "open",
@@ -421,7 +421,7 @@ return {
               ["]g"] = "next_git_modified",
             },
             fuzzy_finder_mappings = {
-                                      -- define keymaps for filter popup window in fuzzy_finder_mode
+              -- define keymaps for filter popup window in fuzzy_finder_mode
               ["<down>"] = "move_cursor_down",
               ["<C-n>"] = "move_cursor_down",
               ["<up>"] = "move_cursor_up",
@@ -461,6 +461,34 @@ return {
       })
 
       vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
+    end
+  },
+  {
+    'anuvyklack/pretty-fold.nvim',
+    event = 'BufRead',
+    config = function()
+      require('pretty-fold').setup({
+        keep_indentation = false,
+        fill_char = '━',
+        sections = {
+          left = {
+            '━ ', function() return string.rep('*', vim.v.foldlevel) end, ' ━┫', 'content', '┣'
+          },
+          right = {
+            '┫ ', 'number_of_folded_lines', ': ', 'percentage', ' ┣━━',
+          }
+        }
+      })
+    end,
+  },
+  {
+    'anuvyklack/fold-preview.nvim',
+    event = 'BufRead',
+    config = function()
+      require('fold-preview').setup({
+        auto = 400,
+        default_keybindings = false
+      })
     end
   }
 }
