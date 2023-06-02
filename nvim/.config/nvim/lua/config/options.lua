@@ -28,3 +28,8 @@ if vim.g.neovide then
   vim.o.guifont = "Lilex Nerd Font Mono:h11"
   vim.opt.linespace = -1
 end
+
+-- Treesitter folding
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+

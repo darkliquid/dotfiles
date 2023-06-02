@@ -86,40 +86,6 @@ function _G.close_to_dashboard(force)
 end
 
 local keymaps = {
-  -- Plugin Manager
-  {
-    "<leader>z",
-    "<cmd>:Lazy<cr>",
-    desc =
-    "Plugin Manager"
-  },
-
-  -- Smart-ish Close
-  {
-    "<leader>q",
-    function()
-      close_to_dashboard(false)
-    end,
-    desc =
-    "Close Current Buffer"
-  },
-  {
-    "<leader>qq",
-    function()
-      close_to_dashboard(true)
-    end,
-    desc =
-    "Force Close Current Buffer"
-  },
-  {
-    "<leader>pw",
-    function()
-      local picked_window_id = require('window-picker').pick_window() or vim.api.nvim_get_current_win()
-      vim.api.nvim_set_current_win(picked_window_id)
-    end,
-    desc = "Pick a window"
-  },
-
   -- Legendary
   {
     itemgroup = "Legendary",
@@ -273,7 +239,33 @@ local keymaps = {
       { "<C-,>",     function() require('sibling-swap').swap_with_left() end,  desc = "Swap left" },
       { "<C-.>",     function() require('sibling-swap').swap_with_right() end, desc = "Swap left" },
       { "<leader>w", "<cmd>wincmd w<cr>",                                      desc = "Cycle Splits" },
-      { "<leader>d", function() require('dropbar.api').pick() end,             desc = "Pick from dropbar" }
+      { "<leader>d", function() require('dropbar.api').pick() end,             desc = "Pick from dropbar" },
+      { "<F1>",      "<cmd>:WhichKey<cr>",                                     desc = "Keymap Help" },
+      -- Plugin Manager
+      {
+        "<leader>z",
+        "<cmd>:Lazy<cr>",
+        desc =
+        "Plugin Manager"
+      },
+
+      -- Smart-ish Close
+      {
+        "<leader>q",
+        function()
+          close_to_dashboard(false)
+        end,
+        desc =
+        "Close Current Buffer/Tab/Window"
+      },
+      {
+        "<leader>qq",
+        function()
+          close_to_dashboard(true)
+        end,
+        desc =
+        "Force Close Current Buffer/Tab/Window"
+      },
     }
   },
 

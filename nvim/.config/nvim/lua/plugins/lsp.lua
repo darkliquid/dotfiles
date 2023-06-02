@@ -53,6 +53,7 @@ return {
               }
             }
           },
+          rust_analyzer = {},
           html = {},
           tsserver = {},
           lua_ls = {
