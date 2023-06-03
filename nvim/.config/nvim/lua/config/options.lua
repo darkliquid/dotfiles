@@ -1,18 +1,29 @@
+-- netrw suppression
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.opt.colorcolumn = { 80, 100, 120 }
+
+-- tabs
 vim.opt.tabstop = 2
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
-vim.opt.number = true
+vim.opt.softtabstop = -1
+vim.opt.smarttab = true
+
+-- columns
 vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = { 80, 100, 120 }
+vim.opt.number = true
+
+-- case-sensitivity
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.clipboard = "unnamedplus"
+
+-- <leader> mapping
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- magic WSL clipboard support
+-- clipboard
+vim.opt.clipboard = "unnamedplus"
 vim.g.in_wsl = os.getenv('WSL_DISTRO_NAME') ~= nil
 if vim.g.in_wsl then
   vim.g.clipboard = {
