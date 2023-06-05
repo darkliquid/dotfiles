@@ -150,24 +150,23 @@ return {
         formatting = {
           fields = { "menu", "abbr", "kind" },
           format = function(entry, item)
+            local item = lspkind.cmp_format({
+              mode = "symbol_text",
+              menu = ({
+                buffer     = "[Buffer]",
+                nvim_lsp   = "[LSP]",
+                nvim_lua   = "[Lua]",
+                luasnip    = "[Snippet]",
+                treesitter = "[TS]",
+                path       = "[Path]",
+                calc       = "[Calc]",
+                rg         = "[Rg]",
+                copilot    = "[Copilot]",
 
-          item = lspkind.cmp_format({
-            mode = "symbol_text",
-            menu = ({
-              buffer     = "[Buffer]",
-              nvim_lsp   = "[LSP]",
-              nvim_lua   = "[Lua]",
-              luasnip    = "[Snippet]",
-              treesitter = "[TS]",
-              path       = "[Path]",
-              calc       = "[Calc]",
-              rg         = "[Rg]",
-              copilot    = "[Copilot]",
-
-            }),
-            max_width = 50,
-            symbol_map = { Copilot = "" }
-          })(entry, item)
+              }),
+              max_width = 50,
+              symbol_map = { Copilot = "" }
+            })(entry, item)
             local duplicates = {
               buffer = 1,
               path = 1,
@@ -181,13 +180,13 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ['<CR>']      = cmp.mapping({
-            i = cmp.mapping.confirm(function(fb)
+            i = function(fb)
               if cmp.visible() and cmp.get_active_entry() then
                 cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
               else
                 fb()
               end
-            end),
+            end,
             s = cmp.mapping.confirm({ select = true }),
             c = function(fallback)
               if cmp.visible() and cmp.get_active_entry() then
@@ -206,7 +205,7 @@ return {
           ['<S-Up>']    = cmp.mapping.scroll_docs(-4),
           ['<S-Down>']  = cmp.mapping.scroll_docs(4),
           -- Code annotations
-          ["<Down>"] = cmp.mapping(function(fallback)
+          ["<Down>"]    = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
             elseif luasnip.expand_or_jumpable() then
@@ -223,7 +222,7 @@ return {
             "s",
             "c",
           }),
-          ["<Up>"] = cmp.mapping(function(fallback)
+          ["<Up>"]      = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
             elseif luasnip.jumpable(-1) then
