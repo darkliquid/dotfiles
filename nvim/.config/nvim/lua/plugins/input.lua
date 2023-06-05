@@ -183,7 +183,7 @@ local keymaps = {
         desc =
         "Go to Implementation"
       },
-      { "K",          function() vim.cmd("LspUI hover") end,       desc = "Hover" },
+      { "K",          function() require("hover").hover() end,       desc = "Hover", mode = 'n' },
       { "<leader>ca", function() vim.cmd("LspUI code_action") end, desc = "Code Action" },
       {
         "<leader>wa",

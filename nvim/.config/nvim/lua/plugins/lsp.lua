@@ -204,7 +204,7 @@ return {
           -- scroll docs for the completion entries
           ['<S-Up>']    = cmp.mapping.scroll_docs(-4),
           ['<S-Down>']  = cmp.mapping.scroll_docs(4),
-          -- Code annotations
+          -- Cmp nav
           ["<Down>"]    = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
@@ -212,8 +212,6 @@ return {
               luasnip.expand_or_jump()
             elseif neogen.jumpable() then
               neogen.jump_next()
-            elseif has_words_before() then
-              cmp.complete()
             else
               fallback()
             end
