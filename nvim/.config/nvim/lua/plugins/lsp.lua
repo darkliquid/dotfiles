@@ -132,8 +132,15 @@ return {
     config = function()
       local cmp = require("cmp")
       local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      local neogen = require("neogen")
+      local luasnip = require('luasnip')
       local lspkind = require('lspkind')
       require("luasnip/loaders/from_vscode").lazy_load()
+
+      local has_words_before = function()
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match "%s" == nil
+      end
 
       -- autopairs on confirm
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
@@ -142,7 +149,9 @@ return {
       cmp.setup({
         formatting = {
           fields = { "menu", "abbr", "kind" },
-          format = lspkind.cmp_format({
+          format = function(entry, item)
+
+          item = lspkind.cmp_format({
             mode = "symbol_text",
             menu = ({
               buffer     = "[Buffer]",
@@ -158,13 +167,29 @@ return {
             }),
             max_width = 50,
             symbol_map = { Copilot = "" }
-          })
-
+          })(entry, item)
+            local duplicates = {
+              buffer = 1,
+              path = 1,
+              nvim_lsp = 0,
+              luasnip = 1,
+            }
+            local duplicates_default = 0
+            item.dup = duplicates[entry.source.name] or duplicates_default
+            return item
+          end
         },
         mapping = cmp.mapping.preset.insert({
-          ['<Down>']    = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-          ['<Up>']      = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-          ['<CR>']      = cmp.mapping.confirm({ select = false }),
+          ['<CR>']      = cmp.mapping({
+            i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
+            c = function(fallback)
+              if cmp.visible() then
+                cmp.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false }
+              else
+                fallback()
+              end
+            end,
+          }),
           ['<C-Space>'] = cmp.mapping.complete(),
           -- abort autocomplete when escaping or moving out of the dropdown
           ['<Esc>']     = cmp.mapping.abort(),
@@ -173,6 +198,39 @@ return {
           -- scroll docs for the completion entries
           ['<S-Up>']    = cmp.mapping.scroll_docs(-4),
           ['<S-Down>']  = cmp.mapping.scroll_docs(4),
+          -- Code annotations
+          ["<Down>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            elseif neogen.jumpable() then
+              neogen.jump_next()
+            elseif has_words_before() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end, {
+            "i",
+            "s",
+            "c",
+          }),
+          ["<Up>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            elseif neogen.jumpable(true) then
+              neogen.jump_prev()
+            else
+              fallback()
+            end
+          end, {
+            "i",
+            "s",
+            "c",
+          }),
         }),
         sorting = {
           priority_weight = 2,
@@ -203,7 +261,7 @@ return {
         },
         snippet = {
           expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
           end,
         },
         window = {
@@ -264,5 +322,17 @@ return {
     },
   },
   -- show the indent levels
-  { "lukas-reineke/indent-blankline.nvim", event = "VeryLazy" }
+  { "lukas-reineke/indent-blankline.nvim", event = "VeryLazy" },
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    event = "VeryLazy",
+    config = function(_, opts)
+      require("refactoring").setup(opts)
+      require("telescope").load_extension("refactoring")
+    end,
+  }
 }

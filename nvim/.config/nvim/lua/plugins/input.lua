@@ -216,6 +216,11 @@ local keymaps = {
         "Go to Next Diagnostic"
       },
       { "<leader>fm", function() vim.lsp.buf.format() end, desc = "Format" },
+      { "<leader>cgd", function() require("neogen").generate() end,                  desc = "Annotation", },
+      { "<leader>cgc", function() require("neogen").generate { type = "class" } end, desc = "Class Annotation", },
+      { "<leader>cgf", function() require("neogen").generate { type = "func" } end,  desc = "Function Annotation", },
+      { "<leader>cgt", function() require("neogen").generate { type = "type" } end,  desc = "Type Annotation", },
+      { "<leader>cF", function() require("telescope").extensions.refactoring.refactors() end, mode = { "v" }, desc = "Refactor", },
     },
   },
   -- NeoTree

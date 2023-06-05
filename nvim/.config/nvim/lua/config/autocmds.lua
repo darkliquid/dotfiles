@@ -27,3 +27,9 @@ vim.api.nvim_create_autocmd("User", {
   pattern = "TelescopePreviewerLoaded",
   command = "setlocal wrap",
 })
+
+-- Open folds on file open
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  pattern = "*",
+  command = "normal! zR",
+})

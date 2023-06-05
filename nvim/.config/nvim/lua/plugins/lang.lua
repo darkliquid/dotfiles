@@ -136,5 +136,47 @@ return {
     event = { "CmdlineEnter" },
     ft = { "go", 'gomod' },
     build = ':lua require("go.install").update_all_sync()' -- if you need to install/update all binaries
+  },
+  {
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    config = true,
+    opts = {
+      snippet_engine = "luasnip",
+      enabled = true,
+      languages = {
+        lua = {
+          template = {
+            annotation_convention = "ldoc",
+          },
+        },
+        python = {
+          template = {
+            annotation_convention = "google_docstrings",
+          },
+        },
+        rust = {
+          template = {
+            annotation_convention = "rustdoc",
+          },
+        },
+        javascript = {
+          template = {
+            annotation_convention = "jsdoc",
+          },
+        },
+        typescript = {
+          template = {
+            annotation_convention = "tsdoc",
+          },
+        },
+        typescriptreact = {
+          template = {
+            annotation_convention = "tsdoc",
+          },
+        },
+      },
+    },
   }
+
 }
