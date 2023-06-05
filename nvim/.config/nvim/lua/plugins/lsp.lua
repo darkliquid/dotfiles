@@ -181,10 +181,17 @@ return {
         },
         mapping = cmp.mapping.preset.insert({
           ['<CR>']      = cmp.mapping({
-            i = cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false },
+            i = cmp.mapping.confirm(function(fb)
+              if cmp.visible() and cmp.get_active_entry() then
+                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+              else
+                fb()
+              end
+            end),
+            s = cmp.mapping.confirm({ select = true }),
             c = function(fallback)
-              if cmp.visible() then
-                cmp.confirm { behavior = cmp.ConfirmBehavior.Replace, select = false }
+              if cmp.visible() and cmp.get_active_entry() then
+                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
               else
                 fallback()
               end
