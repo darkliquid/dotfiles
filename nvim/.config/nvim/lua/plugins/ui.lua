@@ -130,9 +130,18 @@ return {
         lazygit:toggle()
       end
 
-      --Need to bind here since we need the lazygit variable to be initialized
+      -- setup jira
+      local jira = Terminal:new({cmd = "jira sprint list --table --current", hidden = true, direction = "float", float_opts = opts.float_opts})
+      function _G._jira_toggle()
+        jira:toggle()
+      end
+
+
+      --Need to bind here since we need the terminals to be initialized
       vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>",
         { noremap = true, silent = true, desc = "Toggle LazyGit" })
+      vim.api.nvim_set_keymap("n", "<leader>j", "<cmd>lua _jira_toggle()<CR>",
+        { noremap = true, silent = true, desc = "Toggle JIRA" })
     end,
   },
   {
