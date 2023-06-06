@@ -1,10 +1,5 @@
--- Shorten function name
-local keymap = vim.keymap.set
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
 
---Terminal escape
-keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { silent = true, desc = "Escape terminal mode"})
-
--- Double click to toggle folds
-keymap('n', '<2-LeftMouse>', 'za', { noremap = true, silent = true })
-
--- See plugins/input.lua for more keymaps
+vim.keymap.set("n", "<leader>?", "<cmd>WhichKey<cr>", { desc = "Show keymap help" })
