@@ -5,6 +5,10 @@
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
+  {
+    "lvimuser/lsp-inlayhints.nvim",
+    branch = "anticonceal",
+  },
   -- add github_dark theme
   {
     "projekt0n/github-nvim-theme",
@@ -23,12 +27,6 @@ return {
           treesitter = true,
           treesitter_context = true,
           whichkey = true,
-        },
-        options = {
-          styles = {
-            comments = "NONE",
-            keywords = "NONE",
-          },
         },
         groups = {
           all = {

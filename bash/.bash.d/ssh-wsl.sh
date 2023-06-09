@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# only needed for wsl
-if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
-	return
-fi
-
 WSL2SSH=$HOME/.local/bin/wsl2-ssh-agent
 export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 
@@ -23,4 +18,7 @@ setup_wsl2ssh() {
 	eval $(wsl2-ssh-agent -socket $SSH_AUTH_SOCK)
 }
 
-setup_wsl2ssh
+# only needed for wsl
+if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
+	setup_wsl2ssh
+fi
