@@ -128,4 +128,14 @@ return {
       end,
     },
   },
+
+  -- lsp additions
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        bufls = {},
+      },
+    },
+  },
 }
