@@ -12,7 +12,7 @@ setup_wsl2ssh() {
 	[[ -f $WSL2SSH ]] || __get_wsl2ssh
 
 	ss -a | grep -q $SSH_AUTH_SOCK
-	[[ $? -ne 0 ]] | return
+	[[ $? -ne 0 ]] || return
 
 	rm -f $SSH_AUTH_SOCK
 	eval $(wsl2-ssh-agent -socket $SSH_AUTH_SOCK)

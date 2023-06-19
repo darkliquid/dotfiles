@@ -15,3 +15,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     require("lsp-inlayhints").on_attach(client, bufnr)
   end,
 })
+
+vim.api.nvim_create_augroup("protobuf_commands", {})
+vim.api.nvim_create_autocmd("Filetype", {
+  group = "protobuf_commands",
+  pattern = { "proto" },
+  callback = function()
+    vim.api.nvim_set_keymap("n", "<leader>cf", ":%!buf format<CR>", { noremap = true })
+  end,
+})
