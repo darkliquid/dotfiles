@@ -6,6 +6,16 @@
 -- * override the configuration of LazyVim plugins
 return {
   {
+    "folke/flash.nvim",
+    opts = {
+      highlight = {
+        label = {
+          rainbow = { enabled = true },
+        },
+      },
+    },
+  },
+  {
     "lvimuser/lsp-inlayhints.nvim",
     branch = "anticonceal",
   },
