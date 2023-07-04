@@ -3,8 +3,9 @@ return {
     "nvim-neotest/neotest",
     dependencies = {
       "nvim-neotest/neotest-go",
+      "nvim-neotest/neotest-plenary",
     },
-    config = function()
+    opts = function(_, opts)
       -- get neotest namespace (api call creates or returns namespace)
       local neotest_ns = vim.api.nvim_create_namespace("neotest")
       vim.diagnostic.config({
@@ -15,16 +16,12 @@ return {
           end,
         },
       }, neotest_ns)
-      require("neotest").setup({
-        -- your neotest config here
-        adapters = {
-          require("neotest-go")({
-            experimental = {
-              test_table = true,
-            },
-          }),
+
+      opts.adapters["neotest-go"] = {
+        experimental = {
+          test_table = true,
         },
-      })
+      }
     end,
   },
 }
