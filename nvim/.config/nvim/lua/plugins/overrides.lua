@@ -14,10 +14,6 @@ return {
     },
   },
   {
-    "lvimuser/lsp-inlayhints.nvim",
-    branch = "anticonceal",
-  },
-  {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-cmdline",

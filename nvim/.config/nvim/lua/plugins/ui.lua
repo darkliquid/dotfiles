@@ -46,39 +46,47 @@ return {
   },
   {
     "roobert/search-replace.nvim",
-    keys = {
-      { "<C-r>", "<CMD>SearchReplaceSingleBufferVisualSelection<CR>", desc = "Search & Replace in Buffer", mode = "v" },
-      { "<C-s>", "<CMD>SearchReplaceWithinVisualSelection<CR>", desc = "Search & Replace in Selection", mode = "v" },
-      {
-        "<C-b>",
-        "<CMD>SearchReplaceWithinVisualSelectionCWord<CR>",
-        desc = "Search & Replace in Selection (cword)",
-        mode = "v",
-      },
+    keys = function()
+      require("which-key").register({
+        ["<leader>r"] = { name = "+replace" },
+        ["<leader>rb"] = { name = "+multibuffer" },
+      })
 
-      { "<leader>rs", "<CMD>SearchReplaceSingleBufferSelections<CR>", desc = "Selections" },
-      { "<leader>ro", "<CMD>SearchReplaceSingleBufferOpen<CR>", desc = "Open" },
-      { "<leader>rw", "<CMD>SearchReplaceSingleBufferCWord<CR>", desc = "CWord" },
-      { "<leader>rW", "<CMD>SearchReplaceSingleBufferCWORD<CR>", desc = "CWORD" },
-      { "<leader>re", "<CMD>SearchReplaceSingleBufferCExpr<CR>", desc = "CExpr" },
-      { "<leader>rf", "<CMD>SearchReplaceSingleBufferCFile<CR>", desc = "CFile" },
+      return {
+        {
+          "<C-r>",
+          "<CMD>SearchReplaceSingleBufferVisualSelection<CR>",
+          desc = "Search & Replace in Buffer",
+          mode = "v",
+        },
+        { "<C-s>", "<CMD>SearchReplaceWithinVisualSelection<CR>", desc = "Search & Replace in Selection", mode = "v" },
+        {
+          "<C-b>",
+          "<CMD>SearchReplaceWithinVisualSelectionCWord<CR>",
+          desc = "Search & Replace in Selection (cword)",
+          mode = "v",
+        },
 
-      { "<leader>rbs", "<CMD>SearchReplaceMultiBufferSelections<CR>", desc = "Selections" },
-      { "<leader>rbo", "<CMD>SearchReplaceMultiBufferOpen<CR>", desc = "Open" },
-      { "<leader>rbw", "<CMD>SearchReplaceMultiBufferCWord<CR>", desc = "CWord" },
-      { "<leader>rbW", "<CMD>SearchReplaceMultiBufferCWORD<CR>", desc = "CWORD" },
-      { "<leader>rbe", "<CMD>SearchReplaceMultiBufferCExpr<CR>", desc = "CExpr" },
-      { "<leader>rbf", "<CMD>SearchReplaceMultiBufferCFile<CR>", desc = "CFile" },
-    },
+        { "<leader>rs", "<CMD>SearchReplaceSingleBufferSelections<CR>", desc = "Selections" },
+        { "<leader>ro", "<CMD>SearchReplaceSingleBufferOpen<CR>", desc = "Open" },
+        { "<leader>rw", "<CMD>SearchReplaceSingleBufferCWord<CR>", desc = "CWord" },
+        { "<leader>rW", "<CMD>SearchReplaceSingleBufferCWORD<CR>", desc = "CWORD" },
+        { "<leader>re", "<CMD>SearchReplaceSingleBufferCExpr<CR>", desc = "CExpr" },
+        { "<leader>rf", "<CMD>SearchReplaceSingleBufferCFile<CR>", desc = "CFile" },
+
+        { "<leader>rbs", "<CMD>SearchReplaceMultiBufferSelections<CR>", desc = "Selections" },
+        { "<leader>rbo", "<CMD>SearchReplaceMultiBufferOpen<CR>", desc = "Open" },
+        { "<leader>rbw", "<CMD>SearchReplaceMultiBufferCWord<CR>", desc = "CWord" },
+        { "<leader>rbW", "<CMD>SearchReplaceMultiBufferCWORD<CR>", desc = "CWORD" },
+        { "<leader>rbe", "<CMD>SearchReplaceMultiBufferCExpr<CR>", desc = "CExpr" },
+        { "<leader>rbf", "<CMD>SearchReplaceMultiBufferCFile<CR>", desc = "CFile" },
+      }
+    end,
     config = function()
       require("search-replace").setup({
         -- optionally override defaults
         default_replace_single_buffer_options = "gcI",
         default_replace_multi_buffer_options = "egcI",
-      })
-      require("which-key").register({
-        ["<leader>r"] = { name = "+replace" },
-        ["<leader>rb"] = { name = "+multibuffer" },
       })
     end,
   },
