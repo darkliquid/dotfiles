@@ -1,5 +1,32 @@
 return {
   {
+    "willothy/flatten.nvim",
+    opts = {
+      callbacks = {
+        should_block = function(argv)
+          return vim.tbl_contains(argv, "-b")
+        end,
+        post_open = function(bufnr, winnr, ft, is_blocking)
+          if is_blocking then
+            local Util = require("lazyvim.util")
+            local term = Util.float_term(nil, { cwd = Util.get_root() })
+            term:close()
+          else
+            vim.api.nvim_set_current_win(winnr)
+          end
+        end,
+        block_end = function()
+          local Util = require("lazyvim.util")
+          local term = Util.float_term(nil, { cwd = Util.get_root() })
+          term:close()
+        end,
+      },
+    },
+    config = true,
+    lazy = false,
+    priority = 1001,
+  },
+  {
     "folke/noice.nvim",
     opts = function(_, opts)
       table.insert(opts.routes, {
