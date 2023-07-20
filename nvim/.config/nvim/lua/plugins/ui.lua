@@ -32,9 +32,18 @@ return {
       table.insert(opts.routes, {
         filter = {
           event = "notify",
-          find = "No information available",
+          find = "no information available",
         },
         opts = { skip = true },
+      })
+
+      -- Only do a mini notification for autosave
+      table.insert(opts.routes, {
+        filter = {
+          event = "msg_show",
+          find = "AutoSave",
+        },
+        view = "mini",
       })
 
       opts.presets = {
