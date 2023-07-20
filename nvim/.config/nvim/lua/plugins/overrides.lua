@@ -13,7 +13,6 @@ return {
           require("edgy").goto_main()
           vim.api.nvim_win_set_buf(0, bufnum)
         end,
-        always_show_bufferline = true,
       },
     },
   },
