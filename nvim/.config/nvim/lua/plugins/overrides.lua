@@ -6,6 +6,18 @@
 -- * override the configuration of LazyVim plugins
 return {
   {
+    "akinsho/bufferline.nvim",
+    opts = {
+      options = {
+        left_mouse_command = function(bufnum)
+          require("edgy").goto_main()
+          vim.api.nvim_win_set_buf(0, bufnum)
+        end,
+        always_show_bufferline = true,
+      },
+    },
+  },
+  {
     "folke/flash.nvim",
     opts = {
       label = {
@@ -193,6 +205,7 @@ return {
       },
       servers = {
         bufls = {},
+        cssls = {},
       },
     },
   },
