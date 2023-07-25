@@ -198,10 +198,22 @@ return {
   -- lsp additions
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    },
+    init = function()
+      require("lsp_lines").setup()
+    end,
+    keys = { { "<leader>xl", "<cmd>lua require('lsp_lines').toggle()<cr>", desc = "Toggle LSP Lines" } },
     opts = {
+      diagnostics = {
+        virtual_text = false,
+        virtual_lines = { only_current_line = true },
+      },
       inlay_hints = {
         enabled = false,
       },
+      autoformat = false,
       servers = {
         bufls = {},
         cssls = {},
