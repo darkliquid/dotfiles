@@ -24,3 +24,16 @@ vim.api.nvim_create_autocmd("FileType", {
     })
   end,
 })
+
+-- update barbecue on cursor movement
+vim.api.nvim_create_autocmd({
+  "WinResized",
+  "BufWinEnter",
+  "CursorHold",
+  "InsertLeave",
+}, {
+  group = augroup("barbecue.updater"),
+  callback = function()
+    require("barbecue.ui").update()
+  end,
+})
