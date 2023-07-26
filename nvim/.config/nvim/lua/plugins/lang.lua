@@ -6,7 +6,13 @@ return {
       "nvim-treesitter/nvim-treesitter",
     },
     config = function()
-      require("go").setup()
+      require("go").setup({
+        lsp_inlay_hints = {
+          enable = false,
+        },
+        trouble = true,
+        luasnip = true,
+      })
     end,
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },

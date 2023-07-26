@@ -7,8 +7,8 @@ alias vi=nvim
 
 function nvide() {
 	if [ -z "$1" ]; then
-		neovide.exe --wsl &
+		neovide.exe --wsl --multigrid &
 	else
-		neovide.exe --wsl "$1" &
+		neovide.exe --wsl --multigrid "$1" &
 	fi
 }
