@@ -1,6 +1,6 @@
 return {
   {
-    "pocco81/auto-save.nvim",
+    "okuuva/auto-save.nvim",
     config = true,
     event = "BufEnter",
   },
