@@ -9,4 +9,12 @@ return {
     config = true,
     event = "VeryLazy",
   },
+  {
+    "ThePrimeagen/refactoring.nvim",
+    config = true,
+    event = "BufEnter",
+    keys = {
+      { "<leader>sf", function() require('telescope').extensions.refactoring.refactors() end, desc = "Refactor" },
+    },
+  }
 }

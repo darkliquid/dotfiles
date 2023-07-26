@@ -2,11 +2,25 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
-vim.api.nvim_create_augroup("protobuf_commands", {})
+local function augroup(name)
+  return vim.api.nvim_create_augroup(name, { clear = true })
+end
+
 vim.api.nvim_create_autocmd("Filetype", {
-  group = "protobuf_commands",
+  group = augroup("protobuf_commands"),
   pattern = { "proto" },
   callback = function()
     vim.api.nvim_set_keymap("n", "<leader>cf", ":%!buf format<CR>", { noremap = true })
+  end,
+})
+
+-- wrap and check for spell in text filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("lazy_tweaks"),
+  pattern = { "lazy" },
+  callback = function()
+    vim.diagnostic.config({
+      virtual_lines = false,
+    })
   end,
 })
