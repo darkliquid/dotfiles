@@ -16,5 +16,9 @@ return {
     keys = {
       { "<leader>sf", function() require('telescope').extensions.refactoring.refactors() end, desc = "Refactor" },
     },
+  },
+  {
+    "max397574/better-escape.nvim",
+    config = true
   }
 }

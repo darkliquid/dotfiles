@@ -34,6 +34,7 @@ return {
     "hrsh7th/nvim-cmp",
     dependencies = {
       "hrsh7th/cmp-cmdline",
+      "lukas-reineke/cmp-under-comparator",
     },
     opts = function(_, opts)
       local has_words_before = function()
@@ -44,14 +45,15 @@ return {
 
       local luasnip = require("luasnip")
       local cmp = require("cmp")
+      local cmp_buffer = require("cmp_buffer")
+      local compare = require("cmp.config.compare")
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<S-Up>"] = cmp.mapping.scroll_docs(-4),
+        ["<S-Down>"] = cmp.mapping.scroll_docs(4),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
             cmp.select_next_item()
-          -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-          -- this way you will only jump inside the snippet region
           elseif luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
           elseif has_words_before() then
@@ -69,6 +71,51 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+      })
+
+      -- custom sources
+      opts.sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "path" },
+      }, {
+        -- only use buffer source if the other sources aren't showing
+        {
+          name = "buffer",
+          option = {
+            -- Complete using all visible buffers
+            get_bufnrs = function()
+              return vim.api.nvim_list_bufs()
+            end,
+          },
+        },
+      })
+
+      -- custom sorting
+      opts.sorting = {
+        comparators = {
+          function(...)
+            return cmp_buffer:compare_locality(...)
+          end,
+          compare.offset,
+          compare.exact,
+          compare.score,
+          require("cmp-under-comparator").under,
+          compare.recently_used,
+          compare.locality,
+          compare.kind,
+          compare.sort_text,
+          compare.length,
+          compare.order,
+        },
+      }
+
+      -- `/` cmdline setup.
+      cmp.setup.cmdline("/", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
+        },
       })
 
       -- `:` cmdline setup.
@@ -94,14 +141,8 @@ return {
           },
         }),
         sources = cmp.config.sources({
+          { name = "cmdline" },
           { name = "path" },
-        }, {
-          {
-            name = "cmdline",
-            option = {
-              ignore_cmds = { "Man", "!" },
-            },
-          },
         }),
       })
     end,
