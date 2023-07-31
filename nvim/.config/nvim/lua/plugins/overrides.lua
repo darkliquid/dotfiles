@@ -284,4 +284,12 @@ return {
       }
     end,
   },
+  {
+    "folke/edgy.nvim",
+    opts = {
+      animate = {
+        enabled = false
+      }
+    }
+  }
 }
