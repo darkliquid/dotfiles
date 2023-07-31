@@ -263,4 +263,25 @@ return {
       },
     },
   },
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      local icons = require("lazyvim.config").icons
+      opts.sections.lualine_c = {
+        {
+          "diagnostics",
+          symbols = {
+            error = icons.diagnostics.Error,
+            warn = icons.diagnostics.Warn,
+            info = icons.diagnostics.Info,
+            hint = icons.diagnostics.Hint,
+          },
+          on_click=function()
+            require("trouble").open()
+          end
+        },
+      }
+    end,
+  },
 }
