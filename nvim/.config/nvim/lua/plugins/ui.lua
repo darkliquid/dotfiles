@@ -1,27 +1,24 @@
 return {
   {
     "willothy/flatten.nvim",
-    opts = {
-      callbacks = {
-        should_block = function(argv)
-          return vim.tbl_contains(argv, "-b")
-        end,
-        post_open = function(bufnr, winnr, ft, is_blocking)
-          if is_blocking then
-            local Util = require("lazyvim.util")
-            local term = Util.float_term(nil, { cwd = Util.get_root() })
-            term:close()
-          else
-            vim.api.nvim_set_current_win(winnr)
+    opts = function()
+      return {
+        window = {
+          open = function(files, argv, stdin_buf_id, guest_cwd)
+            local winnr = require("utils").get_main_win()
+            local focus = vim.fn.argv(#files - 1)
+            -- If there's an stdin buf, focus that
+            if stdin_buf_id then focus = vim.api.nvim_buf_get_name(stdin_buf_id) end
+            local bufnr = vim.fn.bufnr(focus)
+            if bufnr ~= nil then
+              vim.api.nvim_win_set_buf(winnr, bufnr)
+              vim.api.nvim_set_current_buf(bufnr)
+            end
+            return bufnr, winnr
           end
-        end,
-        block_end = function()
-          local Util = require("lazyvim.util")
-          local term = Util.float_term(nil, { cwd = Util.get_root() })
-          term:close()
-        end,
-      },
-    },
+        },
+      }
+    end,
     config = true,
     lazy = false,
     priority = 1001,
@@ -154,7 +151,7 @@ return {
     },
     opts = {
       create_autocmd = false,
-      attach_navic = false
+      attach_navic = false,
     },
   },
 }

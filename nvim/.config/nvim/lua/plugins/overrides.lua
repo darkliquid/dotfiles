@@ -9,9 +9,10 @@ return {
     "akinsho/bufferline.nvim",
     opts = {
       options = {
-        left_mouse_command = function(bufnum)
-          require("edgy").goto_main()
-          vim.api.nvim_win_set_buf(0, bufnum)
+        left_mouse_command = function(bufnr)
+          local winnr = require("utils").get_main_win()
+          vim.api.nvim_win_set_buf(winnr, bufnr)
+          vim.api.nvim_set_current_buf(bufnr)
         end,
       },
     },
@@ -277,9 +278,9 @@ return {
             info = icons.diagnostics.Info,
             hint = icons.diagnostics.Hint,
           },
-          on_click=function()
+          on_click = function()
             require("trouble").open()
-          end
+          end,
         },
       }
     end,
@@ -288,8 +289,8 @@ return {
     "folke/edgy.nvim",
     opts = {
       animate = {
-        enabled = false
-      }
-    }
-  }
+        enabled = false,
+      },
+    },
+  },
 }
