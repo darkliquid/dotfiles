@@ -94,6 +94,7 @@ xh
 yq
 zoxide
 lazygit
+rustup
 EOF
 echo "$BREWS" | xargs brew install
 
@@ -106,5 +107,14 @@ for s in $DOTFILES_DIR/*; do
 		stow -d $DOTFILES_DIR -t $HOME $s
 	fi
 done
+
+# Rust
+$(brew --prefix rustup) -y
+source "$HOME/.cargo/env"
+
+# Neovim
+cargo install bob-nvim
+bob install nightly
+bob use nightly
 
 msg "All done!"
