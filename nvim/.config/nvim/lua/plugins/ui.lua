@@ -97,10 +97,13 @@ return {
   {
     "roobert/search-replace.nvim",
     keys = function()
-      require("which-key").register({
-        ["<leader>r"] = { name = "+replace" },
-        ["<leader>rb"] = { name = "+multibuffer" },
-      })
+      local wk, ok = pcall(require, "which-key")
+      if ok then
+        wk.register({
+          ["<leader>r"] = { name = "+replace" },
+          ["<leader>rb"] = { name = "+multibuffer" },
+        })
+      end
 
       return {
         {
