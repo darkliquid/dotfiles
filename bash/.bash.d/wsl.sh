@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Manual WSL Paths
+export PATH=$PATH:/mnt/c/Windows/System32
+export PATH=$PATH:/mnt/c/Windows/System32/OpenSSH
+export PATH=$PATH:/mnt/c/Windows/System32/WindowsPowerShell/v1.0
+export PATH=$PATH:/mnt/c/Users/darkl/scoop/apps/vscode/current/bin
+
+# WSL SSH agent support
 WSL2SSH=$HOME/.local/bin/wsl2-ssh-agent
 export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 
@@ -21,4 +28,11 @@ setup_wsl2ssh() {
 # only needed for wsl
 if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
 	setup_wsl2ssh
+
+    # WSL-open support
+	if [[ -z $BROWSER ]]; then
+		export BROWSER=wsl-open
+	else
+		export BROWSER=$BROWSER:wsl-open
+	fi
 fi
