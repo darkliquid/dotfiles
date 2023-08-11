@@ -516,11 +516,6 @@ if [[ -z "${WEZTERM_SHELL_SKIP_CWD}" ]]; then
 	fi
 fi
 
-# If wezterm is running from windows, alias wezterm to wezterm.exe
-if [[ -n "$IS_WSL" || -n "$WSL_DISTRO_NAME" ]]; then
-	alias wezterm=wezterm.exe
-fi
-
 eval "$(wezterm shell-completion --shell bash)"
 
 true

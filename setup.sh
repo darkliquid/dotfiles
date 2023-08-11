@@ -12,7 +12,7 @@ function msg() {
 
 # Basic install requirements (check if installed first so we can skip sudo)
 msg "Installing essentials..."
-pkgs=( socat build-essential curl file git stow xdg-utils libsecret-1-0 libsecret-1-dev libglib2.0-dev )
+pkgs=( socat build-essential curl file git stow xdg-utils libsecret-1-0 libsecret-1-dev libglib2.0-dev wget libfuse2 )
 for pkg in "${pkgs[@]}"; do
 	dpkg-query --show --showformat='${db:Status-Status}' $pkg &> /dev/null
 	if [ $? -ne 0 ]; then
@@ -85,7 +85,6 @@ hexyl
 jq
 hidetatz/tap/kubecolor
 kubectx
-neovim
 noborus/tap/ov
 procs
 ripgrep
@@ -94,8 +93,22 @@ xh
 yq
 zoxide
 lazygit
+rustup
+wez/wezterm-linuxbrew/wezterm
+nvm
 EOF
 echo "$BREWS" | xargs brew install
+
+# Rust
+$(brew --prefix rustup)/bin/rustup-init -y
+source ~/.cargo/env
+
+# neovim
+cargo install bob-nvim
+bob install nightly
+bob use nightly
+mkdir -p $(brew --prefix)/etc/bash_completion.d
+bob complete bash > $(brew --prefix)/etc/bash_completion.d/bob.bash-completion
 
 # Symlink other configs
 msg "Symlinking in dotfiles..."

@@ -35,6 +35,12 @@
 	navigate = true
 	side-by-side = true
 [init]
-  defaultBranch = main
+	defaultBranch = main
 [include]
-  path = ~/.gitconfig.local
+	path = ~/.gitconfig.local
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/opt/gh/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/linuxbrew/.linuxbrew/opt/gh/bin/gh auth git-credential

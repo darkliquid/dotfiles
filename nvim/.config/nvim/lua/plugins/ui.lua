@@ -96,12 +96,10 @@ return {
   },
   {
     "roobert/search-replace.nvim",
+    dependencies = {
+      "folke/which-key.nvim"
+    },
     keys = function()
-      require("which-key").register({
-        ["<leader>r"] = { name = "+replace" },
-        ["<leader>rb"] = { name = "+multibuffer" },
-      })
-
       return {
         {
           "<C-r>",
@@ -133,6 +131,11 @@ return {
       }
     end,
     config = function()
+      require("which-key").register({
+        ["<leader>r"] = { name = "+replace" },
+        ["<leader>rb"] = { name = "+multibuffer" },
+      })
+
       require("search-replace").setup({
         -- optionally override defaults
         default_replace_single_buffer_options = "gcI",
