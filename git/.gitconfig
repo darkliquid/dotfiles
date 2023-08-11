@@ -29,8 +29,6 @@
 	name = Andrew Montgomery
 [credential]
 	helper = gcm
-[url "git@github.com:"]
-	insteadOf = https://github.com/
 [interactive]
 	diffFilter = delta --color-only --features=interactive
 [delta]
