@@ -110,6 +110,9 @@ bob use nightly
 mkdir -p $(brew --prefix)/etc/bash_completion.d
 bob complete bash > $(brew --prefix)/etc/bash_completion.d/bob.bash-completion
 
+# Ensure config dir exist
+mkdir -p ~/.config
+
 # Symlink other configs
 msg "Symlinking in dotfiles..."
 shopt -s nullglob
