@@ -83,10 +83,10 @@ go
 gum
 hexyl
 jq
-kubecolor
+hidetatz/tap/kubecolor
 kubectx
 neovim
-ov
+noborus/tap/ov
 procs
 ripgrep
 starship
