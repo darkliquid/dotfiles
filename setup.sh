@@ -99,6 +99,10 @@ nvm
 EOF
 echo "$BREWS" | xargs brew install
 
+# Node
+source $(brew --prefix nvm)/nvm.sh
+nvm install --latest-npm --lts --default
+
 # Rust
 $(brew --prefix rustup)/bin/rustup-init -y
 source ~/.cargo/env
