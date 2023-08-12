@@ -96,6 +96,7 @@ lazygit
 rustup
 wez/wezterm-linuxbrew/wezterm
 nvm
+html-xml-utils
 EOF
 echo "$BREWS" | xargs brew install
 
