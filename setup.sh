@@ -110,6 +110,7 @@ bob install nightly
 bob use nightly
 mkdir -p $(brew --prefix)/etc/bash_completion.d
 bob complete bash > $(brew --prefix)/etc/bash_completion.d/bob.bash-completion
+nvim --headless -c 'Lazy! sync' -c 'qall'
 
 # Ensure config dir exist
 mkdir -p ~/.config
