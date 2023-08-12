@@ -19,6 +19,12 @@ config.colors = {
       active_tab = {bg_color = "#101216", fg_color = "#56d364"},
     }
 }
+config.window_padding = {
+  left = 0,
+  top = 0,
+  bottom = 0,
+  right = 0
+}
 
 local function basename(s)
   return string.gsub(s, "(.*[/\\])(.*)", "%2")
@@ -148,4 +154,6 @@ config.keys = {
   { key = 'l', mods = 'ALT', action = wezterm.action.ShowLauncherArgs { flags = 'FUZZY|TABS|LAUNCH_MENU_ITEMS' } },
 }
 
+
 return config
+
