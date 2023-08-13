@@ -12,6 +12,7 @@ config.cursor_blink_rate = 0
 config.enable_scroll_bar = true
 config.use_fancy_tab_bar = false
 config.colors = {
+  foreground = "#ffffff",
   tab_bar = {
       background = "#101216",
       new_tab = {bg_color = "#101216", fg_color = "#56d364", intensity = "Bold"},

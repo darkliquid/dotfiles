@@ -114,7 +114,6 @@ bob install nightly
 bob use nightly
 mkdir -p $(brew --prefix)/etc/bash_completion.d
 bob complete bash > $(brew --prefix)/etc/bash_completion.d/bob.bash-completion
-nvim --headless -c 'Lazy! sync' -c 'qall'
 
 # Ensure config dir exist
 mkdir -p ~/.config
@@ -128,5 +127,8 @@ for s in $DOTFILES_DIR/*; do
 		stow -d $DOTFILES_DIR -t $HOME $s
 	fi
 done
+
+# neovim install plugins, etc
+nvim --headless -c 'Lazy! sync' -c 'qall'
 
 msg "All done!"
