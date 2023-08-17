@@ -1,5 +1,12 @@
 return {
   {
+    "m4xshen/smartcolumn.nvim",
+    opts = {
+      scope = "window",
+      disabled_filetypes = { "NeoTree", "lazy", "mason", "help", "alpha" }
+    }
+  },
+  {
     "willothy/flatten.nvim",
     opts = function()
       return {
