@@ -1,5 +1,5 @@
 #!/bin/bash
-alias ls=exa
+alias ls=eza
 alias open="xdg-open"
 
 function getip() {
