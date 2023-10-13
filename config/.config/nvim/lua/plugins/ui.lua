@@ -3,7 +3,7 @@ return {
     "m4xshen/smartcolumn.nvim",
     opts = {
       scope = "window",
-      disabled_filetypes = { "NeoTree", "lazy", "mason", "help", "alpha" }
+      disabled_filetypes = { "NeoTree", "lazy", "mason", "help", "alpha", "dashboard" }
     }
   },
   {

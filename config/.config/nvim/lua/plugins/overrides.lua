@@ -257,7 +257,6 @@ return {
       inlay_hints = {
         enabled = false,
       },
-      autoformat = false,
       servers = {
         bufls = {},
         cssls = {},

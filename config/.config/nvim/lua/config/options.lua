@@ -3,3 +3,4 @@
 -- Add any additional options here
 vim.g.editorconfig = true
 vim.opt.swapfile = false
+vim.g.autoformat = false
