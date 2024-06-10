@@ -1,20 +1,20 @@
 {
   "extras": [
     "lazyvim.plugins.extras.dap.core",
-    "lazyvim.plugins.extras.editor.symbols-outline",
-    "lazyvim.plugins.extras.lang.yaml",
-    "lazyvim.plugins.extras.util.mini-hipatterns",
-    "lazyvim.plugins.extras.ui.edgy",
-    "lazyvim.plugins.extras.lang.go",
-    "lazyvim.plugins.extras.coding.copilot",
-    "lazyvim.plugins.extras.lang.typescript",
-    "lazyvim.plugins.extras.lang.json",
-    "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.test.core",
-    "lazyvim.plugins.extras.formatting.prettier"
+    "lazyvim.plugins.extras.coding.copilot",
+    "lazyvim.plugins.extras.coding.yanky",
+    "lazyvim.plugins.extras.formatting.prettier",
+    "lazyvim.plugins.extras.lang.go",
+    "lazyvim.plugins.extras.lang.json",
+    "lazyvim.plugins.extras.lang.typescript",
+    "lazyvim.plugins.extras.lang.yaml",
+    "lazyvim.plugins.extras.ui.edgy",
+    "lazyvim.plugins.extras.util.mini-hipatterns",
+    "lazyvim.plugins.extras.editor.outline"
   ],
   "news": {
-    "NEWS.md": "2123"
+    "NEWS.md": "5204"
   },
-  "version": 2
+  "version": 6
 }
