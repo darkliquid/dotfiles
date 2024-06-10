@@ -22,10 +22,13 @@ for pkg in "${pkgs[@]}"; do
 	fi
 done
 
+# Ensure config dir exist
+mkdir -p ~/.config
+
 # Install homebrew
 if [ ! -d "/home/linuxbrew" ]; then
 	msg "Installing homebrew..."
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+	bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 else
 	msg "Skipping homebrew, already installed..."
 fi
@@ -72,51 +75,20 @@ fi
 # Install common brews
 msg "Installing common brew formulas..."
 read -r -d '' BREWS << EOF
-bash-completion@2
-bat
-exa
-fx
-fzf
-gh
-git-delta
-go
-gum
 hexyl
-jq
-hidetatz/tap/kubecolor
-kubectx
 noborus/tap/ov
 procs
-ripgrep
-starship
-xh
-yq
-zoxide
-lazygit
-rustup
-wez/wezterm-linuxbrew/wezterm
-nvm
 html-xml-utils
+tealdeer
+rsteube/tap/carapace
+mise
 EOF
 echo "$BREWS" | xargs brew install
 
-# Node
-source $(brew --prefix nvm)/nvm.sh
-nvm install --latest-npm --lts --default
-
-# Rust
-$(brew --prefix rustup)/bin/rustup-init -y
-source ~/.cargo/env
-
-# neovim
-cargo install bob-nvim
-bob install nightly
-bob use nightly
-mkdir -p $(brew --prefix)/etc/bash_completion.d
-bob complete bash > $(brew --prefix)/etc/bash_completion.d/bob.bash-completion
-
-# Ensure config dir exist
-mkdir -p ~/.config
+# mise tools
+mise settings set experimental true
+mise use -g fx jq jqp node rust neovim bat eza fzf delta go kubectx ripgrep starship xh zoxide lazygit yarn github-cli
+eval "$(mise activate)"
 
 # Symlink other configs
 msg "Symlinking in dotfiles..."

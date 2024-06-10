@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
-
 alias vim=nvim
 alias vi=nvim
 
