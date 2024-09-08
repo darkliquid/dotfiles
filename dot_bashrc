@@ -1,0 +1,102 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# Setup history
+HISTCONTROL=ignoreboth
+HISTSIZE=10000
+HISTFILESIZE=20000
+
+# Shell options
+shopt -s checkwinsize
+shopt -s globstar
+shopt -s histappend
+
+# Homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Mise
+eval "$(mise activate bash)"
+
+# Starship
+eval "$(mise exec -- starship init bash)"
+
+# Completions
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense,complete,clap'
+source <(carapace _carapace)
+
+# Z
+eval "$(mise exec -- zoxide init bash)"
+
+# Useful functions
+pathappend() {
+  for ARG in "$@"
+  do
+    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$ARG"
+    fi
+  done
+}
+
+pathprepend() {
+  for ((i=$#; i>0; i--)); 
+  do
+    ARG=${!i}
+    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+        PATH="$ARG${PATH:+":$PATH"}"
+    fi
+  done
+}
+
+# WSL Command Not Found Handler
+#
+# This is a nicer way of handling windows executables on the path
+# compared to filling the path with a ton of windows paths that cause
+# anything that needs to scan/traverse PATH to be slow to start due to
+# having to go via the slow file system bridge.
+if [[ -n "$WSL_DISTRO_NAME" ]]; then
+  function winwhere() {
+    local whereexe="$(wslpath 'C:\Windows\System32\where.exe')"
+    local exe="$($whereexe $1 2> /dev/null | head -1 | tr -d '\n\r')"
+    if [ -z "$exe" ]; then
+      return 127
+    fi
+
+    local exe="$(wslpath "$exe")"    
+    echo -n "$exe"
+  }
+
+  # Add windows shells to PATH
+  cmdexe="$(winwhere cmd)"
+  if [ -e "$cmdexe" ]; then
+    pathappend "$(dirname $cmdexe)"
+  fi
+
+  pwshexe="$(winwhere pwsh)"
+  if [ -e "$pwshexe" ]; then
+    pathappend "$(dirname $pwshexe)"
+  fi
+
+  powershellexe="$(winwhere powershell)"
+  if [ -e "$powershellexe" ]; then
+    pathappend "$(dirname $powershellexe)"
+  fi
+
+  eval "$(echo 'original_command_not_found_handle()'; declare -f command_not_found_handle | tail -n +2)"
+  function command_not_found_handle() {
+    local cmd=$1
+    shift
+    
+    # If we find a Windows command, run it
+    wslcmd="$(winwhere $cmd)"
+    if [ -e "$wslcmd" ]; then
+      $wslcmd $*
+      return $?
+    fi
+
+    # Otherwise default to the original behaviour
+    original_command_not_found_handle $cmd $*
+  }
+fi

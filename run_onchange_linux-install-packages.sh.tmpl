@@ -1,0 +1,16 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+# Install apt packages
+sudo apt install -y {{ .packages.linux.apts | join " " }}
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.linux.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+EOF
+{{ end }}
+
+# Install mise packages
+mise settings set experimental true
+mise use -g -y {{ .packages.linux.mises | join " " }}

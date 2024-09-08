@@ -1,0 +1,94 @@
+packages:
+  windows:
+    buckets:
+      - charmbracelet https://github.com/charmbracelet/scoop-bucket.git
+      - extras https://github.com/ScoopInstaller/Extras
+      - games https://github.com/Calinou/scoop-games
+      - java https://github.com/ScoopInstaller/Java
+      - main https://github.com/ScoopInstaller/Main
+      - nerd-fonts https://github.com/matthewjberger/scoop-nerd-fonts
+      - nonportable https://github.com/ScoopInstaller/Nonportable
+      - versions https://github.com/ScoopInstaller/Versions
+    scoops:
+      - "7zip"
+      - "bat"
+      - "cuda"
+      - "dark"
+      - "delta"
+      - "discord"
+      - "dropbox-np"
+      - "eza"
+      - "ferdium"
+      - "firefox"
+      - "fx"
+      - "fzf"
+      - "gh"
+      - "git"
+      - "git-lfs"
+      - "go"
+      - "golangci-lint"
+      - "googlechrome"
+      - "intelonemono-nf-mono"
+      - "jq"
+      - "jqp"
+      - "legendary"
+      - "mods"
+      - "playnite"
+      - "plex-desktop"
+      - "podman"
+      - "powertoys-np"
+      - "pwsh"
+      - "r2modman"
+      - "ripgrep"
+      - "sfsu"
+      - "starship"
+      - "steam"
+      - "sudo"
+      - "task"
+      - "tinynvidiaupdatechecker"
+      - "vscode"
+      - "xh"
+      - "youtube-music"
+      - "zoom"
+      - "zoxide"
+  linux:
+    apts:
+      - socat
+      - build-essential
+      - curl
+      - file
+      - git
+      - xdg-utils
+      - libsecret-1-0
+      - libsecret-1-dev
+      - libglib2.0-dev
+      - wget
+      - libfuse2
+    brews:
+      - hexyl
+      - noborus/tap/ov
+      - procs
+      - html-xml-utils
+      - tealdeer
+      - rsteube/tap/carapace
+      - mise
+    mises:
+      - fx
+      - jq
+      - jqp
+      - node
+      - rust
+      - neovim
+      - bat
+      - eza
+      - fzf
+      - delta
+      - go
+      - kubectx
+      - ripgrep
+      - starship
+      - xh
+      - zoxide
+      - lazygit
+      - yarn
+      - github-cli

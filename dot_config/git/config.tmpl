@@ -1,0 +1,40 @@
+[core]
+	editor = nvim
+	autocrlf = false
+	pager = delta
+[color]
+	ui = true
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\"%C(yellow)%h%Creset %ad %Cred|%Creset %s%d %C(cyan)[%an]%Creset\" --graph --date=short
+	gerrit-push = "!sh -c 'git push origin HEAD:refs/for/${1:-master}' -"
+	gerrit-push-draft = "!sh -c 'git push origin HEAD:refs/drafts/${1:-master}' -"
+	co-pr = "!sh -c 'git fetch ${2:-origin} pull/${1}/head:pr-${1} && git checkout pr-${1}' -"
+	gud = "!sh -c 'if [ -z \"$(git remote | grep 'upstream')\" ]; then git rebase origin/master; else git rebase upstream/master; fi'"
+	clean-merged = "!sh -c 'git branch --merged | egrep -v \"(^\\*|master|dev)\" | xargs git branch -d'"
+	amend = commit --amend --no-edit
+	since = "!f() { git shortlog ${1:-HEAD~10}...master --grep=^Merge --invert-grep --format=\"* %s (%h)\"; }; f"
+[push]
+	default = simple
+	autoSetupRemote = true
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[user]
+	email = {{ .user.email | quote }}
+	name = {{ .user.name | quote }}
+[credential]
+	helper = gcm
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+[delta]
+	navigate = true
+	side-by-side = true
+[init]
+	defaultBranch = main
+[include]
+	path = ~/.gitconfig.local
