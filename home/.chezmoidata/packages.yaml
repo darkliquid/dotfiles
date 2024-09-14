@@ -9,6 +9,7 @@ packages:
       - nerd-fonts https://github.com/matthewjberger/scoop-nerd-fonts
       - nonportable https://github.com/ScoopInstaller/Nonportable
       - versions https://github.com/ScoopInstaller/Versions
+      - darkliquid https://github.com/darkliquid/bucket
     scoops:
       - "7zip"
       - "bat"
@@ -33,6 +34,7 @@ packages:
       - "jqp"
       - "legendary"
       - "mods"
+      - "omni-ssh-agent"
       - "playnite"
       - "plex-desktop"
       - "podman"
