@@ -64,6 +64,7 @@ packages:
       - libglib2.0-dev
       - wget
       - libfuse2
+      - unzip
     brews:
       - hexyl
       - noborus/tap/ov
