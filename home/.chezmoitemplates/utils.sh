@@ -6,7 +6,7 @@ exist() {
 
 # log writes message to stdout with a timestamp in blue
 log() {
-    printf "\033[33;34m [%s] %s\n" "$(date)" "$1"
+    printf "\033[33;34m[%s] %s\033[0m\n" "$(date)" "$1"
 }
 
 # Append entry to PATH without duplicating existing entries
