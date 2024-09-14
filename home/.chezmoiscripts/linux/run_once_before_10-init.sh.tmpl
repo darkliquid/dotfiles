@@ -1,16 +1,8 @@
 #!/bin/sh
 
-# exist checks if a command exist in shell
-exist() {
-    command -v "$1" >/dev/null 2>&1
-}
+# {{ template "utils.sh" }}
 
-# log writes message to stdout with a timestamp in blue
-log() {
-    printf "\033[33;34m [%s] %s\n" "$(date)" "$1"
-}
-
-log "Running run_once_init.sh once..."
+log "Initialising..."
 
 # Install Homebrew
 # https://brew.sh/

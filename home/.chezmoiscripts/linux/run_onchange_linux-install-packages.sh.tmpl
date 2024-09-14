@@ -1,9 +1,14 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 
+# {{ template "utils.sh" }}
+
 # Install apt packages
+log "Installing base apt packages..."
 sudo apt install -y {{ .packages.linux.apts | join " " }}
 
+# Install homebrew packages
+log "Installing base homebrews..."
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range .packages.linux.brews -}}
 brew {{ . | quote }}
@@ -12,5 +17,6 @@ EOF
 {{ end }}
 
 # Install mise packages
+log "Installing mise packages..."
 mise settings set experimental true
 mise use -g -y {{ .packages.linux.mises | join " " }}

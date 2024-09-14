@@ -1,0 +1,6 @@
+*.sh text eol=lf
+*.sh.tmpl text eol=lf
+*.yaml text eol=lf
+*.yaml.tmpl text eol=lf
+*.toml text eol=lf
+*.toml.tmpl text eol=lf

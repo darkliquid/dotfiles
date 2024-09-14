@@ -27,8 +27,6 @@
 [user]
 	email = {{ .user.email | quote }}
 	name = {{ .user.name | quote }}
-[credential]
-	helper = gcm
 [interactive]
 	diffFilter = delta --color-only --features=interactive
 [delta]
@@ -36,5 +34,7 @@
 	side-by-side = true
 [init]
 	defaultBranch = main
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
 [include]
 	path = ~/.gitconfig.local
