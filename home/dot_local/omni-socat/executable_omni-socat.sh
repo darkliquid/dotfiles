@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 OMNISOCATCMD="$HOME/.local/omni-socat/omni-socat.exe"
 export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
@@ -14,7 +14,10 @@ __get_omnisocat() {
 
 setup_omnisocat() {
   [ -f "$OMNISOCATCMD" ] || __get_omnisocat
-  command -v socat > /dev/null 2>&1 || echo "socat missing" && return
+  if ! command -v socat > /dev/null 2>&1; then
+    echo "WSL SSH-Agent Bridge not set up: socat missing"
+    return
+  fi
 
   # Checks whether $SSH_AUTH_SOCK is a socket or not
   (ss -a | grep -q "$SSH_AUTH_SOCK") && [ -S "$SSH_AUTH_SOCK" ] && return
