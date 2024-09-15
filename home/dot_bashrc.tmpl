@@ -24,7 +24,8 @@ eval "$(mise activate bash)"
 eval "$(mise exec -- starship init bash)"
 
 # Completions
-export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense,complete,clap'
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense,complete,clap,cli,argcomplete'
+export CARAPACE_MATCH=0
 source <(carapace _carapace)
 
 # Z
