@@ -1,0 +1,55 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# Setup history
+HISTCONTROL=ignoreboth
+HISTSIZE=10000
+HISTFILESIZE=20000
+
+# Shell options
+shopt -s checkwinsize
+shopt -s globstar
+shopt -s histappend
+
+# Homebrew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Mise
+eval "$(mise activate bash)"
+
+# Starship
+eval "$(mise exec -- starship init bash)"
+
+# Completions
+export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense,complete,clap'
+source <(carapace _carapace)
+
+# Z
+eval "$(mise exec -- zoxide init bash)"
+
+# Useful functions
+pathappend() {
+  for ARG in "$@"
+  do
+    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$ARG"
+    fi
+  done
+}
+
+pathprepend() {
+  for ((i=$#; i>0; i--)); 
+  do
+    ARG=${!i}
+    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+        PATH="$ARG${PATH:+":$PATH"}"
+    fi
+  done
+}
+
+{{ if .is_wsl -}}
+{{ template "wsl.sh" }}
+{{- end }}

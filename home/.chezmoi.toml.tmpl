@@ -5,8 +5,16 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $name := promptStringOnce . "name" "Full name" -}}
 
+{{- $isWSL := false -}}
+{{- if (eq .chezmoi.os "linux") -}}
+{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{-     $isWSL = true -}}
+{{-   end -}}
+{{- end -}}
+
 [data]
     osid = {{ $osid | quote }}
+    is_wsl = {{ $isWSL }}
 
 [data.user]
     email = {{ $email | quote }}
