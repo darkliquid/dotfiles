@@ -1,0 +1,10 @@
+*~
+.DS_Store
+.git/
+.idea/
+.vscode
+Thumbs.db
+__pycache__/
+*.pyc
+venv/
+.task
