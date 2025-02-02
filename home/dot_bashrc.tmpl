@@ -28,28 +28,20 @@ export CARAPACE_BRIDGES='zsh,fish,bash,inshellisense,complete,clap,cli,argcomple
 export CARAPACE_MATCH=0
 source <(carapace _carapace)
 
+# Ki
+KI_EDITOR_THEME="Github Dark"
+
 # Z
 eval "$(mise exec -- zoxide init bash)"
 
 # Useful functions
-pathappend() {
-  for ARG in "$@"
-  do
-    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-        PATH="${PATH:+"$PATH:"}$ARG"
-    fi
-  done
-}
+# {{ template "utils.sh" }}
 
-pathprepend() {
-  for ((i=$#; i>0; i--)); 
-  do
-    ARG=${!i}
-    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
-        PATH="$ARG${PATH:+":$PATH"}"
-    fi
-  done
-}
+# Load functions declarations from separate configuration file.
+if [ -d "$HOME"/.bash.d ]; then
+  for file in "$(find "$HOME"/.bash.d -maxdepth 1 -name '*.sh' -print -quit)"; do source $file; done
+  unset file
+fi
 
 {{ if .is_wsl -}}
 {{ template "wsl.sh" }}
