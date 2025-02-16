@@ -33,6 +33,7 @@ packages:
       - "jq"
       - "jqp"
       - "legendary"
+      - "mise"
       - "mods"
       - "omni-ssh-agent"
       - "playnite"
@@ -76,12 +77,13 @@ packages:
       - rsteube/tap/carapace
       - mise
     mises:
+      - cargo-binstall
       - fx
       - jq
       - jqp
       - node
       - rust
-      - neovim
+      - aqua:neovim
       - bat
       - eza
       - fzf

@@ -30,4 +30,5 @@ EOF
 # Install mise packages
 log "Installing mise packages..."
 mise settings set experimental true
+mise settings set disable_backends asdf # don't trust asdf
 mise use -g -y {{ .packages.linux.mises | join " " }} 2>&1

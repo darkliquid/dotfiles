@@ -20,6 +20,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Mise
 eval "$(mise activate bash)"
 
+# Disable rustup whinging due to mise's rust being in path
+export RUSTUP_INIT_SKIP_PATH_CHECK=yes
+
 # Starship
 eval "$(mise exec -- starship init bash)"
 
@@ -43,6 +46,6 @@ if [ -d "$HOME"/.bash.d ]; then
   unset file
 fi
 
-{{ if .is_wsl -}}
-{{ template "wsl.sh" }}
-{{- end }}
+# {{ if .is_wsl -}}
+# {{ template "wsl.sh" }}
+# {{- end }}
