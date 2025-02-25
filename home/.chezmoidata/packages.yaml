@@ -97,3 +97,5 @@ packages:
       - lazygit
       - yarn
       - github-cli
+      - uv
+      - pipx:sqlfluff
