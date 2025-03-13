@@ -17,4 +17,10 @@ function update() {
     fi
     brew upgrade
     mise upgrade
+    code --update-extensions
+
+    # If running under WSL, try and run windows pkg updates too.
+    if [[ -n "$WSL_DISTRO_NAME" ]]; then
+        scoop upgrade
+    fi
 }

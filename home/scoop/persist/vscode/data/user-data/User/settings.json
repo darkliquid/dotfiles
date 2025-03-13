@@ -1,0 +1,91 @@
+{
+    "twinny.useFileContext": true,
+    "twinny.enableCompletionCache": true,
+    "twinny.enableLogging": true,
+    "go.toolsManagement.autoUpdate": true,
+    "gopls": {
+        "ui.diagnostic.analyses": {
+            "fillreturns": true,
+            "nonewvars": true,
+            "undeclaredname": true,
+            "unreachable": true,
+            "unusedparams": true,
+            "shadow": true
+        },
+        "ui.diagnostic.staticcheck": true,
+        "ui.diagnostic.vulncheck": "Imports",
+        "formatting.gofumpt": true,
+        "usePlaceholders": true
+    },
+    "twinny.fileContextEnabled": true,
+    "twinny.completionCacheEnabled": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "go.formatTool": "gofumpt",
+    "go.inlayHints.constantValues": true,
+    "go.lintTool": "golangci-lint",
+    "go.languageServerExperimentalFeatures": {
+        "diagnostics": true,
+        "documentLink": true
+    },
+    "[go]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "always",
+            "source.organizeImports": "always"
+        },
+        "editor.formatOnSave": true
+    },
+    "security.allowedUNCHosts": [
+        "wsl.localhost"
+    ],
+    "editor.multiCursorModifier": "ctrlCmd",
+    "go-template.languages": [
+        "toml",
+        "yaml",
+        "shellscript",
+        "gitignore"
+    ],
+    "go-template.patterns": [
+        "*.tmpl",
+        "*.gotmpl",
+        "**/git/config*"
+    ],
+    "files.associations": {
+        "**/{.git,git}/config*": "toml",
+        "*.tmpl": "go-template",
+        "*.sh.tmpl": "shellscript",
+        "*.toml.tmpl": "toml",
+        "*.yaml.tmpl": "yaml",
+        "*.ps1.tmpl": "powershell",
+        "*.bat.tmpl": "bat",
+        "*_bash*.tmpl": "shellscript",
+        ".chezmoiignore.tmpl": "gitignore",
+        "*gemrc": "yaml",
+        "*editorconfig": "toml"
+    },
+    "terminal.integrated.enablePersistentSessions": false,
+    "[powershell]": {
+        "debug.saveBeforeStart": "nonUntitledEditorsInActiveGroup",
+        "editor.semanticHighlighting.enabled": false,
+        "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+    },
+    "powershell.powerShellAdditionalExePaths": {
+        "PWSH": "C:/Users/darkl/scoop/apps/pwsh/current/pwsh.exe",
+    },
+    "powershell.powerShellDefaultVersion": "PWSH",
+    "powershell.codeFormatting.autoCorrectAliases": true,
+    "powershell.codeFormatting.avoidSemicolonsAsLineTerminators": true,
+    "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
+    "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
+    "powershell.codeFormatting.useConstantStrings": true,
+    "powershell.codeFormatting.useCorrectCasing": true,
+    "powershell.codeFormatting.whitespaceBetweenParameters": true,
+    "powershell.analyzeOpenDocumentsOnly": true,
+    "powershell.integratedConsole.suppressStartupBanner": true,
+    "powershell.trace.server": "verbose",
+    "poshProTools.checkForModuleUpdates": true,
+    "lldb.suppressUpdateNotifications": true,
+    "editor.inlineSuggest.syntaxHighlightingEnabled": true,
+    "better-comments.highlightPlainText": true,
+    "markdown.occurrencesHighlight.enabled": true,
+}

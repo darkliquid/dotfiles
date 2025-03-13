@@ -40,12 +40,12 @@ eval "$(mise exec -- zoxide init bash)"
 # Useful functions
 # {{ template "utils.sh" }}
 
+# {{ if .is_wsl -}}
+# {{ template "wsl.sh" }}
+# {{- end }}
+
 # Load functions declarations from separate configuration file.
 if [ -d "$HOME"/.bash.d ]; then
   for file in "$(find "$HOME"/.bash.d -maxdepth 1 -name '*.sh' -print -quit)"; do source $file; done
   unset file
 fi
-
-# {{ if .is_wsl -}}
-# {{ template "wsl.sh" }}
-# {{- end }}

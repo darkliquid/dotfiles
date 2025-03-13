@@ -32,3 +32,11 @@ log "Installing mise packages..."
 mise settings set experimental true
 mise settings set disable_backends asdf # don't trust asdf
 mise use -g -y {{ .packages.linux.mises | join " " }} 2>&1
+
+# Install vscode extensions if vscode is installed
+if command -v code > /dev/null; then
+  log "Installing vscode extensions..."
+  for ext in '{{ .packages.vscode.extensions | join " " }}'; do
+    code --install-extension $ext 2>&1
+  done
+fi
