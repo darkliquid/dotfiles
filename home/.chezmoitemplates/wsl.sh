@@ -60,16 +60,9 @@ if [[ -n "$WSL_DISTRO_NAME" ]]; then
         original_command_not_found_handle $cmd $*
     }
 
-    # Upgrade our exist function if defined to handle wsl command lookups too.
-    if [[ $(type -t exist) == function ]]; then
-        eval "$(
-            echo 'original_exist()'
-            declare -f exist | tail -n +2
-        )"
-        function exist() {
-            if ! original_exist() ; then
-                winwhere "$1"
-            fi
-        }
-    fi
+    # Replace our exist function to handle wsl command lookups too.
+    function exist() {
+        (command -v "$1" >/dev/null 2>&1) || (winwhere "$1" >/dev/null 2>&1)
+    }
+
 fi
