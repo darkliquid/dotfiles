@@ -20,7 +20,7 @@ fi
 
 # Install homebrew packages
 log "Installing base homebrews..."
-brew bundle --no-lock --file=/dev/stdin 2>&1 <<EOF
+brew bundle --file=/dev/stdin 2>&1 <<EOF
 {{ range .packages.linux.brews -}}
 brew {{ . | quote }}
 {{ end -}}

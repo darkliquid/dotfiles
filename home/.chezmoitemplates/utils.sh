@@ -1,7 +1,7 @@
 
 # exist checks if a command exist in shell
 exist() {
-    command -v "$1" >/dev/null 2>&1
+  command -v "$1" >/dev/null 2>&1
 }
 
 # log writes message to stdout with a timestamp in blue
