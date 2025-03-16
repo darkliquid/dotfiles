@@ -26,7 +26,6 @@ brew bundle --file=/dev/stdin 2>&1 <<EOF
 brew {{ . | quote }}
 {{ end -}}
 EOF
-{{ end }}
 
 # Install mise packages
 log "Installing mise packages..."
