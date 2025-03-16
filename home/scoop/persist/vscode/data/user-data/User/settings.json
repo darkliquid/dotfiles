@@ -48,7 +48,7 @@
     "go-template.patterns": [
         "*.tmpl",
         "*.gotmpl",
-        "**/git/config*"
+        "**/git/config.tmpl"
     ],
     "files.associations": {
         "**/{.git,git}/config*": "toml",
@@ -61,7 +61,7 @@
         "*_bash*.tmpl": "shellscript",
         ".chezmoiignore.tmpl": "gitignore",
         "*gemrc": "yaml",
-        "*editorconfig": "toml"
+        "*editorconfig": "editorconfig"
     },
     "terminal.integrated.enablePersistentSessions": false,
     "[powershell]": {

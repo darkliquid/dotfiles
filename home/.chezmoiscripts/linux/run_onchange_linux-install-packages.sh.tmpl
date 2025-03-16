@@ -2,6 +2,7 @@
 #!/bin/bash
 
 # {{ template "utils.sh" }}
+# {{ template "wsl.sh" }}
 
 # Install apt packages
 log "Installing base apt packages..."
@@ -34,9 +35,10 @@ mise settings set disable_backends asdf # don't trust asdf
 mise use -g -y {{ .packages.linux.mises | join " " }} 2>&1
 
 # Install vscode extensions if vscode is installed
-if command -v code > /dev/null; then
+if exist code; then
   log "Installing vscode extensions..."
   for ext in '{{ .packages.vscode.extensions | join " " }}'; do
     code --install-extension $ext 2>&1
   done
 fi
+{{ end }}
