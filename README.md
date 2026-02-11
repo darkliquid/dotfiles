@@ -12,7 +12,7 @@ Everything is driven via [mise][2]. Install that via:
 curl https://mise.run | sh
 ```
 
-Once mise is installed, you can have it install and run [doot][1] to
+Once [mise][2] is installed, you can have it install and run [doot][1] to
 complete the rest of the setup, like so:
 
 ```sh
