@@ -1,0 +1,4 @@
+- name: a
+  value: aliae
+- name: realias
+  value: "aliae init fish | source"

@@ -1,0 +1,2 @@
+- name: SSH_AUTH_SOCK
+  value: '{{ env "XDG_RUNTIME_DIR" }}/ssh-agent.socket'

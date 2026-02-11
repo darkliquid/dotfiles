@@ -1,0 +1,2 @@
+- name: ALIAE_CONFIG
+  value: "{{ .Home }}/.config/aliae/config.yaml"

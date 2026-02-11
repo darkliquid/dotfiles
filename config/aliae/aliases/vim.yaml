@@ -1,0 +1,4 @@
+- name: vi
+  value: nvim
+- name: vim
+  value: nvim
