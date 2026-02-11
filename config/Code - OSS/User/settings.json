@@ -1,0 +1,74 @@
+{
+    "go.lintTool": "golangci-lint-v2",
+    "go.lintFlags": [
+        "--path-mode=abs",
+        "--fast-only"
+    ],
+    "go.formatTool": "custom",
+    "go.alternateTools": {
+        "customFormatter": "golangci-lint-v2"
+    },
+    "go.formatFlags": [
+        "fmt",
+        "--stdin"
+    ],
+    "redhat.telemetry.enabled": false,
+    "vsix.sources": {
+        "opn": {
+            "type": "marketplace",
+            "serviceUrl": "https://open-vsx.org/vscode/gallery",
+        },
+    },
+    "vsix.extensions": [
+        "opn:alefragnani.bookmarks",
+        "opn:bungcip.better-toml",
+        "opn:cardinal90.multi-cursor-case-preserve",
+        "opn:davidanson.vscode-markdownlint",
+        "opn:donjayamanne.githistory",
+        "opn:esbenp.prettier-vscode",
+        "opn:fabiospampinato.vscode-highlight",
+        "opn:golang.go",
+        "opn:gruntfuggly.todo-tree",
+        "opn:hverlin.mise-vscode",
+        "opn:johnpapa.vscode-peacock",
+        "opn:kdl-org.kdl",
+        "opn:mhutchie.git-graph",
+        "opn:oderwat.indent-rainbow",
+        "opn:redhat.vscode-yaml",
+        "opn:yzhang.markdown-all-in-one",
+        "opn:zokugun.cron-tasks",
+        "opn:zokugun.vsix-manager",
+    ],
+    "highlight.regexes": {
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:[\\t\\f\\v ]*\\([^\\r\\n)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\r\\n@]*?)(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^\\r\\n@]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#ffcc00",
+                    "backgroundColor": "#ffcc00",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#ffcc00",
+                    "color": "#1f1f1f"
+                }
+            ]
+        },
+        "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *(?:FIXME|FIX|BUG|UGLY|DEBUG|HACK)(?:[\\t\\f\\v ]*\\([^\\r\\n)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\r\\n@]*?)(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^\\r\\n@]+)?))": {
+            "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+            "decorations": [
+                {
+                    "overviewRulerColor": "#cc0000",
+                    "backgroundColor": "#cc0000",
+                    "color": "#1f1f1f",
+                    "fontWeight": "bold"
+                },
+                {
+                    "backgroundColor": "#cc0000",
+                    "color": "#1f1f1f"
+                }
+            ]
+        }
+    },
+}
