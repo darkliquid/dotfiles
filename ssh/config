@@ -6,7 +6,7 @@ Host *
   # Multiplex connections persistently for faster connect.
   ControlMaster auto
   ControlPath ~/.ssh/master-%r@%h:%p
-  ControlPersist yes
+  ControlPersist 10m
 
   # Disable forwarding by default, we can override per host
   ForwardAgent no

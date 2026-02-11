@@ -36,6 +36,7 @@ description = "Run various updates"
 run = [
     'doot pull',
     'cachy-update',
+    'mise self-update',
     'mise upgrade',
     'code --update-extensions',
     'nvim --headless "+Lazy! sync" +qa'
