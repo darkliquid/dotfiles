@@ -1,0 +1,22 @@
+AddKeysToAgent yes
+
+Include config.d/*
+
+Host *
+  # Multiplex connections persistently for faster connect.
+  ControlMaster auto
+  ControlPath ~/.ssh/master-%r@%h:%p
+  ControlPersist yes
+
+  # Disable forwarding by default, we can override per host
+  ForwardAgent no
+
+  # Use only explicitly specified identities instead of trying all of them
+  IdentitiesOnly yes
+
+  # Y not?
+  Compression yes
+
+  # Override TERM env to avoid issues with remotes
+  # not having terminfo entries for our local term
+  SetEnv TERM=xterm
