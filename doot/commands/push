@@ -1,0 +1,11 @@
+#!/bin/bash
+
+git add .
+git st
+msg="$(gum input --placeholder='Commit message for doot update...' || exit)"
+if [ "$msg" == "" ]; then
+  echo "Aborting..."
+  exit
+fi
+git ci -m"$msg" || exit
+git push
