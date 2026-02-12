@@ -16,8 +16,8 @@
     "vsix.sources": {
         "opn": {
             "type": "marketplace",
-            "serviceUrl": "https://open-vsx.org/vscode/gallery",
-        },
+            "serviceUrl": "https://open-vsx.org/vscode/gallery"
+        }
     },
     "vsix.extensions": [
         "opn:alefragnani.bookmarks",
@@ -37,7 +37,7 @@
         "opn:redhat.vscode-yaml",
         "opn:yzhang.markdown-all-in-one",
         "opn:zokugun.cron-tasks",
-        "opn:zokugun.vsix-manager",
+        "opn:zokugun.vsix-manager"
     ],
     "highlight.regexes": {
         "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:[\\t\\f\\v ]*\\([^\\r\\n)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\r\\n@]*?)(?= *(?:[^\\r\\n:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^\\r\\n@]+)?))": {
@@ -70,5 +70,5 @@
                 }
             ]
         }
-    },
+    }
 }

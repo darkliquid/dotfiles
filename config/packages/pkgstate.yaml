@@ -1,4 +1,20 @@
 packages:
+  - adw-gtk-theme
+  - brightnessctl
+  - cachyos-nord-gtk-theme-git
+  - capitaine-cursors
+  - kvantum-theme-nordic-git
+  - niri
+  - otf-font-awesome
+  - pamixer
+  - polkit-kde-agent
+  - qt5ct
+  - ttf-fira-sans
+  - ttf-hack
+  - ttf-hack-nerd
+  - wl-clipboard
+  - woff2-font-awesome
+  - xwayland-satellite
   - accountsservice
   - alsa-firmware
   - alsa-plugins
@@ -226,3 +242,4 @@ packages:
 
 systemd_user:
   app-com.mitchellh.ghostty.service: enabled
+
