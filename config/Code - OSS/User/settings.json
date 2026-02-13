@@ -70,5 +70,6 @@
                 }
             ]
         }
-    }
+    },
+    "workbench.colorTheme": "Dynamic Base16 DankShell"
 }

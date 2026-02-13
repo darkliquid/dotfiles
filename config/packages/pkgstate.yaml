@@ -239,7 +239,7 @@ packages:
   - youtube-music
   - kbfs
   - keybase
+  - zed
 
 systemd_user:
   app-com.mitchellh.ghostty.service: enabled
-
