@@ -1,0 +1,4 @@
+#!/bin/bash
+
+synced="$(pkgstate generate | yq 'load("config/packages/pkgstate.yaml") * {"packages":.packages}')"
+echo "$synced" > config/packages/pkgstate.yaml

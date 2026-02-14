@@ -1,21 +1,6 @@
 packages:
-  - adw-gtk-theme
-  - brightnessctl
-  - cachyos-nord-gtk-theme-git
-  - capitaine-cursors
-  - kvantum-theme-nordic-git
-  - niri
-  - otf-font-awesome
-  - pamixer
-  - polkit-kde-agent
-  - qt5ct
-  - ttf-fira-sans
-  - ttf-hack
-  - ttf-hack-nerd
-  - wl-clipboard
-  - woff2-font-awesome
-  - xwayland-satellite
   - accountsservice
+  - adw-gtk-theme
   - alsa-firmware
   - alsa-plugins
   - alsa-utils
@@ -32,6 +17,7 @@ packages:
   - bluez-libs
   - bluez-obex
   - bluez-utils
+  - brightnessctl
   - btop
   - btrfs-assistant
   - btrfs-progs
@@ -45,6 +31,7 @@ packages:
   - cachyos-keyring
   - cachyos-micro-settings
   - cachyos-mirrorlist
+  - cachyos-nord-gtk-theme-git
   - cachyos-packageinstaller
   - cachyos-plymouth-bootanimation
   - cachyos-rate-mirrors
@@ -55,6 +42,7 @@ packages:
   - cachyos-wallpapers
   - cachyos-zsh-config
   - cantarell-fonts
+  - capitaine-cursors
   - cartridges
   - cava
   - chafa
@@ -118,6 +106,9 @@ packages:
   - itch-bin
   - iwd
   - jfsutils
+  - kbfs
+  - keybase
+  - kvantum-theme-nordic-git
   - less
   - lib32-mesa
   - lib32-nvidia-utils
@@ -159,6 +150,7 @@ packages:
   - networkmanager-openvpn
   - nfs-utils
   - nilfs-utils
+  - niri
   - noto-fonts
   - noto-fonts-cjk
   - noto-fonts-emoji
@@ -170,17 +162,21 @@ packages:
   - opencl-nvidia
   - openssh
   - os-prober
+  - otf-font-awesome
   - pacman-contrib
+  - pamixer
   - paru
   - pavucontrol
   - perl
   - pipewire-alsa
   - pipewire-pulse
   - pkgfile
+  - plezy
   - plocate
   - plymouth
   - podman-compose
   - podman-docker
+  - polkit-kde-agent
   - poppler-glib
   - power-profiles-daemon
   - protonup-qt
@@ -192,6 +188,7 @@ packages:
   - python-pyusb
   - python-spidev
   - python-uv-build
+  - qt5ct
   - quickshell-git
   - rbw
   - rebuild-detector
@@ -214,6 +211,9 @@ packages:
   - texinfo
   - ttf-bitstream-vera
   - ttf-dejavu
+  - ttf-fira-sans
+  - ttf-hack
+  - ttf-hack-nerd
   - ttf-liberation
   - ttf-meslo-nerd
   - ttf-opensans
@@ -231,15 +231,15 @@ packages:
   - which
   - wireless-regdb
   - wireplumber
+  - wl-clipboard
+  - woff2-font-awesome
   - wpa_supplicant
   - xdg-user-dirs
   - xf86-video-amdgpu
   - xfsprogs
   - xl2tpd
+  - xwayland-satellite
   - youtube-music
-  - kbfs
-  - keybase
   - zed
-
 systemd_user:
   app-com.mitchellh.ghostty.service: enabled
