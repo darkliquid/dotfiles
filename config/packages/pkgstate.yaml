@@ -66,6 +66,8 @@ packages:
   - dosfstools
   - dotnet-sdk-8.0
   - dotnet-sdk-bin
+  - dropbox
+  - dropbox-cli
   - dsearch-bin
   - duf
   - e2fsprogs
@@ -114,6 +116,7 @@ packages:
   - lib32-nvidia-utils
   - lib32-opencl-nvidia
   - lib32-vulkan-radeon
+  - libappindicator
   - libdvdcss
   - libfprint-goodix-521d
   - libgsf
@@ -145,6 +148,7 @@ packages:
   - mtools
   - nano
   - nano-syntax-highlighting
+  - nautilus-dropbox
   - netctl
   - networkmanager
   - networkmanager-openvpn
@@ -158,6 +162,7 @@ packages:
   - nvidia-prime
   - nvidia-settings
   - nvidia-utils
+  - obsidian
   - octopi
   - opencl-nvidia
   - openssh
@@ -183,6 +188,7 @@ packages:
   - pv
   - python
   - python-defusedxml
+  - python-gpgme
   - python-packaging
   - python-periphery
   - python-pyusb
