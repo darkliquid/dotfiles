@@ -1,0 +1,52 @@
+{
+  "dankBitwarden": {
+    "enabled": true,
+    "trigger": "[",
+    "copyToClipboard": true
+  },
+  "asusControlCenter": {
+    "enabled": true
+  },
+  "powerOptions": {
+    "enabled": true,
+    "noTrigger": true,
+    "trigger": ""
+  },
+  "dankLauncherKeys": {
+    "enabled": true
+  },
+  "niriWindows": {
+    "enabled": true,
+    "trigger": "@"
+  },
+  "commandRunner": {
+    "enabled": true,
+    "terminal": "ghostty",
+    "history": [
+      "ls"
+    ]
+  },
+  "calculator": {
+    "enabled": true,
+    "trigger": "="
+  },
+  "emojiLauncher": {
+    "enabled": true,
+    "trigger": ":"
+  },
+  "dankGifSearch": {
+    "enabled": true
+  },
+  "dankNotepadModule": {
+    "enabled": true
+  },
+  "dankStickerSearch": {
+    "enabled": true
+  },
+  "dankActions": {
+    "enabled": false
+  },
+  "dankHooks": {
+    "enabled": false
+  }
+}
