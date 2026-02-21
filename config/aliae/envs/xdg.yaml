@@ -1,4 +1,4 @@
 - name: BROWSER
   value: dms open
 - name: EDITOR
-  value: zeditor
+  value: nvim

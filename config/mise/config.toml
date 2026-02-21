@@ -37,6 +37,7 @@ usage = "latest"
 uv = "latest"
 xh = "latest"
 yq = "latest"
+zellij = "latest"
 zoxide = "latest"
 
 [tasks.update]

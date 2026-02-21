@@ -246,6 +246,5 @@ packages:
   - xl2tpd
   - xwayland-satellite
   - youtube-music
-  - zed
 systemd_user:
   app-com.mitchellh.ghostty.service: enabled
