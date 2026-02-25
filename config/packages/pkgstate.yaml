@@ -5,6 +5,7 @@ packages:
   - alsa-plugins
   - alsa-utils
   - amd-ucode
+  - antigravity
   - appimagelauncher
   - asusctl
   - awesome-terminal-fonts
@@ -209,6 +210,7 @@ packages:
   - snapper
   - sof-firmware
   - splix
+  - strace
   - sudo
   - supergfxctl
   - switcheroo-control

@@ -72,5 +72,6 @@
         }
     },
     "workbench.colorTheme": "Dynamic Base16 DankShell",
-    "go.toolsManagement.autoUpdate": true
+    "go.toolsManagement.autoUpdate": true,
+    "explorer.confirmDelete": false
 }
