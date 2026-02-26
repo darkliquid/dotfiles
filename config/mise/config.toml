@@ -49,7 +49,7 @@ run = [
     'doot pull',
     'cachy-update',
     'mise self-update',
-    'mise upgrade',
+    'mise upgrade --bump',
     'code --update-extensions',
     'nvim --headless "+Lazy! sync" +qa'
 ]
