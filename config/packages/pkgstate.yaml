@@ -246,6 +246,7 @@ packages:
   - xf86-video-amdgpu
   - xfsprogs
   - xl2tpd
+  - xorg-xdpyinfo
   - xwayland-satellite
   - youtube-music
 systemd_user:
