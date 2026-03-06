@@ -49,6 +49,8 @@ packages:
   - chafa
   - chwd
   - code
+  - code-features-insiders
+  - code-marketplace
   - cpupower
   - crun
   - cryptsetup
@@ -93,6 +95,7 @@ packages:
   - git
   - glances
   - glib2-devel
+  - gnome-keyring
   - greetd-dms-greeter-git
   - gsfonts
   - gst-libav
@@ -205,6 +208,7 @@ packages:
   - rsync
   - s-nail
   - sddm
+  - seahorse
   - sg3_utils
   - smartmontools
   - snapper
