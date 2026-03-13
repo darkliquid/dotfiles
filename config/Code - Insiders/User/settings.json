@@ -76,5 +76,12 @@
     "explorer.confirmDelete": false,
     "claudeCode.preferredLocation": "sidebar",
     "http.systemCertificatesNode": true,
-    "chat.viewSessions.orientation": "stacked"
+    "mise.configureExtensionsAutomatically": true,
+    "gopls": {
+        "build.buildFlags": ["-tags","gogpu,sdl3"],
+        "ui.vulncheck": "Imports",
+    },
+    "chat.agent.maxRequests": 100,
+    "github.copilot.chat.claudeAgent.allowDangerouslySkipPermissions": true,
+    "beads.pathToBd": ""
 }

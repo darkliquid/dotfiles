@@ -13,11 +13,11 @@ cursor-style = block
 cursor-style-blink = true
 
 # Scrollback
-scrollback-limit = 10000
+scrollback-limit = 100000
 
 # Terminal features
 mouse-hide-while-typing = true
-copy-on-select = false
+copy-on-select = true
 confirm-close-surface = false
 
 # Disable annoying copied to clipboard
