@@ -83,5 +83,13 @@
     },
     "chat.agent.maxRequests": 100,
     "github.copilot.chat.claudeAgent.allowDangerouslySkipPermissions": true,
-    "beads.pathToBd": ""
+    "beads.pathToBd": "",
+    "yaml.schemas": {
+        "file:///home/darkliquid/.vscode-insiders/extensions/continue.continue-1.2.17-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/darkliquid/.vscode-insiders/extensions/continue.continue-1.3.33-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ]
+    }
 }

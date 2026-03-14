@@ -114,6 +114,7 @@ packages:
   - jfsutils
   - kbfs
   - keybase
+  - krita
   - kvantum-theme-nordic-git
   - less
   - lib32-mesa
@@ -159,6 +160,7 @@ packages:
   - nfs-utils
   - nilfs-utils
   - niri
+  - nordvpn-bin
   - noto-fonts
   - noto-fonts-cjk
   - noto-fonts-emoji
@@ -198,6 +200,7 @@ packages:
   - python-pyusb
   - python-spidev
   - python-uv-build
+  - qemu-base
   - qt5ct
   - quickshell-git
   - rbw
@@ -253,5 +256,8 @@ packages:
   - xorg-xdpyinfo
   - xwayland-satellite
   - youtube-music
+  - zps
 systemd_user:
   app-com.mitchellh.ghostty.service: enabled
+  dsearch.service: enabled
+  ollama.service: enabled

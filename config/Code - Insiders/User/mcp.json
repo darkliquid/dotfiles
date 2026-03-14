@@ -5,13 +5,19 @@
 			"command": "gopls",
 			"args": [
 				"mcp"
-				],
-				"cwd": "${workspaceFolder}"
+			],
+			"cwd": "${workspaceFolder}"
 		},
 		"github": {
 			"url": "https://api.githubcopilot.com/mcp/",
 			"type": "http"
-		}
+		},
+		"debugmcp": {
+        	"type": "http",
+        	"url": "http://localhost:3001/mcp",
+        	"description": "DebugMCP - Multi-language debugging support",
+			"cwd": "${workspaceFolder}"
+      	}
 	},
 	"inputs": []
 }
