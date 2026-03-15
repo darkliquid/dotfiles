@@ -6,18 +6,16 @@
 			"args": [
 				"mcp"
 			],
-			"cwd": "${workspaceFolder}"
 		},
 		"github": {
 			"url": "https://api.githubcopilot.com/mcp/",
 			"type": "http"
 		},
 		"debugmcp": {
-        	"type": "http",
-        	"url": "http://localhost:3001/mcp",
-        	"description": "DebugMCP - Multi-language debugging support",
-			"cwd": "${workspaceFolder}"
-      	}
+			"type": "http",
+			"url": "http://localhost:3001/mcp",
+			"description": "DebugMCP - Multi-language debugging support",
+		}
 	},
 	"inputs": []
 }
