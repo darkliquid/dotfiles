@@ -53,7 +53,7 @@ yq = "latest"
 zellij = "latest"
 zoxide = "latest"
 
-[tasks.update]
+[tasks.system-update]
 description = "Run various updates"
 run = [
     'doot pull',

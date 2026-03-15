@@ -91,5 +91,16 @@
         "file:///home/darkliquid/.vscode-insiders/extensions/continue.continue-1.3.33-linux-x64/config-yaml-schema.json": [
             ".continue/**/*.yaml"
         ]
-    }
+    },
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc": "default",
+        "*.qrc": "qt-core.qrcEditor"
+    },
+    "qt-core.additionalQtPaths": [
+        {
+            "name": "Qt-5.15.18-linux-g++_from_PATH",
+            "path": "/usr/bin/qmake"
+        }
+    ]
 }

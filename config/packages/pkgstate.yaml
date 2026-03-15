@@ -30,7 +30,6 @@ packages:
   - cachyos-hooks
   - cachyos-kernel-manager
   - cachyos-keyring
-  - cachyos-micro-settings
   - cachyos-mirrorlist
   - cachyos-nord-gtk-theme-git
   - cachyos-packageinstaller
@@ -147,7 +146,6 @@ packages:
   - mdadm
   - meld
   - mesa-utils
-  - micro
   - mkinitcpio
   - modemmanager
   - mtools
