@@ -121,7 +121,7 @@
       "width": 50
     }
   ],
-  "showWorkspaceIndex": false,
+  "showWorkspaceIndex": true,
   "showWorkspaceName": false,
   "showWorkspacePadding": false,
   "workspaceScrolling": false,
@@ -131,7 +131,7 @@
   "workspaceAppIconSizeOffset": 0,
   "groupWorkspaceApps": true,
   "workspaceFollowFocus": false,
-  "showOccupiedWorkspacesOnly": false,
+  "showOccupiedWorkspacesOnly": true,
   "reverseScrolling": false,
   "dwlShowAllTags": false,
   "workspaceColorMode": "default",
@@ -173,8 +173,8 @@
   "browserPickerViewMode": "grid",
   "browserUsageHistory": {
     "appimagekit_602f9f241f3f3749e6be0887b93d15ee-Helium": {
-      "count": 38,
-      "lastUsed": 1773555964006,
+      "count": 83,
+      "lastUsed": 1773871274389,
       "name": "Helium (0.8.5.1)"
     }
   },
@@ -222,7 +222,7 @@
   "launcherLogoContrast": 1,
   "launcherLogoSizeOffset": 0,
   "fontFamily": "Inter Variable",
-  "monoFontFamily": "Fira Code",
+  "monoFontFamily": "Hack Nerd Font Mono",
   "fontWeight": 400,
   "fontScale": 1,
   "notepadUseMonospace": true,
@@ -404,6 +404,10 @@
           "id": "cpuTemp",
           "enabled": true,
           "minimumWidth": true
+        },
+        {
+          "id": "screenRecorder",
+          "enabled": true
         }
       ],
       "centerWidgets": [
@@ -671,16 +675,18 @@
           "all"
         ],
         "showOnOverlay": false,
-        "showOnOverview": true,
-        "command": "fastfetch --logo-type builtin",
+        "showOnOverview": false,
+        "command": "",
         "autoRefresh": false,
         "commandTimeout": "1",
-        "refreshInterval": "5"
+        "refreshInterval": "5",
+        "showOnOverviewOnly": false,
+        "backgroundOpacity": 80
       },
       "positions": {
         "eDP-1": {
-          "width": 807.87109375,
-          "height": 471.453125,
+          "width": 1707,
+          "height": 258.1640625,
           "x": 0,
           "y": 0
         }

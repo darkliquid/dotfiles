@@ -1,3 +1,6 @@
+[settings]
+npm.package_manager = "bun"
+
 [tools]
 age = "latest"
 "aqua:dalance/procs" = "latest"
@@ -17,11 +20,14 @@ fzf = "latest"
 gemini = "latest"
 gh = "latest"
 github-cli = "latest"
+"github:CtrlSpice/otel-desktop-viewer" = "latest"
 "github:JanDeDobbeleer/aliae" = "latest"
+"github:Rodrigodd/strace-tui" = "latest"
 "github:gromgit/pup" = "latest"
 "github:pol-rivero/doot" = "latest"
 "github:pol-rivero/pkgstate" = "latest"
 "github:pomdtr/sunbeam" = "latest"
+"github:ymtdzzz/otel-tui" = "latest"
 go = "latest"
 golangci-lint = "latest"
 goreleaser = "latest"
@@ -54,6 +60,7 @@ zellij = "latest"
 zoxide = "latest"
 
 [tasks.system-update]
+hide = true
 description = "Run various updates"
 run = [
     'doot pull',

@@ -1,21 +1,24 @@
 {
-	"servers": {
-		"gopls": {
-			"type": "stdio",
-			"command": "gopls",
-			"args": [
-				"mcp"
-			],
-		},
-		"github": {
-			"url": "https://api.githubcopilot.com/mcp/",
-			"type": "http"
-		},
-		"debugmcp": {
-			"type": "http",
-			"url": "http://localhost:3001/mcp",
-			"description": "DebugMCP - Multi-language debugging support",
-		}
-	},
-	"inputs": []
+  "servers": {
+    "gopls": {
+      "type": "stdio",
+      "command": "gopls",
+      "args": [
+        "mcp"
+      ],
+    },
+    "github": {
+      "url": "https://api.githubcopilot.com/mcp/",
+      "type": "http"
+    },
+    "debugmcp": {
+      "type": "http",
+      "url": "http://localhost:3001/mcp",
+      "description": "DebugMCP - Multi-language debugging support",
+    },
+    "context-mode": {
+      "command": "context-mode"
+    }
+  },
+  "inputs": []
 }

@@ -95,6 +95,7 @@ packages:
   - glances
   - glib2-devel
   - gnome-keyring
+  - gpu-screen-recorder
   - greetd-dms-greeter-git
   - gsfonts
   - gst-libav
@@ -184,7 +185,6 @@ packages:
   - plocate
   - plymouth
   - podman-compose
-  - podman-docker
   - polkit-kde-agent
   - poppler-glib
   - power-profiles-daemon
@@ -200,6 +200,7 @@ packages:
   - python-uv-build
   - qemu-base
   - qt5ct
+  - qt6ct
   - quickshell-git
   - rbw
   - rebuild-detector
