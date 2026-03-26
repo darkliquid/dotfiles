@@ -167,14 +167,25 @@
   "centeringMode": "geometric",
   "clockDateFormat": "",
   "lockDateFormat": "",
+  "greeterRememberLastSession": true,
+  "greeterRememberLastUser": true,
+  "greeterEnableFprint": false,
+  "greeterEnableU2f": false,
+  "greeterWallpaperPath": "",
+  "greeterUse24HourClock": true,
+  "greeterShowSeconds": false,
+  "greeterPadHours12Hour": false,
+  "greeterLockDateFormat": "",
+  "greeterFontFamily": "",
+  "greeterWallpaperFillMode": "",
   "mediaSize": 1,
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "list",
   "browserPickerViewMode": "grid",
   "browserUsageHistory": {
     "appimagekit_602f9f241f3f3749e6be0887b93d15ee-Helium": {
-      "count": 83,
-      "lastUsed": 1773871274389,
+      "count": 106,
+      "lastUsed": 1774505104746,
       "name": "Helium (0.8.5.1)"
     }
   },
@@ -256,7 +267,11 @@
   "launchPrefix": "",
   "brightnessDevicePins": {},
   "wifiNetworkPins": {},
-  "bluetoothDevicePins": {},
+  "bluetoothDevicePins": {
+    "preferredDevice": [
+      "E4:17:D8:3B:41:08"
+    ]
+  },
   "audioInputDevicePins": {},
   "audioOutputDevicePins": {},
   "gtkThemingEnabled": false,
@@ -285,6 +300,7 @@
   "matugenTemplateKcolorscheme": true,
   "matugenTemplateVscode": true,
   "matugenTemplateEmacs": true,
+  "matugenTemplateZed": true,
   "showDock": false,
   "dockAutoHide": false,
   "dockSmartAutoHide": false,
@@ -326,6 +342,8 @@
   "lockAtStartup": false,
   "enableFprint": false,
   "maxFprintTries": 15,
+  "enableU2f": false,
+  "u2fMode": "or",
   "lockScreenActiveMonitor": "all",
   "lockScreenInactiveColor": "#000000",
   "lockScreenNotificationMode": 0,
@@ -702,8 +720,8 @@
       "previewActive": false,
       "currentFilePath": "notepad-files/untitled-1770496756896.txt",
       "currentFileExtension": "txt",
-      "sourceContent": "",
-      "updatedAt": 1771450921028,
+      "sourceContent": "woff2-font-awesome\nwl-clipboard\nttf-hack\nttf-fira-sans\nqt5ct\npolkit-kde-agent\npolkit-qt6\nkirigami\npamixer\notf-font-awesome\nkvantum-theme-nordic-git\nkvantum\ncapitaine-cursors\ncachyos-nord-gtk-theme-git\nbrightnessctl\nadw-gtk-theme",
+      "updatedAt": 1774444916624,
       "highlightedHtml": ""
     }
   },

@@ -199,6 +199,7 @@ packages:
   - python-spidev
   - python-uv-build
   - qemu-base
+  - qimgv
   - qt5ct
   - qt6ct
   - quickshell-git

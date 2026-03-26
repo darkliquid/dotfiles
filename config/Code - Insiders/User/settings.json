@@ -104,10 +104,16 @@
     {
       "name": "Qt-5.15.18-linux-g++_from_PATH",
       "path": "/usr/bin/qmake"
+    },
+    {
+      "name": "Qt-5.15.18-linux-g++_from_PATH",
+      "path": "/usr/bin/qtpaths"
     }
   ],
   "chat.viewSessions.orientation": "stacked",
   "terminal.integrated.defaultProfile.linux": "bash",
   "geminicodeassist.project": "summer-facet-3ht61",
   "diffEditor.codeLens": true,
+  "python.analysis.showOnlyDirectDependenciesInAutoImport": true,
+  "chat.autopilot.enabled": true,
 }
