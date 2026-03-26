@@ -1,5 +1,18 @@
+config-notification {
+    disable-failed
+}
+
+overview {
+    workspace-shadow {
+        off
+    }
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+
+
     prefer-no-csd
-    screenshot-path null
 
     environment {
         ELECTRON_OZONE_PLATFORM_HINT "auto"
@@ -18,3 +31,4 @@
     hotkey-overlay {
        skip-at-startup
     }
+

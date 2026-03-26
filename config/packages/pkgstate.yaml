@@ -159,6 +159,7 @@ packages:
   - nfs-utils
   - nilfs-utils
   - niri
+  - niri-sidebar-git
   - nordvpn-bin
   - noto-fonts
   - noto-fonts-cjk
@@ -169,6 +170,7 @@ packages:
   - nvidia-utils
   - obsidian
   - octopi
+  - oniri
   - opencl-nvidia
   - openssh
   - os-prober
