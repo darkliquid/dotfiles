@@ -1,6 +1,7 @@
 packages:
   - accountsservice
   - adw-gtk-theme
+  - alacritty
   - alsa-firmware
   - alsa-plugins
   - alsa-utils
@@ -47,6 +48,7 @@ packages:
   - cava
   - chafa
   - chwd
+  - cliamp
   - code
   - code-features-insiders
   - code-marketplace
@@ -177,6 +179,7 @@ packages:
   - otf-font-awesome
   - pacman-contrib
   - pamixer
+  - pano-scrobbler-bin
   - paru
   - pavucontrol
   - perl

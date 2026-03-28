@@ -82,6 +82,9 @@
       "-tags",
       "gogpu,sdl3"
     ],
+    "build.env": {
+      "CGO_ENABLED": "0"
+    },
     "ui.vulncheck": "Imports",
   },
   "chat.agent.maxRequests": 100,
@@ -116,4 +119,8 @@
   "diffEditor.codeLens": true,
   "python.analysis.showOnlyDirectDependenciesInAutoImport": true,
   "chat.autopilot.enabled": true,
+  "go.buildTags": "gogpu",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
 }

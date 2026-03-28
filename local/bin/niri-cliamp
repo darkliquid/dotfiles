@@ -1,0 +1,17 @@
+#!/bin/bash
+
+focus_and_exit() {
+	local query=".[] | select(.app_id == \"$1\") | .id"
+	local windows="$(niri msg -j windows)"
+	local id="$(echo $windows | jq "$query")"
+	echo "Found $1 with window id: $id"
+	if [ ! -z "$id" ]; then
+		niri msg action focus-window --id $id
+		exit 0
+	fi
+}
+
+focus_and_exit "cliamp"
+
+# Run cliamp in an alacritty window
+niri msg action spawn -- alacritty --class cliamp -e cliamp
