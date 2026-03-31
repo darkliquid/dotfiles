@@ -79,6 +79,7 @@ packages:
   - efitools
   - egl-wayland
   - ethtool
+  - evtest
   - exfatprogs
   - f2fs-tools
   - fastfetch
@@ -97,6 +98,7 @@ packages:
   - glances
   - glib2-devel
   - gnome-keyring
+  - gobject-introspection
   - gpu-screen-recorder
   - greetd-dms-greeter-git
   - gsfonts
@@ -110,6 +112,7 @@ packages:
   - hwdetect
   - hwinfo
   - inetutils
+  - input-remapper-git
   - iptables-nft
   - itch-bin
   - iwd
@@ -127,6 +130,7 @@ packages:
   - libdvdcss
   - libfprint-goodix-521d
   - libgsf
+  - libinput-tools
   - libopenraw
   - libva-nvidia-driver
   - limine
@@ -204,6 +208,7 @@ packages:
   - python-spidev
   - python-uv-build
   - qemu-base
+  - qemu-full
   - qimgv
   - qt5ct
   - qt6ct
@@ -229,6 +234,7 @@ packages:
   - sysfsutils
   - system-config-printer
   - texinfo
+  - tk
   - ttf-bitstream-vera
   - ttf-dejavu
   - ttf-fira-sans
@@ -237,6 +243,7 @@ packages:
   - ttf-liberation
   - ttf-meslo-nerd
   - ttf-opensans
+  - tytools
   - ufw
   - unrar
   - unzip
@@ -244,9 +251,11 @@ packages:
   - usb_modeswitch
   - usbutils
   - vim
+  - virt-manager
   - vlc
   - vlc-plugins-all
   - vulkan-radeon
+  - wev
   - wget
   - which
   - wireless-regdb
