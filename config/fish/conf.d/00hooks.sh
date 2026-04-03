@@ -3,3 +3,4 @@ zoxide init fish | source
 fzf --fish | source
 aliae init fish --config ~/.config/aliae/config.yaml | source
 starship init fish | source
+tv init fish | source

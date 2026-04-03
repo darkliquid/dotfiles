@@ -233,6 +233,7 @@ packages:
   - switcheroo-control
   - sysfsutils
   - system-config-printer
+  - tailscale
   - texinfo
   - tk
   - ttf-bitstream-vera

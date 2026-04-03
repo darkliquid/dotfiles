@@ -184,13 +184,24 @@
   "browserPickerViewMode": "grid",
   "browserUsageHistory": {
     "appimagekit_602f9f241f3f3749e6be0887b93d15ee-Helium": {
-      "count": 122,
-      "lastUsed": 1774856714437,
+      "count": 131,
+      "lastUsed": 1775186866890,
       "name": "Helium (0.8.5.1)"
     }
   },
-  "appPickerViewMode": "grid",
-  "filePickerUsageHistory": {},
+  "appPickerViewMode": "list",
+  "filePickerUsageHistory": {
+    "code-oss": {
+      "count": 1,
+      "lastUsed": 1775133410794,
+      "name": "Code - OSS"
+    },
+    "obsidian": {
+      "count": 1,
+      "lastUsed": 1775134866558,
+      "name": "Obsidian"
+    }
+  },
   "sortAppsAlphabetically": false,
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
@@ -444,9 +455,22 @@
         }
       ],
       "rightWidgets": [
-        "systemTray",
-        "clipboard",
-        "battery",
+        {
+          "id": "tailscale",
+          "enabled": true
+        },
+        {
+          "id": "systemTray",
+          "enabled": true
+        },
+        {
+          "id": "clipboard",
+          "enabled": true
+        },
+        {
+          "id": "battery",
+          "enabled": true
+        },
         {
           "id": "controlCenterButton",
           "enabled": true
@@ -721,7 +745,7 @@
       "currentFilePath": "notepad-files/untitled-1770496756896.txt",
       "currentFileExtension": "txt",
       "sourceContent": "woff2-font-awesome\nwl-clipboard\nttf-hack\nttf-fira-sans\nqt5ct\npolkit-kde-agent\npolkit-qt6\nkirigami\npamixer\notf-font-awesome\nkvantum-theme-nordic-git\nkvantum\ncapitaine-cursors\ncachyos-nord-gtk-theme-git\nbrightnessctl\nadw-gtk-theme",
-      "updatedAt": 1774870019687,
+      "updatedAt": 1775185717540,
       "highlightedHtml": ""
     }
   },
