@@ -206,7 +206,8 @@
   "appLauncherGridColumns": 4,
   "spotlightCloseNiriOverview": true,
   "spotlightSectionViewModes": {
-    "apps": "list"
+    "apps": "list",
+    "plugin_emojiLauncher": "grid"
   },
   "appDrawerSectionViewModes": {},
   "niriOverviewOverlayEnabled": true,
@@ -745,7 +746,7 @@
       "currentFilePath": "notepad-files/untitled-1770496756896.txt",
       "currentFileExtension": "txt",
       "sourceContent": "Error:   × error loading config\n  ├─▶ error parsing\n  ╰─▶ error parsing KDL\nError:   × failed to parse included config\n    ╭─[config.kdl:26:1]\n 26 │ include \"dms/alttab.kdl\"\n 27 │ include \"dms/binds.kdl\"\n    · ───┬───\n    ·    ╰── node starts here\n 28 │ include \"dms/outputs.kdl\"\n    ╰────\nError:   × error parsing KDL\nError:   × duplicate keybind\n     ╭─[dms/binds.kdl:136:1]\n 136 │     Mod+Shift+T { toggle-window-floating; }\n 137 │     Mod+Shift+Up { move-window-up; }\n     ·     ──────┬─────\n     ·           ╰── unexpected keybind\n 138 │     Mod+Shift+V { switch-focus-between-floating-and-tiling; }\n     ╰────\nError:   × duplicate keybind\n     ╭─[dms/binds.kdl:141:1]\n 141 │     Mod+W { toggle-column-tabbed-display; }\n 142 │     Mod+WheelScrollLeft { focus-column-left; }\n     ·     ─────────┬─────────\n     ·              ╰── unexpected keybind\n 143 │     Mod+WheelScrollRight { focus-column-right; }\n     ╰────\nError:   × duplicate keybind\n     ╭─[dms/binds.kdl:142:1]\n 142 │     Mod+WheelScrollLeft { focus-column-left; }\n 143 │     Mod+WheelScrollRight { focus-column-right; }\n     ·     ──────────┬─────────\n     ·               ╰── unexpected keybind\n 144 │     Mod+Shift+P { power-off-monitors; }\n     ╰────",
-      "updatedAt": 1775294118456,
+      "updatedAt": 1775328896848,
       "highlightedHtml": ""
     }
   },

@@ -1,18 +1,4 @@
 binds {
-    // Utility
-    Ctrl+Alt+Delete hotkey-overlay-title="Task Manager"  { spawn "dms" "ipc" "call" "processlist"   "focusOrToggle"; }
-    Mod+Comma       hotkey-overlay-title="Settings"      { spawn "dms" "ipc" "call" "settings"      "focusOrToggle"; }
-    Mod+M           hotkey-overlay-title="Task Manager"  { spawn "dms" "ipc" "call" "processlist"   "focusOrToggle"; }
-    Mod+N           hotkey-overlay-title="Notifications" { spawn "dms" "ipc" "call" "notifications" "toggle"; }
-    Mod+Shift+N     hotkey-overlay-title="Notepad"       { spawn "dms" "ipc" "call" "notepad"       "toggle"; }
-    Mod+Space       hotkey-overlay-title="Launcher"      { spawn "dms" "ipc" "call" "spotlight"     "toggle"; }
-    Mod+V           hotkey-overlay-title="Clipboard"     { spawn "dms" "ipc" "call" "clipboard"     "toggle"; }
-    Mod+A           hotkey-overlay-title="AI Assistant"  { spawn "dms" "ipc" "call" "plugins"       "toggle" "aiAssistant"; }
-    Mod+X           hotkey-overlay-title="Power Menu"    { spawn "dms" "ipc" "call" "powermenu"     "toggle"; }
-    Mod+B           hotkey-overlay-title="Open Browser"  { spawn "xdg-open" "helium://newtab"; }
-    Mod+D     hotkey-overlay-title="Discord"       { spawn "discord"; }
-    Mod+T           hotkey-overlay-title="Open Terminal" { spawn "ghostty" "+new-window"; }
-
     // Media
     XF86AudioMicMute allow-when-locked=true      { spawn "dms" "ipc" "call" "audio"      "micmute"; }
     XF86AudioMute allow-when-locked=true         { spawn "dms" "ipc" "call" "audio"      "mute"; }
@@ -30,41 +16,6 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Print      { screenshot;        }
 
-    // Focus
-    Mod+H    { focus-window-up-or-bottom;   }
-    Mod+J    { focus-column-left-or-last;   }
-    Mod+K    { focus-column-right-or-first; }
-    Mod+L    { focus-window-down-or-top;    }
-    Mod+Home { focus-column-first;          }
-    Mod+End  { focus-column-last;           }
-    Mod+F    { maximize-column;             }
-
-    // Movement
-    Shift+Mod+H    { move-window-up-or-to-workspace-up;     }
-    Shift+Mod+J    { move-column-left-or-to-monitor-left;   }
-    Shift+Mod+K    { move-column-right-or-to-monitor-right; }
-    Shift+Mod+L    { move-window-down-or-to-workspace-down; }
-    Shift+Mod+C    { center-visible-columns; }
-    Shift+Mod+Home { move-column-to-first; }
-    Shift+Mod+End  { move-column-to-last; }
-    Shift+Mod+BracketLeft { consume-or-expel-window-left; }
-    Shift+Mod+BracketRight { consume-or-expel-window-right; }
-
-    // Sizing
-    Ctrl+Mod+R { switch-preset-column-width; }
-    Ctrl+Mod+Equal { set-column-width "+10%"; }
-    Ctrl+Mod+Minus { set-column-width "-10%"; }
-    Shift+Ctrl+Mod+R { switch-preset-window-height; }
-    Shift+Ctrl+Mod+Equal { set-window-height "+10%"; }
-    Shift+Ctrl+Mod+Minus { set-window-height "-10%"; }
-    Ctrl+Mod+F { fullscreen-window; }
-    
-    // Controls
-    Mod+Q repeat=false { close-window; }
-    Mod+Shift+T { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-    Mod+W { toggle-column-tabbed-display; }
-    Mod+O repeat=false { toggle-overview; }
     Mod+Escape { toggle-keyboard-shortcuts-inhibit; }
 }
 

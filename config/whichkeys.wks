@@ -1,9 +1,15 @@
+:bd "#8a9887"
+:border-radius 20
+:delay 0
+:unsorted
+:max-columns 3
 a "Apps"
 {
     b "Browser" %{{xdg-open helium://newtab}}   
     d "Discord" %{{discord}}
-    s "Music" %{{niri-musicon}}
+    m "Music" %{{niri-musicon}}
     t "Terminal" %{{ghostty +new-window}}
+    BS "Back" @goto ""
 }
 d "DMS" 
 {
@@ -12,10 +18,83 @@ d "DMS"
     n "Notes" %{{dms ipc call notepad toggle}}
     c "Clipboard" %{{dms ipc call clipboard toggle}}
     a "AI Assistant" %{{dms ipc call plugins toggle aiAssistant}}
+
+    BS "Back" @goto ""
+}
+m "Media"
+{
+    m "Mute Mic" %{{dms ipc call audio micmute"}}
+    s "Mute Speaker" %{{dms ipc call audio mute"}}
+    p "Play/Pause" %{{dms ipc call mpris playpause"}}
+    Left "Previous" %{{dms ipc call mpris prev}}
+    Right "Next" %{{dms ipc call mpris next}}
+
+    Up "Volume+" %{{dms ipc call audio increment 3}}
+    Down "Volume-" %{{dms ipc call audio decrement 3}}
+
+    \[ "Brightness+" %{{dms ipc call brightness increment 5 ""}}
+    \] "Brightness-" %{{dms ipc call brightness decrement 5 ""}}
+
+    BS "Back" @goto ""
 }
 s "Settings"
 {
     s "Settings" %{{dms ipc call settings focusOrToggle}}
     c "Configs" %{{code ~/.config}}
+    BS "Back" @goto ""
+}
+w "Windows" +keep
+{
+    f "Focus" +keep
+    {
+        Up    "Focus ↑" %{{niri msg action focus-window-up-or-bottom}}
+        Left  "Focus ←" %{{niri msg action focus-column-left-or-last}}
+        Right "Focus →" %{{niri msg action focus-column-right-or-first}}
+        Down  "Focus ↓" %{{niri msg action focus-window-down-or-top}}
+        Home  "Focus First" %{{niri msg action focus-column-first}}
+        End   "Focus Last" %{{niri msg action focus-column-last}}
+
+        BS "Back" @goto "w"
+    }
+    
+    m "Move" +keep
+    {
+        Up    "Move ↑" %{{niri msg action move-window-up-or-to-workspace-up}}
+        Left  "Move ←" %{{niri msg action move-column-left-or-to-monitor-left}}
+        Right "Move →" %{{niri msg action move-column-right-or-to-monitor-right}}
+        Down  "Move ↓" %{{niri msg action move-window-down-or-to-workspace-down}}
+        
+        BS "Back" @goto "w"
+    }
+    
+    s "Size" +keep
+    {
+        Up    "Heighten" %{{niri msg action set-window-height "+10%"}}
+        Left  "Narrow" %{{niri msg action set-column-width "-10%"}}
+        Right "Widen" %{{niri msg action set-column-width "+10%"}}
+        Down  "Shorten" %{{niri msg action set-window-height "-10%"}}
+        m "Maximise" %{{niri msg action maximize-column}}
+        f "Fullscreen" %{{niri msg action fullscreen-window}}
+        w "Cycle Widths" %{{niri msg action switch-preset-column-width}}
+        h "Cycle Heights" %{{niri msg action switch-preset-window-height}}
+
+        BS "Back" @goto "w"
+    }
+
+    c "Control" +keep
+    {
+        q "Close" %{{niri msg action close-window}}
+        t "Tile/Float" %{{niri msg action toggle-window-floating}}
+        v "Focus Tiled/Floats" %{{niri msg action switch-focus-between-floating-and-tiling}}
+        w "Tabs" %{{niri msg action toggle-column-tabbed-display}}
+        o "Overview" %{{niri msg action toggle-overview}}
+        Left "Merge ←" %{{niri msg action consume-or-expel-window-left}}
+        Right "Merge →" %{{niri msg action consume-or-expel-window-right}}
+
+        
+        BS "Back" @goto "w"
+    }
+
+    BS "Back" @goto ""
 }
 x "Session" %{{dms ipc call powermenu toggle}}
