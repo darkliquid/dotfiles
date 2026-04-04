@@ -88,8 +88,8 @@ w "Windows" +keep
         v "Focus Tiled/Floats" %{{niri msg action switch-focus-between-floating-and-tiling}}
         w "Tabs" %{{niri msg action toggle-column-tabbed-display}}
         o "Overview" %{{niri msg action toggle-overview}}
-        Left "Merge ←" %{{niri msg action consume-or-expel-window-left}}
-        Right "Merge →" %{{niri msg action consume-or-expel-window-right}}
+        \[ "Merge ←" %{{niri msg action consume-or-expel-window-left}}
+        \] "Merge →" %{{niri msg action consume-or-expel-window-right}}
 
         
         BS "Back" @goto "w"
