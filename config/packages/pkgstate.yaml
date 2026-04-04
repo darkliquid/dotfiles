@@ -52,6 +52,7 @@ packages:
   - code
   - code-features-insiders
   - code-marketplace
+  - coolercontrol
   - cpupower
   - crun
   - cryptsetup
@@ -62,6 +63,7 @@ packages:
   - dgop
   - diffutils
   - discord
+  - distrobox
   - dmidecode
   - dmraid
   - dms-shell-bin
@@ -112,13 +114,13 @@ packages:
   - hwdetect
   - hwinfo
   - inetutils
-  - input-remapper-git
   - iptables-nft
   - itch-bin
   - iwd
   - jfsutils
   - kbfs
   - keybase
+  - keymapper
   - krita
   - kvantum-theme-nordic-git
   - less
@@ -143,6 +145,7 @@ packages:
   - linux-cachyos-lts-nvidia-open
   - linux-cachyos-nvidia-open
   - linux-firmware
+  - llama.cpp-vulkan
   - logrotate
   - lsb-release
   - lsscsi
@@ -256,6 +259,7 @@ packages:
   - vlc
   - vlc-plugins-all
   - vulkan-radeon
+  - wayland-protocols
   - wev
   - wget
   - which

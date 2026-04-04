@@ -192,8 +192,8 @@
   "appPickerViewMode": "list",
   "filePickerUsageHistory": {
     "code-oss": {
-      "count": 1,
-      "lastUsed": 1775133410794,
+      "count": 2,
+      "lastUsed": 1775294446199,
       "name": "Code - OSS"
     },
     "obsidian": {
@@ -744,8 +744,8 @@
       "previewActive": false,
       "currentFilePath": "notepad-files/untitled-1770496756896.txt",
       "currentFileExtension": "txt",
-      "sourceContent": "woff2-font-awesome\nwl-clipboard\nttf-hack\nttf-fira-sans\nqt5ct\npolkit-kde-agent\npolkit-qt6\nkirigami\npamixer\notf-font-awesome\nkvantum-theme-nordic-git\nkvantum\ncapitaine-cursors\ncachyos-nord-gtk-theme-git\nbrightnessctl\nadw-gtk-theme",
-      "updatedAt": 1775212929182,
+      "sourceContent": "Error:   × error loading config\n  ├─▶ error parsing\n  ╰─▶ error parsing KDL\nError:   × failed to parse included config\n    ╭─[config.kdl:26:1]\n 26 │ include \"dms/alttab.kdl\"\n 27 │ include \"dms/binds.kdl\"\n    · ───┬───\n    ·    ╰── node starts here\n 28 │ include \"dms/outputs.kdl\"\n    ╰────\nError:   × error parsing KDL\nError:   × duplicate keybind\n     ╭─[dms/binds.kdl:136:1]\n 136 │     Mod+Shift+T { toggle-window-floating; }\n 137 │     Mod+Shift+Up { move-window-up; }\n     ·     ──────┬─────\n     ·           ╰── unexpected keybind\n 138 │     Mod+Shift+V { switch-focus-between-floating-and-tiling; }\n     ╰────\nError:   × duplicate keybind\n     ╭─[dms/binds.kdl:141:1]\n 141 │     Mod+W { toggle-column-tabbed-display; }\n 142 │     Mod+WheelScrollLeft { focus-column-left; }\n     ·     ─────────┬─────────\n     ·              ╰── unexpected keybind\n 143 │     Mod+WheelScrollRight { focus-column-right; }\n     ╰────\nError:   × duplicate keybind\n     ╭─[dms/binds.kdl:142:1]\n 142 │     Mod+WheelScrollLeft { focus-column-left; }\n 143 │     Mod+WheelScrollRight { focus-column-right; }\n     ·     ──────────┬─────────\n     ·               ╰── unexpected keybind\n 144 │     Mod+Shift+P { power-off-monitors; }\n     ╰────",
+      "updatedAt": 1775294118456,
       "highlightedHtml": ""
     }
   },

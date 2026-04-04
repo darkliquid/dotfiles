@@ -1,0 +1,21 @@
+a "Apps"
+{
+    b "Browser" %{{xdg-open helium://newtab}}   
+    d "Discord" %{{discord}}
+    s "Music" %{{niri-musicon}}
+    t "Terminal" %{{ghostty +new-window}}
+}
+d "DMS" 
+{
+    p "Procs" %{{dms ipc call processlist focusOrToggle}}
+    ! "Alerts" %{{dms ipc call notifications toggle}}
+    n "Notes" %{{dms ipc call notepad toggle}}
+    c "Clipboard" %{{dms ipc call clipboard toggle}}
+    a "AI Assistant" %{{dms ipc call plugins toggle aiAssistant}}
+}
+s "Settings"
+{
+    s "Settings" %{{dms ipc call settings focusOrToggle}}
+    c "Configs" %{{code ~/.config}}
+}
+x "Session" %{{dms ipc call powermenu toggle}}
