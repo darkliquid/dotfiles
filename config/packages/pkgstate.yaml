@@ -60,6 +60,7 @@ packages:
   - cups-filters
   - cups-pdf
   - device-mapper
+  - devtools
   - dgop
   - diffutils
   - discord
@@ -159,6 +160,7 @@ packages:
   - mkinitcpio
   - modemmanager
   - mtools
+  - namcap
   - nano
   - nano-syntax-highlighting
   - nautilus-dropbox
@@ -265,6 +267,7 @@ packages:
   - which
   - wireless-regdb
   - wireplumber
+  - wk-git
   - wl-clipboard
   - woff2-font-awesome
   - wpa_supplicant
