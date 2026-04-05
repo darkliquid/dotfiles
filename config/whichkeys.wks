@@ -18,6 +18,7 @@ d "DMS"
     n "Notes" %{{dms ipc call notepad toggle}}
     c "Clipboard" %{{dms ipc call clipboard toggle}}
     a "AI Assistant" %{{dms ipc call plugins toggle aiAssistant}}
+    l "Launcher" %{{dms ipc call launcher toggle}}
 
     BS "Back" @goto ""
 }
