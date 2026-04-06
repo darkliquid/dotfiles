@@ -1,0 +1,30 @@
+#!/bin/sh
+
+if [ $# -gt 0 ]; then
+    wtf="$*"
+else
+    # Check if data is being piped in via stdin
+    if [ ! -t 0 ]; then
+        wtf="$(cat)"
+    fi
+    
+    # Try the clipboard
+    if [ -z "$wtf" ]; then
+        wtf="$(wl-paste)"
+    fi
+    
+    # Just ask the user directly
+    if [ -z "$wtf" ]; then
+        wtf="$(zenity --entry --title="wat.sh" --text="What do you want to ask about?")"
+    fi
+fi
+
+# Exit cleanly if the user canceled the zenity dialog or no input was provided
+[ -z "$wtf" ] && exit 0
+
+# Build a title for the dialogue
+title=$(printf "WTF is %.32s..." "$wtf")
+
+# Ask gemma wtf this is
+answer="$(ollama run gemma3 "YOU MUST ANSWER IN A SINGLE PLAIN ENGLISH SENTENCE ONLY. What the fuck is '$wtf'" --hidethinking --nowordwrap)"
+zenity --info --title "$title" --text "$answer"
