@@ -67,11 +67,24 @@ zoxide = "latest"
 [tasks.system-update]
 hide = true
 description = "Run various updates"
+depends = ['update-mise', 'doot', 'cachy-update', 'update-vsix', 'update-nvim']
+
+[tasks.doot]
+run = 'doot pull'
+interactive = true
+
+[tasks.cachy-update]
+run = 'cachy-update'
+interactive = true
+
+[tasks.update-vsix]
+run = 'code --update-extensions'
+
+[tasks.update-nvim]
+run = 'nvim --headless "+Lazy! sync" +qa'
+
+[tasks.update-mise]
 run = [
-    'doot pull',
-    'cachy-update',
     'mise self-update',
     'mise upgrade --bump',
-    'code --update-extensions',
-    'nvim --headless "+Lazy! sync" +qa'
 ]
