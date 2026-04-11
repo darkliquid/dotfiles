@@ -69,8 +69,8 @@
     enabled = true
 [tag]
     sort = version:refname
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+[url "ssh://git@github.com/darkliquid"]
+	insteadOf = https://github.com/darkliquid
 [credential "https://github.com"]
 	helper = 
 	helper = !mise exec gh -- gh auth git-credential
@@ -80,4 +80,4 @@
 [user]
 	email = darkliquid@darkliquid.co.uk
 	name = Andrew Montgomery
-	signingkey = 3E65DA9FF4F1534B
+	signingkey = 76AF6693B0570DEA

@@ -6,10 +6,9 @@ packages:
   - alsa-plugins
   - alsa-utils
   - amd-ucode
-  - antigravity
-  - appimagelauncher
   - asusctl
   - awesome-terminal-fonts
+  - balatro-mod-manager-bin
   - base
   - base-devel
   - bash-completion
@@ -19,6 +18,7 @@ packages:
   - bluez-libs
   - bluez-obex
   - bluez-utils
+  - bpftune-git
   - brightnessctl
   - btop
   - btrfs-assistant
@@ -31,10 +31,13 @@ packages:
   - cachyos-hooks
   - cachyos-kernel-manager
   - cachyos-keyring
+  - cachyos-micro-settings
   - cachyos-mirrorlist
+  - cachyos-niri-settings
   - cachyos-nord-gtk-theme-git
   - cachyos-packageinstaller
   - cachyos-plymouth-bootanimation
+  - cachyos-plymouth-theme
   - cachyos-rate-mirrors
   - cachyos-settings
   - cachyos-snapper-support
@@ -44,14 +47,9 @@ packages:
   - cachyos-zsh-config
   - cantarell-fonts
   - capitaine-cursors
-  - cartridges
   - cava
   - chafa
   - chwd
-  - cliamp
-  - code
-  - code-features-insiders
-  - code-marketplace
   - coolercontrol
   - cpupower
   - crun
@@ -61,15 +59,13 @@ packages:
   - cups-pdf
   - device-mapper
   - devtools
-  - dgop
   - diffutils
   - discord
   - distrobox
   - dmidecode
   - dmraid
-  - dms-shell-bin
+  - dms-shell-niri
   - dnsmasq
-  - doot
   - dosfstools
   - dotnet-sdk-8.0
   - dotnet-sdk-bin
@@ -103,7 +99,6 @@ packages:
   - gnome-keyring
   - gobject-introspection
   - gpu-screen-recorder
-  - greetd-dms-greeter-git
   - gsfonts
   - gst-libav
   - gst-plugin-pipewire
@@ -112,26 +107,23 @@ packages:
   - gst-plugins-ugly
   - gutenprint
   - hdparm
+  - helium-browser-bin
   - hwdetect
   - hwinfo
   - inetutils
-  - iptables-nft
-  - itch-bin
+  - iptables
   - iwd
   - jfsutils
-  - kbfs
-  - keybase
   - keymapper
   - krita
   - kvantum-theme-nordic-git
   - less
-  - lib32-mesa
   - lib32-nvidia-utils
   - lib32-opencl-nvidia
+  - lib32-vulkan-icd-loader
   - lib32-vulkan-radeon
   - libappindicator
   - libdvdcss
-  - libfprint-goodix-521d
   - libgsf
   - libinput-tools
   - libopenraw
@@ -146,7 +138,6 @@ packages:
   - linux-cachyos-lts-nvidia-open
   - linux-cachyos-nvidia-open
   - linux-firmware
-  - llama.cpp-vulkan
   - logrotate
   - lsb-release
   - lsscsi
@@ -157,20 +148,18 @@ packages:
   - mdadm
   - meld
   - mesa-utils
+  - micro
   - mkinitcpio
   - modemmanager
   - mtools
   - namcap
   - nano
   - nano-syntax-highlighting
-  - nautilus-dropbox
   - netctl
   - networkmanager
   - networkmanager-openvpn
   - nfs-utils
   - nilfs-utils
-  - niri
-  - niri-sidebar-git
   - nordvpn-bin
   - noto-fonts
   - noto-fonts-cjk
@@ -181,40 +170,37 @@ packages:
   - nvidia-utils
   - obsidian
   - octopi
-  - oniri
   - opencl-nvidia
+  - openrgb
   - openssh
   - os-prober
   - otf-font-awesome
   - pacman-contrib
   - pamixer
-  - pano-scrobbler-bin
   - paru
   - pavucontrol
   - perl
   - pipewire-alsa
   - pipewire-pulse
   - pkgfile
-  - plezy
   - plocate
   - plymouth
   - podman-compose
   - polkit-kde-agent
   - poppler-glib
   - power-profiles-daemon
+  - pps-tools
+  - profile-sync-daemon
   - protonup-qt
   - pv
   - python
   - python-defusedxml
   - python-gpgme
   - python-packaging
-  - python-periphery
   - python-pyusb
-  - python-spidev
   - python-uv-build
   - qemu-base
   - qemu-full
-  - qimgv
   - qt5ct
   - qt6ct
   - quickshell-git
@@ -228,10 +214,10 @@ packages:
   - sddm
   - seahorse
   - sg3_utils
+  - shelly
   - smartmontools
   - snapper
   - sof-firmware
-  - splix
   - strace
   - sudo
   - supergfxctl
@@ -249,8 +235,8 @@ packages:
   - ttf-liberation
   - ttf-meslo-nerd
   - ttf-opensans
-  - tytools
   - ufw
+  - ufw-extras
   - unrar
   - unzip
   - upower
@@ -258,16 +244,16 @@ packages:
   - usbutils
   - vim
   - virt-manager
+  - visual-studio-code-insiders-bin
   - vlc
   - vlc-plugins-all
+  - vulkan-icd-loader
   - vulkan-radeon
   - wayland-protocols
   - wev
   - wget
   - which
-  - wireless-regdb
   - wireplumber
-  - wk-git
   - wl-clipboard
   - woff2-font-awesome
   - wpa_supplicant
@@ -277,7 +263,6 @@ packages:
   - xl2tpd
   - xorg-xdpyinfo
   - xwayland-satellite
-  - youtube-music
   - zps
 systemd_user:
   app-com.mitchellh.ghostty.service: enabled

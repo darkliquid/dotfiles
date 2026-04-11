@@ -10,6 +10,6 @@ for pkgdir in pkgbuilds/*/; do
 	[ -f "$pkgdir/PKGBUILD" ] || continue
 	(
 		cd "$pkgdir"
-		pkgctl build -i auto
+		makepkg -si
 	)
 done

@@ -1,5 +1,5 @@
 {
-  "currentThemeName": "custom",
+  "currentThemeName": "purple",
   "currentThemeCategory": "registry",
   "customThemeFile": "/home/darkliquid/.config/DankMaterialShell/themes/petrichor/theme.json",
   "registryThemeVariants": {
@@ -187,6 +187,11 @@
       "count": 141,
       "lastUsed": 1775447379842,
       "name": "Helium (0.8.5.1)"
+    },
+    "helium": {
+      "count": 17,
+      "lastUsed": 1775918022213,
+      "name": "Helium Browser"
     }
   },
   "appPickerViewMode": "list",
@@ -408,7 +413,9 @@
   "updaterCustomCommand": "",
   "updaterTerminalAdditionalParams": "",
   "displayNameMode": "system",
-  "screenPreferences": {},
+  "screenPreferences": {
+    "wallpaper": []
+  },
   "showOnLastDisplay": {},
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {},
@@ -616,6 +623,12 @@
           "y": 0,
           "width": 317.71875,
           "height": 201.31640625
+        },
+        "DP-3": {
+          "width": 318.51953125,
+          "height": 131.859375,
+          "x": 3521.48046875,
+          "y": 0
         }
       }
     },
@@ -661,6 +674,12 @@
           "y": 0.5,
           "width": 320,
           "height": 480
+        },
+        "DP-3": {
+          "width": 319.109375,
+          "height": 466.390625,
+          "x": 3520.890625,
+          "y": 613.609375
         }
       }
     },
@@ -704,6 +723,12 @@
           "y": 0.3958333333333333,
           "width": 200,
           "height": 200
+        },
+        "DP-3": {
+          "width": 318.91796875,
+          "height": 481.03125,
+          "x": 3521.08203125,
+          "y": 132.4296875
         }
       }
     },
@@ -731,6 +756,46 @@
           "height": 258.1640625,
           "x": 0,
           "y": 0
+        }
+      }
+    },
+    {
+      "id": "dw_1775897479502_dsbmcayvd",
+      "widgetType": "mediaPlayer",
+      "name": "Media Player",
+      "enabled": false,
+      "config": {
+        "displayPreferences": [
+          "all"
+        ]
+      },
+      "positions": {
+        "DP-3": {
+          "width": 320,
+          "height": 200,
+          "x": 2178.40625,
+          "y": 371.5625
+        }
+      }
+    },
+    {
+      "id": "dw_1775897553518_urtbuk0vl",
+      "widgetType": "keybindingCheatSheet",
+      "name": "Keybinding Cheat Sheet",
+      "enabled": true,
+      "config": {
+        "displayPreferences": [
+          "all"
+        ],
+        "compositor": "niri",
+        "accentColorMode": "primary"
+      },
+      "positions": {
+        "DP-3": {
+          "width": 774.7578125,
+          "height": 1079.6328125,
+          "x": 2745.9765625,
+          "y": 0.3671875
         }
       }
     }
