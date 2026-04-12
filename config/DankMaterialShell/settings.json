@@ -1,5 +1,5 @@
 {
-  "currentThemeName": "purple",
+  "currentThemeName": "custom",
   "currentThemeCategory": "registry",
   "customThemeFile": "/home/darkliquid/.config/DankMaterialShell/themes/petrichor/theme.json",
   "registryThemeVariants": {
@@ -7,7 +7,9 @@
       "flavor": "black",
       "accent": "dark-green"
     },
-    "petrichor": "green"
+    "petrichor": "green",
+    "flexoki": "green",
+    "everforest": "hard"
   },
   "matugenScheme": "scheme-tonal-spot",
   "runUserMatugenTemplates": true,
@@ -189,8 +191,8 @@
       "name": "Helium (0.8.5.1)"
     },
     "helium": {
-      "count": 17,
-      "lastUsed": 1775918022213,
+      "count": 22,
+      "lastUsed": 1775972660783,
       "name": "Helium Browser"
     }
   },
@@ -286,6 +288,8 @@
   "wifiNetworkPins": {},
   "bluetoothDevicePins": {
     "preferredDevice": [
+      "14:3F:A6:C6:BB:CC",
+      "C2:F3:FC:26:0F:3D",
       "E4:17:D8:3B:41:08"
     ]
   },
@@ -417,7 +421,9 @@
     "wallpaper": []
   },
   "showOnLastDisplay": {},
-  "niriOutputSettings": {},
+  "niriOutputSettings": {
+    "DP-3": {}
+  },
   "hyprlandOutputSettings": {},
   "displayProfiles": {},
   "activeDisplayProfile": {},

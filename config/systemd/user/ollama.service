@@ -1,0 +1,16 @@
+[Unit]
+Description=Ollama Local LLM Server
+After=graphical-session.target
+
+[Service]
+# Use 'simple' type as ollama serve runs continuously in the foreground
+Type=simple
+# The actual command to run
+ExecStart=/home/darkliquid/.local/bin/mise x -- ollama serve
+# Ensure the service automatically restarts if it crashes
+Restart=always
+
+
+[Install]
+# This specifies that the service should start when the graphical session is available
+WantedBy=graphical-session.target

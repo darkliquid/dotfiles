@@ -112,6 +112,7 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 1.0
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
     }
@@ -265,10 +266,10 @@ debug {
 // Override to disable super+tab
 recent-windows {
     binds {
-        Alt+Tab         { next-window scope="output"; }
-        Alt+Shift+Tab   { previous-window scope="output"; }
-        Alt+grave       { next-window filter="app-id"; }
-        Alt+Shift+grave { previous-window filter="app-id"; }
+        Alt+Tab         hotkey-overlay-title="Next Window"         { next-window scope="output"; }
+        Alt+Shift+Tab   hotkey-overlay-title="Previous Window"     { previous-window scope="output"; }
+        Alt+grave       hotkey-overlay-title="Next App Window"     { next-window filter="app-id"; }
+        Alt+Shift+grave hotkey-overlay-title="Previous App Window" { previous-window filter="app-id"; }
     }
 }
 
