@@ -1,3 +1,2 @@
     spawn-at-startup "oniri"
     spawn-at-startup "niri-sidebar" "listen"
-    spawn-at-startup "mpvpaper" "-s" "-f" "-o" "no-audio loop" "DP-3" "/usr/share/sddm/themes/pixel-night-city/bg.mp4"

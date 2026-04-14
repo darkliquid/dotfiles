@@ -108,4 +108,10 @@ binds {
     Mod+Escape  allow-inhibiting=false hotkey-overlay-title="Toggle Shortcut Inhibit" { toggle-keyboard-shortcuts-inhibit; }
     Mod+Q       repeat=false hotkey-overlay-title="Close Window"            { close-window; }
     Mod+Shift+E hotkey-overlay-title="Quit Niri"                            { quit; }
+
+    // Sidebar
+    Mod+S       hotkey-overlay-title="In/Out Sidebar"  { spawn-sh "niri-sidebar toggle-window"; }
+    Mod+Shift+S hotkey-overlay-title="Toggle Sidebar"  { spawn-sh "niri-sidebar toggle-visibility"; }
+    Mod+Ctrl+S  hotkey-overlay-title="Flip Sidebar"    { spawn-sh "niri-sidebar flip"; }
+    Mod+Alt+R   hotkey-overlay-title="Reorder Sidebar" { spawn-sh "niri-sidebar reorder"; }
 }

@@ -18,6 +18,7 @@ packages:
   - bluez-libs
   - bluez-obex
   - bluez-utils
+  - bottles
   - bpftune-git
   - brightnessctl
   - btop
@@ -66,6 +67,8 @@ packages:
   - dmraid
   - dms-shell-niri
   - dnsmasq
+  - docker
+  - docker-compose
   - dosfstools
   - dotnet-sdk-8.0
   - dotnet-sdk-bin
@@ -98,6 +101,7 @@ packages:
   - glib2-devel
   - gnome-keyring
   - gobject-introspection
+  - gparted
   - gpu-screen-recorder
   - gsfonts
   - gst-libav
@@ -110,10 +114,13 @@ packages:
   - helium-browser-bin
   - hwdetect
   - hwinfo
+  - ifrextractor-ls
+  - ifrextractor-rs
   - inetutils
   - iptables
   - iwd
   - jfsutils
+  - keybase-bin
   - keymapper
   - krita
   - kvantum-theme-nordic-git
@@ -132,6 +139,9 @@ packages:
   - limine-mkinitcpio-hook
   - limine-snapper-sync
   - linux-cachyos
+  - linux-cachyos-bore
+  - linux-cachyos-bore-headers
+  - linux-cachyos-bore-nvidia-open
   - linux-cachyos-headers
   - linux-cachyos-lts
   - linux-cachyos-lts-headers
@@ -151,6 +161,7 @@ packages:
   - micro
   - mkinitcpio
   - modemmanager
+  - mpvpaper
   - mtools
   - namcap
   - nano
@@ -160,6 +171,7 @@ packages:
   - networkmanager-openvpn
   - nfs-utils
   - nilfs-utils
+  - niri-sidebar-git
   - nordvpn-bin
   - noto-fonts
   - noto-fonts-cjk
@@ -170,6 +182,8 @@ packages:
   - nvidia-utils
   - obsidian
   - octopi
+  - oniri
+  - onnxruntime-opt-cuda
   - opencl-nvidia
   - openrgb
   - openssh
@@ -197,6 +211,7 @@ packages:
   - python-defusedxml
   - python-gpgme
   - python-packaging
+  - python-pip
   - python-pyusb
   - python-uv-build
   - qemu-base
@@ -235,6 +250,7 @@ packages:
   - ttf-liberation
   - ttf-meslo-nerd
   - ttf-opensans
+  - uefitool-bin
   - ufw
   - ufw-extras
   - unrar
@@ -244,6 +260,7 @@ packages:
   - usbutils
   - vim
   - virt-manager
+  - virtualbox
   - visual-studio-code-insiders-bin
   - vlc
   - vlc-plugins-all
@@ -253,7 +270,10 @@ packages:
   - wev
   - wget
   - which
+  - winboat
   - wireplumber
+  - wk-git
+  - wk-git-debug
   - wl-clipboard
   - woff2-font-awesome
   - wpa_supplicant
@@ -262,7 +282,9 @@ packages:
   - xfsprogs
   - xl2tpd
   - xorg-xdpyinfo
+  - xorg-xinput
   - xwayland-satellite
+  - zen-browser-bin
   - zps
 systemd_user:
   app-com.mitchellh.ghostty.service: enabled
