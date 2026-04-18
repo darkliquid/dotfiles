@@ -70,21 +70,27 @@ description = "Run various updates"
 depends = ['update-mise', 'doot', 'cachy-update', 'update-vsix', 'update-nvim']
 
 [tasks.doot]
+hide = true
 run = 'doot pull'
 interactive = true
 
 [tasks.cachy-update]
+hide = true
 run = 'cachy-update'
 interactive = true
 
 [tasks.update-vsix]
+hide = true
 run = 'code --update-extensions'
 
 [tasks.update-nvim]
+hide = true
 run = 'nvim --headless "+Lazy! sync" +qa'
 
 [tasks.update-mise]
+hide = true
+interactive = true
 run = [
-    'mise self-update',
-    'mise upgrade --bump',
+    'mise self-update -y',
+    'mise upgrade --bump -y',
 ]

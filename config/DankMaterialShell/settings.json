@@ -194,6 +194,11 @@
       "count": 22,
       "lastUsed": 1775972660783,
       "name": "Helium Browser"
+    },
+    "zen": {
+      "count": 1,
+      "lastUsed": 1776278291725,
+      "name": "Zen Browser"
     }
   },
   "appPickerViewMode": "list",
@@ -229,7 +234,7 @@
   "networkPreference": "auto",
   "iconTheme": "System Default",
   "cursorSettings": {
-    "theme": "System Default",
+    "theme": "Pop",
     "size": 24,
     "niri": {
       "hideWhenTyping": false,
