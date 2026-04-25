@@ -5,7 +5,7 @@
 :max-columns 3
 a "Apps"
 {
-    b "Browser" %{{xdg-open helium://newtab}}   
+    b "Browser" %{{xdg-open http://}}   
     d "Discord" %{{discord}}
     m "Music" %{{niri-musicon}}
     t "Terminal" %{{ghostty +new-window}}

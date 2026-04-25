@@ -78,16 +78,12 @@
   "http.systemCertificatesNode": true,
   "mise.configureExtensionsAutomatically": true,
   "gopls": {
-    "build.buildFlags": [
-      "-tags",
-      "gogpu,sdl3"
-    ],
     "build.env": {
       "CGO_ENABLED": "0"
     },
     "ui.vulncheck": "Imports",
   },
-  "chat.agent.maxRequests": 100,
+  "chat.agent.maxRequests": 1000,
   "github.copilot.chat.claudeAgent.allowDangerouslySkipPermissions": true,
   "beads.pathToBd": "",
   "yaml.schemas": {
@@ -113,16 +109,23 @@
       "path": "/usr/bin/qtpaths"
     }
   ],
-  "chat.viewSessions.orientation": "stacked",
   "terminal.integrated.defaultProfile.linux": "bash",
   "geminicodeassist.project": "summer-facet-3ht61",
   "diffEditor.codeLens": true,
   "python.analysis.showOnlyDirectDependenciesInAutoImport": true,
   "chat.autopilot.enabled": true,
-  "go.buildTags": "gogpu",
   "[jsonc]": {
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   "git.autofetch": true,
-  "makefile.configureOnOpen": true,
+"makefile.configureOnOpen": true,
+"chat.tools.terminal.autoApprove": {
+  "mise": true,
+  "tasks/compare_parity_frames.sh": true,
+  "awk": true,
+  "magick": true,
+  "git add": true,
+  "git commit": true
+},
+"chat.viewSessions.orientation": "stacked",
 }

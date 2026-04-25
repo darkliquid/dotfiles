@@ -1,11 +1,7 @@
 {
   "servers": {
-    "gopls": {
-      "type": "stdio",
-      "command": "gopls",
-      "args": [
-        "mcp"
-      ],
+    "mcp-gopls": {
+      "command": "mcp-gopls"
     },
     "github": {
       "url": "https://api.githubcopilot.com/mcp/",
