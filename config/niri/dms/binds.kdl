@@ -13,7 +13,7 @@ binds {
     Super+A repeat=false hotkey-overlay-title="Toggle AI Assistant" { spawn "dms" "ipc" "call" "plugins" "toggle" "aiAssistant"; }
     Super+X hotkey-overlay-title="Toggle Power Menu" { spawn "dms" "ipc" "call" "powermenu" "toggle"; }
     XF86AudioLowerVolume allow-when-locked=true hotkey-overlay-title="Volume Down" { spawn "dms" "ipc" "call" "audio" "decrement" "3"; }
-    XF86AudioMicMute hotkey-overlay-title="Toggle Mic Mute" allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "micmute"; }
+    XF86AudioMicMute allow-when-locked=true hotkey-overlay-title="Toggle Mic Mute" { spawn "dms" "ipc" "call" "audio" "micmute"; }
     XF86AudioMute allow-when-locked=true hotkey-overlay-title="Toggle Mute" { spawn "dms" "ipc" "call" "audio" "mute"; }
     XF86AudioNext allow-when-locked=true hotkey-overlay-title="Next Track" { spawn "dms" "ipc" "call" "mpris" "next"; }
     XF86AudioPause allow-when-locked=true hotkey-overlay-title="Play or Pause" { spawn "dms" "ipc" "call" "mpris" "playPause"; }
@@ -91,7 +91,8 @@ binds {
     Mod+Ctrl+S hotkey-overlay-title="Flip Sidebar" { spawn-sh "niri-sidebar flip"; }
     Mod+Shift+S hotkey-overlay-title="Toggle Sidebar" { spawn-sh "niri-sidebar toggle-visibility"; }
     Mod+T hotkey-overlay-title="Open Terminal" { spawn "ghostty"; }
-    Super+D repeat=false hotkey-overlay-title="Open Discord" { spawn "discord"; }
+    Super+B repeat=false hotkey-overlay-title="Open Browser" { spawn "zen-browser"; }
+    Super+D repeat=false hotkey-overlay-title="Open Discord" { spawn "vesktop"; }
     Mod+Escape allow-inhibiting=false hotkey-overlay-title="Toggle Shortcut Inhibit" { toggle-keyboard-shortcuts-inhibit; }
     Mod+Tab repeat=false hotkey-overlay-title="Overview" { toggle-overview; }
 }

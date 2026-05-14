@@ -183,12 +183,6 @@
   "greeterEnableFprint": false,
   "greeterEnableU2f": false,
   "greeterWallpaperPath": "",
-  "greeterUse24HourClock": true,
-  "greeterShowSeconds": false,
-  "greeterPadHours12Hour": false,
-  "greeterLockDateFormat": "",
-  "greeterFontFamily": "",
-  "greeterWallpaperFillMode": "",
   "mediaSize": 1,
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "list",
@@ -303,8 +297,7 @@
   "bluetoothDevicePins": {
     "preferredDevice": [
       "14:3F:A6:C6:BB:CC",
-      "C2:F3:FC:26:0F:3D",
-      "E4:17:D8:3B:41:08"
+      "C2:F3:FC:26:0F:3D"
     ]
   },
   "audioInputDevicePins": {},
@@ -313,6 +306,10 @@
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
   "terminalsAlwaysDark": true,
+  "muxType": "tmux",
+  "muxUseCustomCommand": false,
+  "muxCustomCommand": "",
+  "muxSessionFilter": "",
   "runDmsMatugenTemplates": true,
   "matugenTemplateGtk": true,
   "matugenTemplateNiri": true,

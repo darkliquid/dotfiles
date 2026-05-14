@@ -78,9 +78,6 @@
   "http.systemCertificatesNode": true,
   "mise.configureExtensionsAutomatically": true,
   "gopls": {
-    "build.env": {
-      "CGO_ENABLED": "0"
-    },
     "ui.vulncheck": "Imports",
   },
   "chat.agent.maxRequests": 1000,
@@ -144,4 +141,7 @@
   "https://wails.io": true,
   "https://www.schemastore.org/": true
 },
+"go.languageServerFlags": [
+
+],
 }
