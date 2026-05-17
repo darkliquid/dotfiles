@@ -296,8 +296,9 @@
   "wifiNetworkPins": {},
   "bluetoothDevicePins": {
     "preferredDevice": [
-      "14:3F:A6:C6:BB:CC",
-      "C2:F3:FC:26:0F:3D"
+      "DA:27:A9:39:2D:EC",
+      "E4:17:D8:7A:BD:85",
+      "14:3F:A6:C6:BB:CC"
     ]
   },
   "audioInputDevicePins": {},

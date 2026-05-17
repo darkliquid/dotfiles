@@ -6,6 +6,9 @@ packages:
   - alsa-plugins
   - alsa-utils
   - amd-ucode
+  - antigravity
+  - aspell
+  - aspell-en
   - asusctl
   - awesome-terminal-fonts
   - balatro-mod-manager-bin
@@ -13,6 +16,7 @@ packages:
   - base-devel
   - bash-completion
   - bind
+  - blueman
   - bluez
   - bluez-hid2hci
   - bluez-libs
@@ -32,7 +36,6 @@ packages:
   - cachyos-hooks
   - cachyos-kernel-manager
   - cachyos-keyring
-  - cachyos-micro-settings
   - cachyos-mirrorlist
   - cachyos-niri-settings
   - cachyos-nord-gtk-theme-git
@@ -61,8 +64,8 @@ packages:
   - device-mapper
   - devtools
   - diffutils
-  - discord
   - distrobox
+  - dmemcg-booster
   - dmidecode
   - dmraid
   - dms-shell-niri
@@ -151,6 +154,7 @@ packages:
   - logrotate
   - lsb-release
   - lsscsi
+  - luanti
   - lvm2
   - man-db
   - man-pages
@@ -158,7 +162,6 @@ packages:
   - mdadm
   - meld
   - mesa-utils
-  - micro
   - mkinitcpio
   - modemmanager
   - mpvpaper
@@ -173,6 +176,7 @@ packages:
   - nilfs-utils
   - niri-sidebar-git
   - nordvpn-bin
+  - nordvpn-gui-bin
   - noto-fonts
   - noto-fonts-cjk
   - noto-fonts-emoji
@@ -186,25 +190,31 @@ packages:
   - onnxruntime-opt-cuda
   - opencl-nvidia
   - openrgb
+  - openshot-bin
   - openssh
   - os-prober
   - otf-font-awesome
   - pacman-contrib
   - pamixer
+  - pano-scrobbler-bin
   - paru
   - pavucontrol
   - perl
+  - piper
+  - piper-tts-bin
   - pipewire-alsa
   - pipewire-pulse
   - pkgfile
   - plocate
   - plymouth
+  - pngcrush
   - podman-compose
   - polkit-kde-agent
   - poppler-glib
   - power-profiles-daemon
   - pps-tools
   - profile-sync-daemon
+  - protonplus
   - protonup-qt
   - pv
   - python
@@ -227,17 +237,22 @@ packages:
   - rsync
   - s-nail
   - sddm
+  - sddm-silent-theme
   - seahorse
+  - selectdefaultapplication-qt6-git
   - sg3_utils
   - shelly
   - smartmontools
   - snapper
   - sof-firmware
+  - speech-dispatcher
   - strace
   - sudo
   - supergfxctl
+  - sushi
   - switcheroo-control
   - sysfsutils
+  - sysstat
   - system-config-printer
   - tailscale
   - texinfo
@@ -258,6 +273,7 @@ packages:
   - upower
   - usb_modeswitch
   - usbutils
+  - vesktop-bin
   - vim
   - virt-manager
   - virtualbox
@@ -267,6 +283,8 @@ packages:
   - vulkan-icd-loader
   - vulkan-radeon
   - wayland-protocols
+  - wdotool
+  - webkitgtk-6.0
   - wev
   - wget
   - which
@@ -278,11 +296,13 @@ packages:
   - woff2-font-awesome
   - wpa_supplicant
   - xdg-user-dirs
+  - xdotool
   - xf86-video-amdgpu
   - xfsprogs
   - xl2tpd
   - xorg-xdpyinfo
   - xorg-xinput
+  - xpadneo-dkms
   - xwayland-satellite
   - zen-browser-bin
   - zps
