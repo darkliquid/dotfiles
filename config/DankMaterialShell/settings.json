@@ -233,7 +233,7 @@
   "dankLauncherV2ShowFooter": true,
   "dankLauncherV2UnloadOnClose": false,
   "useAutoLocation": false,
-  "weatherEnabled": true,
+  "weatherEnabled": false,
   "networkPreference": "auto",
   "iconTheme": "System Default",
   "cursorSettings": {
@@ -614,7 +614,11 @@
   ],
   "systemMonitorVariants": [],
   "desktopWidgetPositions": {},
-  "desktopWidgetGridSettings": {},
+  "desktopWidgetGridSettings": {
+    "DP-4": {
+      "enabled": true
+    }
+  },
   "desktopWidgetInstances": [
     {
       "id": "dw_1770505390076_y23epogva",
@@ -651,6 +655,12 @@
           "width": 318.51953125,
           "height": 131.859375,
           "x": 3521.48046875,
+          "y": 0
+        },
+        "DP-4": {
+          "width": 280,
+          "height": 160,
+          "x": 1640,
           "y": 0
         }
       }
@@ -703,6 +713,12 @@
           "height": 466.390625,
           "x": 3520.890625,
           "y": 613.609375
+        },
+        "DP-4": {
+          "width": 280,
+          "height": 480,
+          "x": 1640,
+          "y": 600
         }
       }
     },
@@ -752,6 +768,12 @@
           "height": 481.03125,
           "x": 3521.08203125,
           "y": 132.4296875
+        },
+        "DP-4": {
+          "width": 280,
+          "height": 240,
+          "x": 1640,
+          "y": 160
         }
       }
     },
@@ -798,6 +820,12 @@
           "height": 200,
           "x": 2178.40625,
           "y": 371.5625
+        },
+        "DP-4": {
+          "width": 320,
+          "height": 200,
+          "x": 800,
+          "y": 440
         }
       }
     },
@@ -819,6 +847,12 @@
           "height": 1079.6328125,
           "x": 2745.9765625,
           "y": 0.3671875
+        },
+        "DP-4": {
+          "width": 280,
+          "height": 440,
+          "x": 1640,
+          "y": 160
         }
       }
     }
