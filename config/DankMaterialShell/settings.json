@@ -234,7 +234,7 @@
   "dankLauncherV2UnloadOnClose": false,
   "useAutoLocation": false,
   "weatherEnabled": false,
-  "networkPreference": "auto",
+  "networkPreference": "wifi",
   "iconTheme": "System Default",
   "cursorSettings": {
     "theme": "Pop",
@@ -293,7 +293,11 @@
   "fadeToDpmsGracePeriod": 5,
   "launchPrefix": "",
   "brightnessDevicePins": {},
-  "wifiNetworkPins": {},
+  "wifiNetworkPins": {
+    "preferredWifi": [
+      "Disable WiFi"
+    ]
+  },
   "bluetoothDevicePins": {
     "preferredDevice": [
       "DA:27:A9:39:2D:EC",
@@ -617,6 +621,9 @@
   "desktopWidgetGridSettings": {
     "DP-4": {
       "enabled": true
+    },
+    "DP-3": {
+      "enabled": true
     }
   },
   "desktopWidgetInstances": [
@@ -652,8 +659,8 @@
           "height": 201.31640625
         },
         "DP-3": {
-          "width": 318.51953125,
-          "height": 131.859375,
+          "width": 320,
+          "height": 160,
           "x": 3521.48046875,
           "y": 0
         },
@@ -709,10 +716,10 @@
           "height": 480
         },
         "DP-3": {
-          "width": 319.109375,
-          "height": 466.390625,
-          "x": 3520.890625,
-          "y": 613.609375
+          "width": 320,
+          "height": 920,
+          "x": 3520,
+          "y": 160
         },
         "DP-4": {
           "width": 280,
@@ -772,8 +779,8 @@
         "DP-4": {
           "width": 280,
           "height": 240,
-          "x": 1640,
-          "y": 160
+          "x": 960,
+          "y": 200
         }
       }
     },
