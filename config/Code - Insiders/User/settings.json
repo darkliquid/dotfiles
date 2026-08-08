@@ -144,4 +144,5 @@
 "go.languageServerFlags": [
 
 ],
+"zig.zls.enabled": "on",
 }
