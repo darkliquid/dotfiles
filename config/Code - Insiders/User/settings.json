@@ -145,4 +145,5 @@
 
 ],
 "zig.zls.enabled": "on",
+"workbench.secondarySideBar.defaultVisibility": "hidden",
 }
